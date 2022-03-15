@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.project", "1.project", "{D75A6FAA-9A6C-4875-961A-DFB9C9E54835}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.cicd", "2.cicd", "{2898B645-A33E-4B7C-B492-1E28135DE147}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+		.github\publish-nuget.yml = .github\publish-nuget.yml
+		.github\sonarcloud.yml = .github\sonarcloud.yml
+		.github\test-project.yml = .github\test-project.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.src", "3.src", "{476E0309-8EE0-48A6-AB7F-09157E8314F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.tests", "4.tests", "{9F4FA3EE-5D91-4C40-9E28-8B24F1052C1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.GuardClauses.Validations", "src\PowerUtils.GuardClauses.Validations.csproj", "{A2C32F07-B480-456F-86F3-ACD569B392A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerUtils.GuardClauses.Validations.Tests", "tests\PowerUtils.GuardClauses.Validations.Tests\PowerUtils.GuardClauses.Validations.Tests.csproj", "{81B1777C-5824-42D8-8213-318FFD62D192}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2C32F07-B480-456F-86F3-ACD569B392A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C32F07-B480-456F-86F3-ACD569B392A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C32F07-B480-456F-86F3-ACD569B392A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C32F07-B480-456F-86F3-ACD569B392A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B1777C-5824-42D8-8213-318FFD62D192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B1777C-5824-42D8-8213-318FFD62D192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B1777C-5824-42D8-8213-318FFD62D192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B1777C-5824-42D8-8213-318FFD62D192}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2C32F07-B480-456F-86F3-ACD569B392A5} = {476E0309-8EE0-48A6-AB7F-09157E8314F9}
+		{81B1777C-5824-42D8-8213-318FFD62D192} = {9F4FA3EE-5D91-4C40-9E28-8B24F1052C1A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D58CEC5-8A8C-4E6B-90AA-364222679FB8}
+	EndGlobalSection
+EndGlobal
