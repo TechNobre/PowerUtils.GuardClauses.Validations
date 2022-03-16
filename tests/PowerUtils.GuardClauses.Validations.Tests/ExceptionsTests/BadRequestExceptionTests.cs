@@ -148,8 +148,8 @@ public class BadRequestExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw a BadRequestException with invalid error")]
-    public void Throw_InvalidError()
+    [Fact(DisplayName = "Throw Invalid a BadRequestException with invalid error")]
+    public void ThrowInvalid_InvalidError()
     {
         // Arrange
         var property = "FakeProp";
@@ -161,5 +161,21 @@ public class BadRequestExceptionTests
 
         // Assert
         act.Validate<BadRequestException>(HttpStatusCode.BadRequest, property, ErrorCodes.INVALID, "The property 'FakeProp' contains the error 'INVALID");
+    }
+
+
+    [Fact(DisplayName = "Throw Required a BadRequestException with invalid error")]
+    public void ThrowRequired_RequiredError()
+    {
+        // Arrange
+        var property = "FakeProp";
+
+
+        // Act
+        var act = Record.Exception(() => BadRequestException.ThrowRequired(property));
+
+
+        // Assert
+        act.Validate<BadRequestException>(HttpStatusCode.BadRequest, property, ErrorCodes.REQUIRED, "The property 'FakeProp' contains the error 'REQUIRED");
     }
 }

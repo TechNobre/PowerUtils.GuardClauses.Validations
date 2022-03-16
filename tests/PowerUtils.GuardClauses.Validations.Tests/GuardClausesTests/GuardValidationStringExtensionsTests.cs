@@ -61,6 +61,105 @@ public class GuardValidationStringExtensionsTests
         act.Validate<PropertyException>(HttpStatusCode.BadRequest, "Product", ErrorCodes.REQUIRED);
     }
 
+    [Fact]
+    public void SetParameterName_DifferentName_NewName()
+    {
+        // Arrange
+        var client = "";
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfNullOrEmpty(client, "Product"));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, "Product", ErrorCodes.REQUIRED);
+    }
+
+    [Fact]
+    public void IfEmpty_Null_Valid()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEmpty(client));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfEmpty_Empty_Exception()
+    {
+        // Arrange
+        var client = "";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEmpty(client));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), ErrorCodes.REQUIRED);
+    }
+
+
+
+    [Fact]
+    public void IfEmpty_Withspaces_Valid()
+    {
+        // Arrange
+        var client = "    ";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEmpty(client));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+
+    [Fact]
+    public void IfEmpty_Word_Valid()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEmpty(client));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -314,6 +413,237 @@ public class GuardValidationStringExtensionsTests
 
         // Act
         var act = Record.Exception(() => Guard.Validate.IfLengthZero(client));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void NotEmail_Null_Exception()
+    {
+        // Arrange
+        string clientEmail = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void NotEmail_Empty_Exception()
+    {
+        // Arrange
+        var clientEmail = "";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void NotEmail_WithSpace_Exception()
+    {
+        // Arrange
+        var clientEmail = "    ";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void NotEmail_FakeText_Exception()
+    {
+        // Arrange
+        var clientEmail = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void NotEmail_Email_Valid()
+    {
+        // Arrange
+        var clientEmail = "fake@fake.tk";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfLengthEquals_Null_Valid()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 5));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfLengthEquals_Empty_Valid()
+    {
+        // Arrange
+        var client = "";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 5));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfLengthEquals_4Length_Valid()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 5));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfLengthEquals_6Length_Valid()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 6));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfLengthEquals_5Length_Exception()
+    {
+        // Arrange
+        var client = "fakes";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifference_Null_Exception()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifference_Empty_Exception()
+    {
+        // Arrange
+        var client = "";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifference_4Length_Exception()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifference_6Length_Exception()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 6));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifference_5Length_Valid()
+    {
+        // Arrange
+        var client = "fakes";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
 
 
         // Assert

@@ -61,6 +61,17 @@ namespace PowerUtils.Validations.Exceptions
             : base(STATUS_CODE, HELP_LINK, message)
             => AddError(property, ERROR_CODE);
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ForbiddenException"></see> class with status code Forbidden, for a <paramref name="property">specified property</paramref>
+        /// with a <paramref name="errorCode">error code</paramref> and a <paramref name="message">specified error message</paramref>
+        /// </summary>
+        /// <param name="property">Property name</param>
+        /// <param name="errorCode">Error code of the property</param>
+        /// <param name="message">The error message that explains the reason for the exception</param>
+        public ForbiddenException(string property, string errorCode, string message)
+            : base(STATUS_CODE, HELP_LINK, message)
+            => AddError(property, errorCode);
+
 
         /// <summary>
         /// Thow a <see cref="ForbiddenException"></see> class with status code Forbidden, for a <paramref name="property">specified property</paramref>
@@ -68,6 +79,15 @@ namespace PowerUtils.Validations.Exceptions
         /// <param name="property">Property name</param>
         public static void Throw(string property)
             => throw Factory.Create(property);
+
+        /// <summary>
+        /// Thow a <see cref="ForbiddenException"></see> class with status code Forbidden, for a <paramref name="property">specified property</paramref>
+        /// and with a <paramref name="errorCode">error code</paramref>
+        /// </summary>
+        /// <param name="property">Property name</param>
+        /// <param name="errorCode">Error code of the property</param>
+        public static void Throw(string property, string errorCode)
+            => throw Factory.Create(property, errorCode);
 
 
 
@@ -79,6 +99,15 @@ namespace PowerUtils.Validations.Exceptions
             /// <param name="property">Property name</param>
             public static Exception Create(string property)
                 => throw new ForbiddenException(property, $"The property '{property}' contains the error '{ERROR_CODE}");
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="ForbiddenException"></see> class with status code Forbidden, for a <paramref name="property">specified property</paramref>
+            /// and with a <paramref name="errorCode">error code</paramref>
+            /// </summary>
+            /// <param name="property">Property name</param>
+            /// <param name="errorCode">Error code of the property</param>
+            public static Exception Create(string property, string errorCode)
+                => new ForbiddenException(property, errorCode, $"The property '{property}' contains the error '{errorCode}");
         }
     }
 }

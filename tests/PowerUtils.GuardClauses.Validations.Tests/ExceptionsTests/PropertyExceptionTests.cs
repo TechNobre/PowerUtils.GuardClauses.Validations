@@ -162,4 +162,20 @@ public class PropertyExceptionTests
         // Assert
         act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, ErrorCodes.INVALID, "The property 'FakeProp2' contains the error 'INVALID");
     }
+
+
+    [Fact(DisplayName = "Throw Required a PropertyException with invalid error")]
+    public void ThrowRequired_RequiredError()
+    {
+        // Arrange
+        var property = "FakeProp";
+
+
+        // Act
+        var act = Record.Exception(() => PropertyException.ThrowRequired(property));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, ErrorCodes.REQUIRED, "The property 'FakeProp' contains the error 'REQUIRED");
+    }
 }
