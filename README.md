@@ -29,6 +29,7 @@ Helpers, extensions and utilities to work with guard clauses
 ### Dependencies
 
 - PowerUtils.Net.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Net.Primitives/)
+- PowerUtils.Text [NuGet](https://www.nuget.org/packages/PowerUtils.Text/)
 - PowerUtils.Validations.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Validations.Primitives/)
 
 
@@ -54,36 +55,50 @@ dotnet add package PowerUtils.GuardClauses.Validations
 - `BadRequestException` (400):
   - `BadRequestException.Factory.Create(property, errorCode);`
   - `BadRequestException.Factory.CreateInvalid(property);`
+  - `BadRequestException.Factory.CreateRequired(property);`
   - `BadRequestException.Throw(property, errorCode);`
   - `BadRequestException.ThrowInvalid(property);`
+  - `BadRequestException.ThrowRequired(property);`
 - `PropertyException` (400):
   - `PropertyException.Factory.Create(property, errorCode);`
   - `PropertyException.Factory.CreateInvalid(property);`
   - `PropertyException.Throw(property, errorCode);`
   - `PropertyException.ThrowInvalid(property);`
 - `UnauthorizedException` (401):
+  - `UnauthorizedException.Factory.Create(property);`
   - `UnauthorizedException.Factory.Create(property, errorCode);`
   - `UnauthorizedException.Throw(property);`
+  - `UnauthorizedException.Throw(property, errorCode);`
 - `ForbiddenException` (403):
+  - `ForbiddenException.Factory.Create(property);`
   - `ForbiddenException.Factory.Create(property, errorCode);`
   - `ForbiddenException.Throw(property);`
+  - `ForbiddenException.Throw(property, errorCode);`
 - `NotFoundException` (404):
+  - `NotFoundException.Factory.Create(property);`
   - `NotFoundException.Factory.Create(property, errorCode);`
   - `NotFoundException.Throw(property);`
+  - `NotFoundException.Throw(property, errorCode);`
 - `ConflictException` (409):
+  - `ConflictException.Factory.Create(property);`
   - `ConflictException.Factory.Create(property, errorCode);`
   - `ConflictException.Throw(property);`
+  - `ConflictException.Throw(property, errorCode);`
 
 
 ### Guard clauses <a name="GuardClauses"></a>
 
 - __string:__
   - `Guard.Validate.IfNull()`;
+  - `Guard.Validate.IfEmpty()`;
   - `Guard.Validate.IfNullOrEmpty()`;
   - `Guard.Validate.IfNullOrWhiteSpace()`;
   - `Guard.Validate.IfLengthGreaterThan()`;
   - `Guard.Validate.IfLengthLessThan()`;
   - `Guard.Validate.IfLengthZero()`;
+  - `Guard.Validate.NotEmail()`;
+  - `Guard.Validate.IfLengthEquals()`;
+  - `Guard.Validate.IfLengthDifference()`;
 - __int, uint, long, ulong, float, double, decimal:__
   - `Guard.Validate.IfGreaterThan()`;
   - `Guard.Validate.IfLessThan()`;
@@ -92,6 +107,8 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfGreaterThanUtcNow()`;
   - `Guard.Validate.IfLessThan()`;
   - `Guard.Validate.IfLessThanUtcNow()`;
+- __Guid:__
+  - `Guard.Validate.IfEmpty()`;
 
 
 

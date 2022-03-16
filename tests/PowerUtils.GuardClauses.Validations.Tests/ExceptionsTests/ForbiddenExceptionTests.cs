@@ -113,6 +113,23 @@ public class ForbiddenExceptionTests
         act.Validate(HttpStatusCode.Forbidden, property, ErrorCodes.FORBIDDEN, message);
     }
 
+    [Fact(DisplayName = "Instance a ForbiddenException with error and message")]
+    public void Constructor_WithErrorAndMessage()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+        var message = "FakeMessafe";
+
+
+        // Act
+        var act = new ForbiddenException(property, errorCode, message);
+
+
+        // Assert
+        act.Validate(HttpStatusCode.Forbidden, property, errorCode, message);
+    }
+
 
     [Fact(DisplayName = "Throw a ForbiddenException with property")]
     public void Throw_WithError()
@@ -127,5 +144,22 @@ public class ForbiddenExceptionTests
 
         // Assert
         act.Validate<ForbiddenException>(HttpStatusCode.Forbidden, property, ErrorCodes.FORBIDDEN, "The property 'FakeProp' contains the error 'FORBIDDEN");
+    }
+
+
+    [Fact(DisplayName = "Throw a ForbiddenException with error")]
+    public void Throw_WithErrorAndError()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+
+
+        // Act
+        var act = Record.Exception(() => ForbiddenException.Throw(property, errorCode));
+
+
+        // Assert
+        act.Validate<ForbiddenException>(HttpStatusCode.Forbidden, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
     }
 }

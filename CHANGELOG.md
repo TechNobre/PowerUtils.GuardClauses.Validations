@@ -3,6 +3,36 @@
 
 
 
+## [1.1.0] - 2022-03-16
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.0.0...v1.1.0)
+
+
+### New Features
+- Added Guard `Guard.Validate.IfEmpty(string)`;
+- Added Guard `Guard.Validate.IfEmpty(guid)`;
+- Added Guard `Guard.Validate.NotEmail(email)`;
+- Added Guard `Guard.Validate.IfLengthEquals(value, length)`;
+- Added Guard `Guard.Validate.IfLengthDifference(value, length)`;
+- Added new constructor `UnauthorizedException(property, errorCode, message)`;
+- Added new constructor `ForbiddenException(property, errorCode, message)`;
+- Added new constructor `NotFoundException(property, errorCode, message)`;
+- Added new constructor `ConflictException(property, errorCode, message)`;
+- Added factory `BadRequestException.Factory.CreateRequired(property)`;
+- Added factory `PropertyException.Factory.CreateRequired(property)`;
+- Added factory `UnauthorizedException.Factory.Create(property, errorCode)`;
+- Added factory `ForbiddenException.Factory.Create(property, errorCode)`;
+- Added factory `NotFoundException.Factory.Create(property, errorCode)`;
+- Added factory `ConflictException.Factory.Create(property, errorCode)`;
+- Added Throw `BadRequestException.ThrowRequired(property)`;
+- Added Throw `PropertyException.ThrowRequired(property)`;
+- Added Throw `UnauthorizedException.Throw(property, errorCode)`;
+- Added Throw `ForbiddenException.Throw(property, errorCode)`;
+- Added Throw `NotFoundException.Throw(property, errorCode)`;
+- Added Throw `ConflictException.Throw(property, errorCode)`;
+
+
+
+
 ## [1.0.0] - 2022-03-15
 
 - Kickoff;

@@ -113,6 +113,23 @@ public class UnauthorizedExceptionTests
         act.Validate(HttpStatusCode.Unauthorized, property, ErrorCodes.UNAUTHORIZED, message);
     }
 
+    [Fact(DisplayName = "Instance a UnauthorizedException with error and message")]
+    public void Constructor_WithErrorAndMessage()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+        var message = "FakeMessafe";
+
+
+        // Act
+        var act = new UnauthorizedException(property, errorCode, message);
+
+
+        // Assert
+        act.Validate(HttpStatusCode.Unauthorized, property, errorCode, message);
+    }
+
 
     [Fact(DisplayName = "Throw a UnauthorizedException with error")]
     public void Throw_WithError()
@@ -127,5 +144,22 @@ public class UnauthorizedExceptionTests
 
         // Assert
         act.Validate<UnauthorizedException>(HttpStatusCode.Unauthorized, property, ErrorCodes.UNAUTHORIZED, "The property 'FakeProp' contains the error 'UNAUTHORIZED");
+    }
+
+
+    [Fact(DisplayName = "Throw a UnauthorizedException with error")]
+    public void Throw_WithErrorAndError()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+
+
+        // Act
+        var act = Record.Exception(() => UnauthorizedException.Throw(property, errorCode));
+
+
+        // Assert
+        act.Validate<UnauthorizedException>(HttpStatusCode.Unauthorized, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
     }
 }

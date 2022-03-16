@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using PowerUtils.Text;
 using PowerUtils.Validations.Exceptions;
 
 namespace PowerUtils.Validations.GuardClauses
@@ -19,6 +20,30 @@ namespace PowerUtils.Validations.GuardClauses
         )
         {
             if(value == null)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.REQUIRED);
+            }
+        }
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is empty. Error code 'REQUIRED'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when value is empty</exception>
+        public static void IfEmpty(
+            this IGuardClause _,
+            string value,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value == null)
+            {
+                return;
+            }
+
+            if(value == "")
             {
                 throw new PropertyException(parameterName, ErrorCodes.REQUIRED);
             }
@@ -138,5 +163,75 @@ namespace PowerUtils.Validations.GuardClauses
             }
         }
 
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length equals to parameter. Error code 'INVALID'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="length">Invalid length</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the length of the value is equals to parameter</exception>
+        public static void IfLengthEquals(
+            this IGuardClause _,
+            string value,
+            int length,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value == null)
+            {
+                return;
+            }
+
+            if(value.Length == length)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+        }
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length difference to parameter. Error code 'INVALID'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="length">Valid length</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the length of the value is difference to parameter</exception>
+        public static void IfLengthDifference(
+            this IGuardClause _,
+            string value,
+            int length,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value == null)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+
+            if(value.Length != length)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+        }
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is not an email. Error code 'INVALID'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the value is not an email</exception>
+        public static void NotEmail(
+            this IGuardClause _,
+            string value,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(!value.IsEmail())
+            {
+                throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+        }
     }
 }

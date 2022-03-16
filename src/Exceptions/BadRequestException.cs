@@ -89,6 +89,14 @@ namespace PowerUtils.Validations.Exceptions
         public static void ThrowInvalid(string property)
             => throw Factory.CreateInvalid(property);
 
+        /// <summary>
+        /// Thow a <see cref="BadRequestException"></see> class with status code BadRequest, for a <paramref name="property">specified property</paramref>
+        /// and with a REQUIRED error code
+        /// </summary>
+        /// <param name="property">Property name</param>
+        public static void ThrowRequired(string property)
+            => throw Factory.CreateRequired(property);
+
 
 
         public static class Factory
@@ -109,6 +117,14 @@ namespace PowerUtils.Validations.Exceptions
             /// <param name="property">Property name</param>
             public static Exception CreateInvalid(string property)
                 => Create(property, ErrorCodes.INVALID);
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="BadRequestException"></see> class with status code BadRequest, for a <paramref name="property">specified property</paramref>
+            /// and with a REQUIRED error code
+            /// </summary>
+            /// <param name="property">Property name</param>
+            public static Exception CreateRequired(string property)
+                => Create(property, ErrorCodes.REQUIRED);
         }
     }
 }

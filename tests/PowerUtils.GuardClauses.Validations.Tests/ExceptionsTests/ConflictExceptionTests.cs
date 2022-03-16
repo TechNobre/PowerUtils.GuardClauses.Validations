@@ -113,6 +113,23 @@ public class ConflictExceptionTests
         act.Validate(HttpStatusCode.Conflict, property, ErrorCodes.DUPLICATED, message);
     }
 
+    [Fact(DisplayName = "Instance a ConflictException with error and message")]
+    public void Constructor_WithErrorAndMessage()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+        var message = "FakeMessafe";
+
+
+        // Act
+        var act = new ConflictException(property, errorCode, message);
+
+
+        // Assert
+        act.Validate(HttpStatusCode.Conflict, property, errorCode, message);
+    }
+
 
     [Fact(DisplayName = "Throw a ConflictException with property")]
     public void Throw_WithError()
@@ -127,5 +144,22 @@ public class ConflictExceptionTests
 
         // Assert
         act.Validate<ConflictException>(HttpStatusCode.Conflict, property, ErrorCodes.DUPLICATED, "The property 'FakeProp' contains the error 'DUPLICATED");
+    }
+
+
+    [Fact(DisplayName = "Throw a ConflictException with error")]
+    public void Throw_WithErrorAndError()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+
+
+        // Act
+        var act = Record.Exception(() => ConflictException.Throw(property, errorCode));
+
+
+        // Assert
+        act.Validate<ConflictException>(HttpStatusCode.Conflict, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
     }
 }

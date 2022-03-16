@@ -113,6 +113,23 @@ public class NotFoundExceptionTests
         act.Validate(HttpStatusCode.NotFound, property, ErrorCodes.NOT_FOUND, message);
     }
 
+    [Fact(DisplayName = "Instance a NotFoundException with error and message")]
+    public void Constructor_WithErrorAndMessage()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+        var message = "FakeMessafe";
+
+
+        // Act
+        var act = new NotFoundException(property, errorCode, message);
+
+
+        // Assert
+        act.Validate(HttpStatusCode.NotFound, property, errorCode, message);
+    }
+
 
     [Fact(DisplayName = "Throw a NotFoundException with property")]
     public void Throw_WithError()
@@ -127,5 +144,22 @@ public class NotFoundExceptionTests
 
         // Assert
         act.Validate<NotFoundException>(HttpStatusCode.NotFound, property, ErrorCodes.NOT_FOUND, "The property 'FakeProp' contains the error 'NOT_FOUND");
+    }
+
+
+    [Fact(DisplayName = "Throw a NotFoundException with error")]
+    public void Throw_WithErrorAndError()
+    {
+        // Arrange
+        var property = "FakeProp";
+        var errorCode = "FakeError";
+
+
+        // Act
+        var act = Record.Exception(() => NotFoundException.Throw(property, errorCode));
+
+
+        // Assert
+        act.Validate<NotFoundException>(HttpStatusCode.NotFound, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
     }
 }
