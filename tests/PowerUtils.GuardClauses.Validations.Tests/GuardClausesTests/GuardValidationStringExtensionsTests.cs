@@ -425,7 +425,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -440,7 +442,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -455,7 +459,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -470,7 +476,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -485,7 +493,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -826,5 +836,180 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "MIN:5");
+    }
+
+
+    [Fact]
+    public void IfEquals_Equals_Exception()
+    {
+        // Arrange
+        var client = "Fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(client, "Fake"));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfEquals_Different_Valid()
+    {
+        // Arrange
+        var client = "Fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(client, "fake fake"));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+    [Fact]
+    public void IfEquals_Null_Valid()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(client, "fake fake"));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+    [Fact]
+    public void IfDifferent_Equals_Valid()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(client, "fake"));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfDifferent_Different_Exception()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(client, "fake fake"));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+
+    [Fact]
+    public void IfDifferent_Null_Exception()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(client, "fake"));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+
+
+    [Fact]
+    public void IfNotEmail_Null_Exception()
+    {
+        // Arrange
+        string clientEmail = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfNotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void IfNotEmail_Empty_Exception()
+    {
+        // Arrange
+        var clientEmail = "";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfNotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void IfNotEmail_WithSpace_Exception()
+    {
+        // Arrange
+        var clientEmail = "    ";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfNotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void IfNotEmail_FakeText_Exception()
+    {
+        // Arrange
+        var clientEmail = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfNotEmail(clientEmail));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+    }
+
+    [Fact]
+    public void IfNotEmail_Email_Valid()
+    {
+        // Arrange
+        var clientEmail = "fake@fake.tk";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfNotEmail(clientEmail));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
     }
 }

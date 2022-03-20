@@ -271,13 +271,70 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is not an email</exception>
+        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfNotEmail'")]
         public static void NotEmail(
+            this IGuardClause _,
+            string value,
+            [CallerArgumentExpression("value")] string parameterName = null
+        ) => Guard.Validate.IfNotEmail(value, parameterName);
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is not an email. Error code 'INVALID'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the value is not an email</exception>
+        public static void IfNotEmail(
             this IGuardClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
         {
             if(!value.IsEmail())
+            {
+                throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+        }
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is equals to other value. Error code 'INVALID'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="otherValue">Reference value for comparison</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when value is equals to the other value</exception>
+        public static void IfEquals(
+            this IGuardClause _,
+            string value,
+            string otherValue,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value == otherValue)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+        }
+
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is different to other value. Error code 'INVALID'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="otherValue">Reference value for comparison</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when value is different to the other value</exception>
+        public static void IfDifferent(
+            this IGuardClause _,
+            string value,
+            string otherValue,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value != otherValue)
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
