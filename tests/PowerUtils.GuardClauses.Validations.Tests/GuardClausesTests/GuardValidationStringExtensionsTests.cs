@@ -142,27 +142,6 @@ public class GuardValidationStringExtensionsTests
             .BeNull();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     [Fact]
     public void IfNullOrEmpty_Null_Exception()
     {
@@ -381,7 +360,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthZero(client));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -397,7 +378,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthZero(client));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -412,7 +395,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthZero(client));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -583,7 +568,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -598,7 +585,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -613,7 +602,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -628,7 +619,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 6));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -643,7 +636,85 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfLengthDifferent_Null_Exception()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifferent(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifferent_Empty_Exception()
+    {
+        // Arrange
+        var client = "";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifferent(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifferent_4Length_Exception()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifferent(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifferent_6Length_Exception()
+    {
+        // Arrange
+        var client = "fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifferent(client, 6));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "INVALID");
+    }
+
+    [Fact]
+    public void IfLengthDifferent_5Length_Valid()
+    {
+        // Arrange
+        var client = "fakes";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthDifferent(client, 5));
 
 
         // Assert

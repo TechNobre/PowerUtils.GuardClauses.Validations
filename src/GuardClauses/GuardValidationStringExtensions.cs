@@ -146,6 +146,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the length of the value is zero</exception>
+        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfEmpty'")]
         public static void IfLengthZero(
             this IGuardClause _,
             string value,
@@ -197,7 +198,23 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="length">Valid length</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the length of the value is difference to parameter</exception>
+        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfLengthDifferent'")]
         public static void IfLengthDifference(
+            this IGuardClause _,
+            string value,
+            int length,
+            [CallerArgumentExpression("value")] string parameterName = null
+        ) => Guard.Validate.IfLengthDifferent(value, length, parameterName);
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length different to parameter. Error code 'INVALID'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="length">Valid length</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the length of the value is different to parameter</exception>
+        public static void IfLengthDifferent(
             this IGuardClause _,
             string value,
             int length,

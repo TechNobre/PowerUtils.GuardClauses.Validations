@@ -3,6 +3,17 @@
 
 
 
+## [1.1.1] - 2022-03-20
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.1.0...v1.1.1)
+
+
+### Enhancements
+- Discontinued the validation `string.IfLengthZero`, Can use the `string.IfEmpty` because it does the same validation;
+- Discontinued the validation `string.IfLengthDifference`, Can use the `string.IfLengthDifferent` because the name is wrong;
+
+
+
+
 ## [1.1.0] - 2022-03-16
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.0.0...v1.1.0)
 

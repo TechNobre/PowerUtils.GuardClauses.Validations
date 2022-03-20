@@ -95,10 +95,9 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfNullOrWhiteSpace()`;
   - `Guard.Validate.IfLengthGreaterThan()`;
   - `Guard.Validate.IfLengthLessThan()`;
-  - `Guard.Validate.IfLengthZero()`;
   - `Guard.Validate.NotEmail()`;
   - `Guard.Validate.IfLengthEquals()`;
-  - `Guard.Validate.IfLengthDifference()`;
+  - `Guard.Validate.IfLengthDifferent()`;
 - __int, uint, long, ulong, float, double, decimal:__
   - `Guard.Validate.IfGreaterThan()`;
   - `Guard.Validate.IfLessThan()`;
@@ -109,6 +108,13 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfLessThanUtcNow()`;
 - __Guid:__
   - `Guard.Validate.IfEmpty()`;
+
+
+
+
+## :warning: Warning
+The methods `string.IfLengthZero`, `string.IfLengthDifferent` will be removed in 2021/05/31.
+
 
 
 
