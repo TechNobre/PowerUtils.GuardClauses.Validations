@@ -262,7 +262,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthGreaterThan(client, 1));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -278,7 +280,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthGreaterThan(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -293,7 +297,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthGreaterThan(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -311,7 +317,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthLessThan(client, 1));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -327,7 +335,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthLessThan(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -342,7 +352,9 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
+#pragma warning disable CS0618 // Type or member is obsolete
         var act = Record.Exception(() => Guard.Validate.IfLengthLessThan(client, 5));
+#pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
@@ -720,5 +732,99 @@ public class GuardValidationStringExtensionsTests
         // Assert
         act.Should()
             .BeNull();
+    }
+
+    [Fact]
+    public void IfLongerThan_Null_Valid()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLongerThan(client, 1));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfLongerThan_BigText_Exception()
+    {
+        // Arrange
+        var client = "Fake fake fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLongerThan(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "MAX:5");
+    }
+
+    [Fact]
+    public void IfLongerThan_ShortText_Valid()
+    {
+        // Arrange
+        var client = "Fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLongerThan(client, 5));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfShorterThan_Null_Valid()
+    {
+        // Arrange
+        string client = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfShorterThan(client, 1));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfShorterThan_BigText_Valid()
+    {
+        // Arrange
+        var client = "Fake fake fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfShorterThan(client, 5));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfShorterThan_ShortText_Exception()
+    {
+        // Arrange
+        var client = "Fake";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfShorterThan(client, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "MIN:5");
     }
 }

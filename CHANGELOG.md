@@ -10,6 +10,8 @@
 ### Enhancements
 - Discontinued the validation `string.IfLengthZero`, Can use the `string.IfEmpty` because it does the same validation;
 - Discontinued the validation `string.IfLengthDifference`, Can use the `string.IfLengthDifferent` because the name is wrong;
+- Discontinued the validation `string.IfLengthGreaterThan`, Can use the `string.IfLongerThan`. Improved method name;
+- Discontinued the validation `string.IfLengthLessThan`, Can use the `string.IfShorterThan`. Improved method name;
 
 
 

@@ -95,7 +95,23 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="maxLength">Max length</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the length of the value is greater than</exception>
+        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfLongerThan'")]
         public static void IfLengthGreaterThan(
+            this IGuardClause _,
+            string value,
+            int maxLength,
+            [CallerArgumentExpression("value")] string parameterName = null
+        ) => Guard.Validate.IfLongerThan(value, maxLength, parameterName);
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is longer than. Error code 'MAX:{X}'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="maxLength">Max length</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the value is longer than</exception>
+        public static void IfLongerThan(
             this IGuardClause _,
             string value,
             int maxLength,
@@ -121,7 +137,23 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="minLength">Max length</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the length of the value is less than</exception>
+        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfShorterThan'")]
         public static void IfLengthLessThan(
+            this IGuardClause _,
+            string value,
+            int minLength,
+            [CallerArgumentExpression("value")] string parameterName = null
+        ) => Guard.Validate.IfShorterThan(value, minLength, parameterName);
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is shorter than. Error code 'MIN:{X}'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="minLength">Max length</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the value is shorter than</exception>
+        public static void IfShorterThan(
             this IGuardClause _,
             string value,
             int minLength,

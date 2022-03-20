@@ -93,8 +93,8 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfEmpty()`;
   - `Guard.Validate.IfNullOrEmpty()`;
   - `Guard.Validate.IfNullOrWhiteSpace()`;
-  - `Guard.Validate.IfLengthGreaterThan()`;
-  - `Guard.Validate.IfLengthLessThan()`;
+  - `Guard.Validate.IfLongerThan()`;
+  - `Guard.Validate.IfShorterThan()`;
   - `Guard.Validate.NotEmail()`;
   - `Guard.Validate.IfLengthEquals()`;
   - `Guard.Validate.IfLengthDifferent()`;
@@ -113,7 +113,7 @@ dotnet add package PowerUtils.GuardClauses.Validations
 
 
 ## :warning: Warning
-The methods `string.IfLengthZero`, `string.IfLengthDifferent` will be removed in 2021/05/31.
+The methods `string.IfLengthZero`, `string.IfLengthDifferent`, `string.IfLengthGreaterThan`, `string.IfLengthLessThan` will be removed in 2021/05/31.
 
 
 
