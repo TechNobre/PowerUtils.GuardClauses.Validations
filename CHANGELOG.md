@@ -3,6 +3,25 @@
 
 
 
+## [1.2.0] - 2022-03-20
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.1.0...v1.2.0)
+
+
+### New Features
+- Added Guard `Guard.Validate.IfEquals()`;
+- Added Guard `Guard.Validate.IfDifferent()`;
+
+
+### Enhancements
+- Discontinued the validation `string.IfLengthZero`, Can use the `string.IfEmpty` because it does the same validation;
+- Discontinued the validation `string.IfLengthDifference`, Can use the `string.IfLengthDifferent` because the name is wrong;
+- Discontinued the validation `string.IfLengthGreaterThan`, Can use the `string.IfLongerThan`. Improved method name;
+- Discontinued the validation `string.IfLengthLessThan`, Can use the `string.IfShorterThan`. Improved method name;
+- Discontinued the validation `string.NotEmail`, Can use the `string.IfNotEmail` because the name is wrong;
+
+
+
+
 ## [1.1.0] - 2022-03-16
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.0.0...v1.1.0)
 

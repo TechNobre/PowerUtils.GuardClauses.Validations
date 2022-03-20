@@ -5,17 +5,17 @@ using PowerUtils.Validations.GuardClauses;
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests;
 
 [Trait("Type", "Guards")]
-public class GuardValidationFloatExtensionsTests
+public class GuardValidationShortExtensionsTests
 {
     [Fact]
     public void IfGreaterThan_LargeNumber_Exception()
     {
         // Arrange
-        var quantity = 241f;
+        short quantity = 241;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5));
 
 
         // Assert
@@ -26,11 +26,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfGreaterThan_NotLargeNumber_Valid()
     {
         // Arrange
-        var quantity = 4f;
+        short quantity = 4;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5));
 
 
         // Assert
@@ -44,11 +44,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfGreaterThanNullable_Null_Valid()
     {
         // Arrange
-        float? quantity = null;
+        short? quantity = null;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5));
 
 
         // Assert
@@ -61,11 +61,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfGreaterThanNullable_LargeNumber_Exception()
     {
         // Arrange
-        float? quantity = 241;
+        short? quantity = 241;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5));
 
 
         // Assert
@@ -76,11 +76,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfGreaterThanNullable_NotLargeNumber_Valid()
     {
         // Arrange
-        float? quantity = 4;
+        short? quantity = 4;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5));
 
 
         // Assert
@@ -94,11 +94,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfLessThan_SmallNumber_Exception()
     {
         // Arrange
-        var quantity = 4f;
+        short quantity = 4;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5));
 
 
         // Assert
@@ -109,11 +109,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfLessThan_NotSmallNumber_Valid()
     {
         // Arrange
-        var quantity = 14f;
+        short quantity = 14;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5));
 
 
         // Assert
@@ -127,11 +127,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfLessThanNullable_Null_Valid()
     {
         // Arrange
-        float? quantity = null;
+        short? quantity = null;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5));
 
 
         // Assert
@@ -144,11 +144,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfLessThanNullable_SmallNumber_Exception()
     {
         // Arrange
-        float? quantity = 2;
+        short? quantity = 2;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5));
 
 
         // Assert
@@ -159,11 +159,11 @@ public class GuardValidationFloatExtensionsTests
     public void IfLessThanNullable_NotSmallNumber_Valid()
     {
         // Arrange
-        float? quantity = 45;
+        short? quantity = 45;
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5f));
+        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5));
 
 
         // Assert
@@ -172,11 +172,57 @@ public class GuardValidationFloatExtensionsTests
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     [Fact]
     public void IfEquals_Equals_Exception()
     {
         // Arrange
-        float quantity = 5;
+        short quantity = 5;
 
 
         // Act
@@ -191,7 +237,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfEquals_Different_Valid()
     {
         // Arrange
-        float quantity = 5;
+        short quantity = 5;
 
 
         // Act
@@ -208,7 +254,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfEqualsNullable_Null_Valid()
     {
         // Arrange
-        float? quantity = null;
+        short? quantity = null;
 
 
         // Act
@@ -224,7 +270,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfEqualsNullable_Equals_Exception()
     {
         // Arrange
-        float? quantity = 4;
+        short? quantity = 4;
 
 
         // Act
@@ -239,7 +285,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfEqualsNullable_Different_Valid()
     {
         // Arrange
-        float? quantity = 5;
+        short? quantity = 5;
 
 
         // Act
@@ -256,7 +302,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfDifferent_Equals_Valid()
     {
         // Arrange
-        float quantity = 22;
+        short quantity = 22;
 
 
         // Act
@@ -272,7 +318,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfDifferent_Different_Exception()
     {
         // Arrange
-        float quantity = 51;
+        short quantity = 51;
 
 
         // Act
@@ -288,7 +334,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfDifferentNullable_Null_Exception()
     {
         // Arrange
-        float? quantity = null;
+        short? quantity = null;
 
 
         // Act
@@ -303,7 +349,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfDifferentNullable_Equals_Valid()
     {
         // Arrange
-        float? quantity = 78;
+        short? quantity = 78;
 
 
         // Act
@@ -319,7 +365,7 @@ public class GuardValidationFloatExtensionsTests
     public void IfDifferentNullable_Different_Exception()
     {
         // Arrange
-        float? quantity = 45;
+        short? quantity = 45;
 
 
         // Act

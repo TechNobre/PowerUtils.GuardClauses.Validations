@@ -93,28 +93,49 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfEmpty()`;
   - `Guard.Validate.IfNullOrEmpty()`;
   - `Guard.Validate.IfNullOrWhiteSpace()`;
-  - `Guard.Validate.IfLengthGreaterThan()`;
-  - `Guard.Validate.IfLengthLessThan()`;
-  - `Guard.Validate.IfLengthZero()`;
-  - `Guard.Validate.NotEmail()`;
+  - `Guard.Validate.IfLongerThan()`;
+  - `Guard.Validate.IfShorterThan()`;
+  - `Guard.Validate.IfNotEmail()`;
   - `Guard.Validate.IfLengthEquals()`;
-  - `Guard.Validate.IfLengthDifference()`;
-- __int, uint, long, ulong, float, double, decimal:__
+  - `Guard.Validate.IfLengthDifferent()`;
+  - `Guard.Validate.IfEquals()`;
+  - `Guard.Validate.IfDifferent()`;
+- __short, ushort, int, uint, long, ulong, float, double, decimal:__
   - `Guard.Validate.IfGreaterThan()`;
   - `Guard.Validate.IfLessThan()`;
+  - `Guard.Validate.IfEquals()`;
+  - `Guard.Validate.IfDifferent()`;
 - __DateTime:__
   - `Guard.Validate.IfGreaterThan()`;
   - `Guard.Validate.IfGreaterThanUtcNow()`;
   - `Guard.Validate.IfLessThan()`;
   - `Guard.Validate.IfLessThanUtcNow()`;
+  - `Guard.Validate.IfEquals()`;
+  - `Guard.Validate.IfDifferent()`;
 - __Guid:__
   - `Guard.Validate.IfEmpty()`;
+  - `Guard.Validate.IfEquals()`;
+  - `Guard.Validate.IfDifferent()`;
+
+
+
+
+## :warning: Warning
+The methods `string.IfLengthZero`, `string.IfLengthDifferent`, `string.IfLengthGreaterThan`, `string.IfLengthLessThan`, `string.NotEmail` will be removed in 2021/05/31.
+
 
 
 
 ## Contribution
 
 *Help me to help others*
+
+
+
+
+## Credits
+
+[Ardalis.GuardClauses](https://github.com/ardalis/GuardClauses) and [Throw](https://github.com/mantinband/throw) - They are excellent libraries used as inspiration to develop this library.
 
 
 

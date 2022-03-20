@@ -338,4 +338,195 @@ public class GuardValidationDateTimeExtensionsTests
         act.Should()
             .BeNull();
     }
+
+
+
+    [Fact]
+    public void IfEquals_Equals_Exception()
+    {
+        // Arrange
+        var dateOfBirth = new DateTime(2000, 12, 31);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+    }
+
+    [Fact]
+    public void IfEquals_Different_Valid()
+    {
+        // Arrange
+        var dateOfBirth = new DateTime(2021, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+    [Fact]
+    public void IfEqualsNullable_Null_Valid()
+    {
+        // Arrange
+        DateTime? dateOfBirth = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfEqualsNullable_BothNull_Exception()
+    {
+        // Arrange
+        DateTime? dateOfBirth = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, null));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+    }
+
+    [Fact]
+    public void IfEqualsNullable_Equals_Exception()
+    {
+        // Arrange
+        DateTime? dateOfBirth = new DateTime(2000, 12, 31);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+    }
+
+    [Fact]
+    public void IfEqualsNullable_Different_Valid()
+    {
+        // Arrange
+        DateTime? dateOfBirth = new DateTime(2021, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+    [Fact]
+    public void IfDifferent_Equals_Valid()
+    {
+        // Arrange
+        var dateOfBirth = new DateTime(2000, 12, 31);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfDifferent_Different_Exception()
+    {
+        // Arrange
+        var dateOfBirth = new DateTime(2021, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+    }
+
+
+    [Fact]
+    public void IfDifferentNullable_Null_Exception()
+    {
+        // Arrange
+        DateTime? dateOfBirth = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+    }
+
+    [Fact]
+    public void IfDifferentNullable_Equals_Valid()
+    {
+        // Arrange
+        DateTime? dateOfBirth = new DateTime(2000, 12, 31);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfDifferentNullable_Different_Exception()
+    {
+        // Arrange
+        DateTime? dateOfBirth = new DateTime(2021, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31)));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+    }
+
+    [Fact]
+    public void IfDifferentNullable_BothNull_Valid()
+    {
+        // Arrange
+        DateTime? dateOfBirth = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, null));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
 }

@@ -170,4 +170,163 @@ public class GuardValidationDoubleExtensionsTests
         act.Should()
             .BeNull();
     }
+
+
+    [Fact]
+    public void IfEquals_Equals_Exception()
+    {
+        // Arrange
+        double quantity = 5;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 5));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+    }
+
+    [Fact]
+    public void IfEquals_Different_Valid()
+    {
+        // Arrange
+        double quantity = 5;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 6));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+    [Fact]
+    public void IfEqualsNullable_Null_Valid()
+    {
+        // Arrange
+        double? quantity = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 5));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfEqualsNullable_Equals_Exception()
+    {
+        // Arrange
+        double? quantity = 4;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 4));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+    }
+
+    [Fact]
+    public void IfEqualsNullable_Different_Valid()
+    {
+        // Arrange
+        double? quantity = 5;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 4));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+
+    [Fact]
+    public void IfDifferent_Equals_Valid()
+    {
+        // Arrange
+        double quantity = 22;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 22));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfDifferent_Different_Exception()
+    {
+        // Arrange
+        double quantity = 51;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 12));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+    }
+
+
+    [Fact]
+    public void IfDifferentNullable_Null_Exception()
+    {
+        // Arrange
+        double? quantity = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 74));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+    }
+
+    [Fact]
+    public void IfDifferentNullable_Equals_Valid()
+    {
+        // Arrange
+        double? quantity = 78;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 78));
+
+
+        // Assert
+        act.Should()
+            .BeNull();
+    }
+
+    [Fact]
+    public void IfDifferentNullable_Different_Exception()
+    {
+        // Arrange
+        double? quantity = 45;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 321));
+
+
+        // Assert
+        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+    }
 }
