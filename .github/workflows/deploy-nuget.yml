@@ -3,7 +3,12 @@ name: 'Publish Nuget'
 on:
   push:
     branches:
-      - main
+      - deploy-nuget
+
+env:
+  SDK_VERSION: '6.0.201'
+  PACKAGE_PATH: ./src/**/*.nupkg
+  NUGET_SERVER: https://api.nuget.org/v3/index.json
 
 
 jobs:
@@ -13,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.201'
+        dotnet-version: ${{ env.SDK_VERSION }}
 
     - name: Restore dependencies
       run: dotnet restore
@@ -30,4 +35,4 @@ jobs:
       run: dotnet pack --configuration Release
 
     - name: Publish
-      run: dotnet nuget push "./src/bin/PowerUtils.GuardClauses.Validations.*.nupkg" -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ${{ env.PACKAGE_PATH }} --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SERVER }} --skip-duplicate

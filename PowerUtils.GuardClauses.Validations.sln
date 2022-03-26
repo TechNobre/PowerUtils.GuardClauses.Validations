@@ -16,7 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.cicd", "2.cicd", "{2898B645-A33E-4B7C-B492-1E28135DE147}"
 	ProjectSection(SolutionItems) = preProject
 		.github\dependabot.yml = .github\dependabot.yml
-		.github\publish-nuget.yml = .github\publish-nuget.yml
+		.github\workflows\deploy-nuget.yml = .github\workflows\deploy-nuget.yml
 		.github\sonarcloud.yml = .github\sonarcloud.yml
 		.github\test-project.yml = .github\test-project.yml
 	EndProjectSection
