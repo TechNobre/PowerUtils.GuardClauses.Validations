@@ -55,7 +55,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// </summary>
         /// <param name="_"></param>
         /// <param name="value">Value to validate</param>
-        /// <param name="min">Max value</param>
+        /// <param name="min">Min value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
         public static void IfLessThan(
@@ -76,7 +76,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// </summary>
         /// <param name="_"></param>
         /// <param name="value">Value to validate</param>
-        /// <param name="min">Max value</param>
+        /// <param name="min">Min value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
         public static void IfLessThan(
