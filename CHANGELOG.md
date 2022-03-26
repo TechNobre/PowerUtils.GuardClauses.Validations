@@ -9,6 +9,11 @@
 
 ### New Features
 - Added Guard `Guard.Validate.IfNull()` for objects;
+- Added Guard `Guard.Validate.IfEmpty()` for Enumerables;
+- Added Guard `Guard.Validate.IfNullOrEmpty()` for Enumerables;
+- Added Guard `Guard.Validate.IfNullOrEmpty()` for Enumerables;
+- Added Guard `Guard.Validate.IfCountGreaterThan()` for Enumerables;
+- Added Guard `Guard.Validate.IfCountLessThan()` for Enumerables;
 
 
 ### Updates

@@ -118,6 +118,12 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfDifferent()`;
 - __object:__
   - `Guard.Validate.IfNull()`;
+- __IEnumerable:__
+  - `Guard.Validate.IfNull()`;
+  - `Guard.Validate.IfEmpty()`;
+  - `Guard.Validate.IfNullOrEmpty()`;
+  - `Guard.Validate.IfCountGreaterThan()`;
+  - `Guard.Validate.IfCountLessThan()`;
 
 
 

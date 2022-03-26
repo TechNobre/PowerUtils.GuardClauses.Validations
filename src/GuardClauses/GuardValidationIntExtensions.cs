@@ -47,8 +47,6 @@ namespace PowerUtils.Validations.GuardClauses
             }
         }
 
-
-
         /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is less than. Error code 'MIN:{X}'
         /// </summary>
