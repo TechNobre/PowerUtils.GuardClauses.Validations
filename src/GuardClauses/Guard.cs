@@ -1,10 +1,10 @@
 ﻿namespace PowerUtils.Validations.GuardClauses
 {
-    public interface IGuardClause { }
+    public interface IGuardValidationClause { }
 
-    public class Guard : IGuardClause
+    public class Guard : IGuardValidationClause
     {
-        public static IGuardClause Validate { get; } = new Guard();
+        public static IGuardValidationClause Validate { get; } = new Guard();
 
         private Guard() { }
     }

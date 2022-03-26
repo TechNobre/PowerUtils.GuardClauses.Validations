@@ -11,6 +11,10 @@
 - Updated nuget dependencies;
 
 
+### Breaking Changes
+- Interface `IGuardClause` named to `IGuardValidationClause`;
+
+
 
 
 ## [1.2.0] - 2022-03-20

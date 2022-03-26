@@ -14,7 +14,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is null</exception>
         public static void IfNull(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -33,7 +33,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is empty</exception>
         public static void IfEmpty(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -57,7 +57,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is null or empty</exception>
         public static void IfNullOrEmpty(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -76,7 +76,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is null or with space</exception>
         public static void IfNullOrWhiteSpace(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -97,7 +97,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <exception cref="PropertyException">Exception thrown when the length of the value is greater than</exception>
         [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfLongerThan'")]
         public static void IfLengthGreaterThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             int maxLength,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -112,7 +112,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is longer than</exception>
         public static void IfLongerThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             int maxLength,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -139,7 +139,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <exception cref="PropertyException">Exception thrown when the length of the value is less than</exception>
         [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfShorterThan'")]
         public static void IfLengthLessThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             int minLength,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -154,7 +154,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is shorter than</exception>
         public static void IfShorterThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             int minLength,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -180,7 +180,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <exception cref="PropertyException">Exception thrown when the length of the value is zero</exception>
         [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfEmpty'")]
         public static void IfLengthZero(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -205,7 +205,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the length of the value is equals to parameter</exception>
         public static void IfLengthEquals(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             int length,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -232,7 +232,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <exception cref="PropertyException">Exception thrown when the length of the value is difference to parameter</exception>
         [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfLengthDifferent'")]
         public static void IfLengthDifference(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             int length,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -247,7 +247,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the length of the value is different to parameter</exception>
         public static void IfLengthDifferent(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             int length,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -273,7 +273,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <exception cref="PropertyException">Exception thrown when the value is not an email</exception>
         [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfNotEmail'")]
         public static void NotEmail(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         ) => Guard.Validate.IfNotEmail(value, parameterName);
@@ -286,7 +286,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is not an email</exception>
         public static void IfNotEmail(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -306,7 +306,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is equals to the other value</exception>
         public static void IfEquals(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             string otherValue,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -328,7 +328,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is different to the other value</exception>
         public static void IfDifferent(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             string value,
             string otherValue,
             [CallerArgumentExpression("value")] string parameterName = null

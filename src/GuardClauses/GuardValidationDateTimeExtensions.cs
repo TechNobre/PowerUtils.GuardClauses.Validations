@@ -15,7 +15,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than</exception>
         public static void IfGreaterThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime value,
             DateTime max,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -36,7 +36,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than</exception>
         public static void IfGreaterThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime? value,
             DateTime max,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -59,7 +59,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
         public static void IfLessThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime value,
             DateTime min,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -80,7 +80,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
         public static void IfLessThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime? value,
             DateTime min,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -102,7 +102,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than utc now</exception>
         public static void IfGreaterThanUtcNow(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -121,7 +121,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than utc now</exception>
         public static void IfGreaterThanUtcNow(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime? value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -142,7 +142,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than utc now</exception>
         public static void IfLessThanUtcNow(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -161,7 +161,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than utc now</exception>
         public static void IfLessThanUtcNow(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime? value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
@@ -181,7 +181,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is equals to the other value</exception>
         public static void IfEquals(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime? value,
             DateTime? otherValue,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -203,7 +203,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is different to the other value</exception>
         public static void IfDifferent(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             DateTime? value,
             DateTime? otherValue,
             [CallerArgumentExpression("value")] string parameterName = null
