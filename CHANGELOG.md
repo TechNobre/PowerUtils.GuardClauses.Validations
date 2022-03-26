@@ -7,6 +7,10 @@
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.2.0...v2.0.0)
 
 
+### New Features
+- Added Guard `Guard.Validate.IfNull()` for objects;
+
+
 ### Updates
 - Updated nuget dependencies;
 
