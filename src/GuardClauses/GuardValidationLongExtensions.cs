@@ -14,7 +14,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than</exception>
         public static void IfGreaterThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             long value,
             long max,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -35,7 +35,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than</exception>
         public static void IfGreaterThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             long? value,
             long max,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -54,11 +54,11 @@ namespace PowerUtils.Validations.GuardClauses
         /// </summary>
         /// <param name="_"></param>
         /// <param name="value">Value to validate</param>
-        /// <param name="min">Max value</param>
+        /// <param name="min">Min value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
         public static void IfLessThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             long value,
             long min,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -75,11 +75,11 @@ namespace PowerUtils.Validations.GuardClauses
         /// </summary>
         /// <param name="_"></param>
         /// <param name="value">Value to validate</param>
-        /// <param name="min">Max value</param>
+        /// <param name="min">Min value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
         public static void IfLessThan(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             long? value,
             long min,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -100,7 +100,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is equals to the other value</exception>
         public static void IfEquals(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             long? value,
             long otherValue,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -122,7 +122,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is different to the other value</exception>
         public static void IfDifferent(
-            this IGuardClause _,
+            this IGuardValidationClause _,
             long? value,
             long otherValue,
             [CallerArgumentExpression("value")] string parameterName = null

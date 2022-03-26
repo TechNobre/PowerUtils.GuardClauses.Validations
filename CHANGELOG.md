@@ -3,6 +3,29 @@
 
 
 
+## [2.0.0] - 2022-03-26
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.2.0...v2.0.0)
+
+
+### New Features
+- Added Guard `Guard.Validate.IfNull()` for objects;
+- Added Guard `Guard.Validate.IfEmpty()` for Enumerables;
+- Added Guard `Guard.Validate.IfNullOrEmpty()` for Enumerables;
+- Added Guard `Guard.Validate.IfNullOrEmpty()` for Enumerables;
+- Added Guard `Guard.Validate.IfCountGreaterThan()` for Enumerables;
+- Added Guard `Guard.Validate.IfCountLessThan()` for Enumerables;
+
+
+### Updates
+- Updated nuget dependencies;
+
+
+### Breaking Changes
+- Interface `IGuardClause` named to `IGuardValidationClause`;
+
+
+
+
 ## [1.2.0] - 2022-03-20
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.1.0...v1.2.0)
 

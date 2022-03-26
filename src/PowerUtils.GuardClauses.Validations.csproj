@@ -14,7 +14,7 @@
     <PackageId>PowerUtils.GuardClauses.Validations</PackageId>
     <title>PowerUtils.GuardClauses.Validations</title>
     <Product>PowerUtils.GuardClauses.Validations</Product>
-    <Version>1.2.0</Version>
+    <Version>2.0.0</Version>
 
     <Authors>Nelson Nobre</Authors>
     <Company>TechNobre</Company>
@@ -25,13 +25,7 @@
 
     <Description>Helpers, extensions and utilities to work with guard clause</Description>
     <PackageReleaseNotes>
-      - Added Guard `Guard.Validate.IfEquals()`;
-      - Added Guard `Guard.Validate.IfDifferent()`;
-      - Discontinued the validation `string.IfLengthZero`, Can use the `string.IfEmpty` because it does the same validation;
-      - Discontinued the validation `string.IfLengthDifference`, Can use the `string.IfLengthDifferent` because the name is wrong;
-      - Discontinued the validation `string.IfLengthGreaterThan`, Can use the `string.IfLongerThan`. Improved method name;
-      - Discontinued the validation `string.IfLengthLessThan`, Can use the `string.IfShorterThan`. Improved method name;
-      - Discontinued the validation `string.NotEmail`, Can use the `string.IfNotEmail` because the name is wrong;
+      https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/blob/main/CHANGELOG.md
     </PackageReleaseNotes>
     <Summary>Helpers, extensions and utilities to work with guard clause</Summary>
     <PackageTags>PowerUtils;Utils;Helpers;GuardClauses;Validations;Exception;Extensions;Errors</PackageTags>
@@ -101,7 +95,7 @@
   <ItemGroup>
     <PackageReference Include="PowerUtils.Net.Primitives" Version="1.2.0" />
     <PackageReference Include="PowerUtils.Text" Version="2.1.0" />
-    <PackageReference Include="PowerUtils.Validations.Primitives" Version="1.0.0" />
+    <PackageReference Include="PowerUtils.Validations.Primitives" Version="1.1.0" />
   </ItemGroup>
 
 
