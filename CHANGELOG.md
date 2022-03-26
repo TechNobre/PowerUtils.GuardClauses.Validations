@@ -3,6 +3,16 @@
 
 
 
+## [2.0.0] - 2022-03-26
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.2.0...v2.0.0)
+
+
+### Updates
+- Updated nuget dependencies;
+
+
+
+
 ## [1.2.0] - 2022-03-20
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.1.0...v1.2.0)
 
