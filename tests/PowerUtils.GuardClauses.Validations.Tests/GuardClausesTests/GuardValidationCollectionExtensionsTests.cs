@@ -18,7 +18,6 @@ public class GuardValidationCollectionExtensionsTests
         IEnumerable<string> prodList = null;
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfNull(prodList));
 
@@ -32,7 +31,6 @@ public class GuardValidationCollectionExtensionsTests
     {
         // Arrange
         IEnumerable<string> prodList = new List<string>();
-
 
 
         // Act
@@ -53,7 +51,6 @@ public class GuardValidationCollectionExtensionsTests
         ICollection<string> prodList = null;
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfEmpty(prodList));
 
@@ -68,7 +65,6 @@ public class GuardValidationCollectionExtensionsTests
     {
         // Arrange
         ICollection<string> prodList = new List<string>();
-
 
 
         // Act
@@ -86,7 +82,6 @@ public class GuardValidationCollectionExtensionsTests
         ICollection<string> prodList = new List<string> { "fake", "fake2" };
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfEmpty(prodList));
 
@@ -97,13 +92,11 @@ public class GuardValidationCollectionExtensionsTests
     }
 
 
-
     [Fact]
     public void IfNullOrEmpty_NullArray_Exception()
     {
         // Arrange
         string[] prodList = null;
-
 
 
         // Act
@@ -121,7 +114,6 @@ public class GuardValidationCollectionExtensionsTests
         var prodList = Array.Empty<string>();
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfNullOrEmpty(prodList));
 
@@ -137,7 +129,6 @@ public class GuardValidationCollectionExtensionsTests
         var prodList = new string[] { "fake", "fake2" };
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfNullOrEmpty(prodList));
 
@@ -147,49 +138,11 @@ public class GuardValidationCollectionExtensionsTests
             .BeNull();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     [Fact]
     public void IfCountGreaterThan_NullEnumerable_Valid()
     {
         // Arrange
         IEnumerable<string> prodList = null;
-
 
 
         // Act
@@ -208,7 +161,6 @@ public class GuardValidationCollectionExtensionsTests
         IEnumerable<string> prodList = new string[] { "fake", "fake2" };
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfCountGreaterThan(prodList, 3));
 
@@ -225,7 +177,6 @@ public class GuardValidationCollectionExtensionsTests
         IEnumerable<string> prodList = new string[] { "fake", "fake2", "fake3", "fake4" };
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfCountGreaterThan(prodList, 3));
 
@@ -239,7 +190,6 @@ public class GuardValidationCollectionExtensionsTests
     {
         // Arrange
         IEnumerable<string> prodList = null;
-
 
 
         // Act
@@ -258,7 +208,6 @@ public class GuardValidationCollectionExtensionsTests
         var enumerable = prodList.Where(w => w.Contains("fake"));
 
 
-
         // Act
         var act = Record.Exception(() => Guard.Validate.IfCountLessThan(enumerable, 3));
 
@@ -272,7 +221,6 @@ public class GuardValidationCollectionExtensionsTests
     {
         // Arrange
         IEnumerable<string> prodList = new string[] { "fake", "fake2", "fake3", "fake4" };
-
 
 
         // Act
