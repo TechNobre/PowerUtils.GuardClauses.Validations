@@ -124,6 +124,9 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfNullOrEmpty()`;
   - `Guard.Validate.IfCountGreaterThan()`;
   - `Guard.Validate.IfCountLessThan()`;
+- __Geolocation (float, double, decimal)__
+  - `Guard.Validate.IfLatitudeOutOfRange()`;
+  - `Guard.Validate.IfLongitudeOutOfRange()`;
 
 
 

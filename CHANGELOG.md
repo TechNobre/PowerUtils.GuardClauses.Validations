@@ -3,6 +3,16 @@
 
 
 
+## [2.1.0] - 2022-03-30
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.0.0...v2.1.0)
+
+
+### New Features
+- Added Guard `Guard.Validate.IfLatitudeOutOfRange()` and `Guard.Validate.IfLongitudeOutOfRange()`;
+
+
+
+
 ## [2.0.0] - 2022-03-26
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v1.2.0...v2.0.0)
 
