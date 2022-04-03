@@ -30,12 +30,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5L));
+        var act = Guard.Validate.IfGreaterThan(quantity, 5L);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -53,7 +53,7 @@ public class GuardValidationLongExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -80,12 +80,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5L));
+        var act = Guard.Validate.IfGreaterThan(quantity, 5L);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -113,12 +113,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5L));
+        var act = Guard.Validate.IfLessThan(quantity, 5L);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -136,7 +136,7 @@ public class GuardValidationLongExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -163,12 +163,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5L));
+        var act = Guard.Validate.IfLessThan(quantity, 5L);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -195,12 +195,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 6));
+        var act = Guard.Validate.IfEquals(quantity, 6);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -217,7 +217,7 @@ public class GuardValidationLongExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -243,12 +243,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 4));
+        var act = Guard.Validate.IfEquals(quantity, 4);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -260,12 +260,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 22));
+        var act = Guard.Validate.IfDifferent(quantity, 22);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -307,12 +307,12 @@ public class GuardValidationLongExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 78));
+        var act = Guard.Validate.IfDifferent(quantity, 78);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]

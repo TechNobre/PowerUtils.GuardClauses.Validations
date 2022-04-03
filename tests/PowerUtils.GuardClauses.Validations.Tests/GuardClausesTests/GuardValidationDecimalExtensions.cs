@@ -19,7 +19,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MAX:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MAX:5"
+        );
     }
 
     [Fact]
@@ -30,12 +34,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5m));
+        var act = Guard.Validate.IfGreaterThan(quantity, 5m);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -53,7 +57,7 @@ public class GuardValidationDecimalExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -69,7 +73,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MAX:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MAX:5"
+        );
     }
 
     [Fact]
@@ -80,12 +88,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5m));
+        var act = Guard.Validate.IfGreaterThan(quantity, 5m);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -102,7 +110,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MIN:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MIN:5"
+        );
     }
 
     [Fact]
@@ -113,12 +125,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5m));
+        var act = Guard.Validate.IfLessThan(quantity, 5m);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -136,7 +148,7 @@ public class GuardValidationDecimalExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -152,7 +164,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MIN:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MIN:5"
+        );
     }
 
     [Fact]
@@ -163,12 +179,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5m));
+        var act = Guard.Validate.IfLessThan(quantity, 5m);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -185,7 +201,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -196,12 +216,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 6));
+        var act = Guard.Validate.IfEquals(quantity, 6);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -218,7 +238,7 @@ public class GuardValidationDecimalExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -233,7 +253,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -244,12 +268,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 4));
+        var act = Guard.Validate.IfEquals(quantity, 4);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -261,12 +285,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 22));
+        var act = Guard.Validate.IfDifferent(quantity, 22);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -281,7 +305,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
 
@@ -297,7 +325,11 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -308,12 +340,12 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 78));
+        var act = Guard.Validate.IfDifferent(quantity, 78);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -328,6 +360,10 @@ public class GuardValidationDecimalExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 }
