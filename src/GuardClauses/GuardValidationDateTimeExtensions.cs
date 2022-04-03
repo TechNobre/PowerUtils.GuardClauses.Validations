@@ -14,7 +14,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="max">Max value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than</exception>
-        public static void IfGreaterThan(
+        public static DateTime IfGreaterThan(
             this IGuardValidationClause _,
             DateTime value,
             DateTime max,
@@ -25,6 +25,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.GetMaxFormatted(max));
             }
+
+            return value;
         }
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="max">Max value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than</exception>
-        public static void IfGreaterThan(
+        public static DateTime? IfGreaterThan(
             this IGuardValidationClause _,
             DateTime? value,
             DateTime max,
@@ -46,6 +48,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.GetMaxFormatted(max));
             }
+
+            return value;
         }
 
 
@@ -58,7 +62,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="min">Min value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
-        public static void IfLessThan(
+        public static DateTime IfLessThan(
             this IGuardValidationClause _,
             DateTime value,
             DateTime min,
@@ -69,6 +73,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.GetMinFormatted(min));
             }
+
+            return value;
         }
 
         /// <summary>
@@ -79,7 +85,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="min">Min value</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than</exception>
-        public static void IfLessThan(
+        public static DateTime? IfLessThan(
             this IGuardValidationClause _,
             DateTime? value,
             DateTime min,
@@ -90,6 +96,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.GetMinFormatted(min));
             }
+
+            return value;
         }
 
 
@@ -101,7 +109,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than utc now</exception>
-        public static void IfGreaterThanUtcNow(
+        public static DateTime IfGreaterThanUtcNow(
             this IGuardValidationClause _,
             DateTime value,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -111,6 +119,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_DATETIME_UTCNOW);
             }
+
+            return value;
         }
 
         /// <summary>
@@ -120,7 +130,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is greater than utc now</exception>
-        public static void IfGreaterThanUtcNow(
+        public static DateTime? IfGreaterThanUtcNow(
             this IGuardValidationClause _,
             DateTime? value,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -130,6 +140,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_DATETIME_UTCNOW);
             }
+
+            return value;
         }
 
 
@@ -141,7 +153,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than utc now</exception>
-        public static void IfLessThanUtcNow(
+        public static DateTime IfLessThanUtcNow(
             this IGuardValidationClause _,
             DateTime value,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -151,6 +163,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MIN_DATETIME_UTCNOW);
             }
+
+            return value;
         }
 
         /// <summary>
@@ -160,7 +174,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is less than utc now</exception>
-        public static void IfLessThanUtcNow(
+        public static DateTime? IfLessThanUtcNow(
             this IGuardValidationClause _,
             DateTime? value,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -170,6 +184,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MIN_DATETIME_UTCNOW);
             }
+
+            return value;
         }
 
         /// <summary>
@@ -180,7 +196,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="otherValue">Reference value for comparison</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is equals to the other value</exception>
-        public static void IfEquals(
+        public static DateTime? IfEquals(
             this IGuardValidationClause _,
             DateTime? value,
             DateTime? otherValue,
@@ -191,6 +207,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
+
+            return value;
         }
 
 
@@ -202,7 +220,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="otherValue">Reference value for comparison</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is different to the other value</exception>
-        public static void IfDifferent(
+        public static DateTime? IfDifferent(
             this IGuardValidationClause _,
             DateTime? value,
             DateTime? otherValue,
@@ -213,6 +231,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
+
+            return value;
         }
     }
 }

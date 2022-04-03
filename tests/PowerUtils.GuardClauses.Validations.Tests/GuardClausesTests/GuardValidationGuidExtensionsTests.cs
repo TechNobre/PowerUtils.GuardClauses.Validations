@@ -32,12 +32,12 @@ public class GuardValidationGuidExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEmpty(id));
+        var act = Guard.Validate.IfEmpty(id);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(id);
     }
 
     [Fact]
@@ -63,12 +63,12 @@ public class GuardValidationGuidExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(id, Guid.Parse("dd348c71-3115-493f-873c-03bd4ccfae02")));
+        var act = Guard.Validate.IfEquals(id, Guid.Parse("dd348c71-3115-493f-873c-03bd4ccfae02"));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(id);
     }
 
 
@@ -85,7 +85,7 @@ public class GuardValidationGuidExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(id);
     }
 
     [Fact]
@@ -126,12 +126,12 @@ public class GuardValidationGuidExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(id, Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96")));
+        var act = Guard.Validate.IfEquals(id, Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96"));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(id);
     }
 
 
@@ -143,12 +143,12 @@ public class GuardValidationGuidExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(id, Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96")));
+        var act = Guard.Validate.IfDifferent(id, Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96"));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(id);
     }
 
     [Fact]
@@ -195,7 +195,7 @@ public class GuardValidationGuidExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(id);
     }
 
     [Fact]
@@ -206,12 +206,12 @@ public class GuardValidationGuidExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(id, Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96")));
+        var act = Guard.Validate.IfDifferent(id, Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96"));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(id);
     }
 
     [Fact]

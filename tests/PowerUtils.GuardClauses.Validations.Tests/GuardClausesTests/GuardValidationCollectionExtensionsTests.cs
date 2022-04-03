@@ -23,7 +23,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(prodList), ErrorCodes.REQUIRED);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(prodList),
+            ErrorCodes.REQUIRED
+        );
     }
 
     [Fact]
@@ -34,12 +38,12 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfNull(prodList));
+        var act = Guard.Validate.IfNull(prodList);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(prodList);
     }
 
 
@@ -57,7 +61,7 @@ public class GuardValidationCollectionExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(prodList);
     }
 
     [Fact]
@@ -72,7 +76,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(prodList), ErrorCodes.REQUIRED);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(prodList),
+            ErrorCodes.REQUIRED
+        );
     }
 
     [Fact]
@@ -83,12 +91,12 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEmpty(prodList));
+        var act = Guard.Validate.IfEmpty(prodList);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(prodList);
     }
 
 
@@ -104,7 +112,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(prodList), ErrorCodes.REQUIRED);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(prodList),
+            ErrorCodes.REQUIRED
+        );
     }
 
     [Fact]
@@ -119,7 +131,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(prodList), ErrorCodes.REQUIRED);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(prodList),
+            ErrorCodes.REQUIRED
+        );
     }
 
     [Fact]
@@ -151,7 +167,7 @@ public class GuardValidationCollectionExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(prodList);
     }
 
     [Fact]
@@ -162,12 +178,12 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfCountGreaterThan(prodList, 3));
+        var act = Guard.Validate.IfCountGreaterThan(prodList, 3);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(prodList);
     }
 
     [Fact]
@@ -182,7 +198,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(prodList), "MAX:3");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(prodList),
+            "MAX:3"
+        );
     }
 
     [Fact]
@@ -197,7 +217,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(prodList), "MIN:3");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(prodList),
+            "MIN:3"
+        );
     }
 
     [Fact]
@@ -213,7 +237,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(enumerable), "MIN:3");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(enumerable),
+            "MIN:3"
+        );
     }
 
     [Fact]
@@ -224,11 +252,11 @@ public class GuardValidationCollectionExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfCountLessThan(prodList, 3));
+        var act = Guard.Validate.IfCountLessThan(prodList, 3);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(prodList);
     }
 }

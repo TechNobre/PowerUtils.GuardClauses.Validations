@@ -20,7 +20,10 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "MAX:2000-12-31");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MAX:2000-12-31");
     }
 
     [Fact]
@@ -31,12 +34,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfGreaterThan(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -54,7 +57,7 @@ public class GuardValidationDateTimeExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(dateOfBirth);
     }
 
 
@@ -70,7 +73,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "MAX:2000-12-31");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MAX:2000-12-31"
+        );
     }
 
     [Fact]
@@ -81,12 +88,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfGreaterThan(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -103,7 +110,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "MIN:2000-12-31");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MIN:2000-12-31"
+        );
     }
 
     [Fact]
@@ -114,12 +125,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfLessThan(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -137,7 +148,7 @@ public class GuardValidationDateTimeExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(dateOfBirth);
     }
 
 
@@ -153,7 +164,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "MIN:2000-12-31");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MIN:2000-12-31"
+        );
     }
 
     [Fact]
@@ -164,12 +179,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfLessThan(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -187,7 +202,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "MAX:DATETIME_UTCNOW");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MAX:DATETIME_UTCNOW"
+        );
     }
 
     [Fact]
@@ -198,12 +217,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThanUtcNow(dateOfBirth));
+        var act = Guard.Validate.IfGreaterThanUtcNow(dateOfBirth);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -221,7 +240,7 @@ public class GuardValidationDateTimeExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .BeEquivalentTo(dateOfBirth);
     }
 
 
@@ -237,7 +256,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "MAX:DATETIME_UTCNOW");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MAX:DATETIME_UTCNOW"
+        );
     }
 
     [Fact]
@@ -248,12 +271,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThanUtcNow(dateOfBirth));
+        var act = Guard.Validate.IfGreaterThanUtcNow(dateOfBirth);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -270,7 +293,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "MIN:DATETIME_UTCNOW");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MIN:DATETIME_UTCNOW"
+        );
     }
 
     [Fact]
@@ -281,12 +308,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThanUtcNow(dateOfBirth));
+        var act = Guard.Validate.IfLessThanUtcNow(dateOfBirth);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -299,12 +326,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThanUtcNow(dateOfBirth));
+        var act = Guard.Validate.IfLessThanUtcNow(dateOfBirth);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -331,12 +358,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThanUtcNow(dateOfBirth));
+        var act = Guard.Validate.IfLessThanUtcNow(dateOfBirth);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -353,7 +380,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -364,12 +395,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -381,12 +412,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
     [Fact]
@@ -401,7 +432,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -416,7 +451,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -427,12 +466,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfEquals(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
 
@@ -444,12 +483,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
     [Fact]
@@ -464,7 +503,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "INVALID"
+        );
     }
 
 
@@ -480,7 +523,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -491,12 +538,12 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31)));
+        var act = Guard.Validate.IfDifferent(dateOfBirth, new DateTime(2000, 12, 31));
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 
     [Fact]
@@ -511,7 +558,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(dateOfBirth), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -522,11 +573,11 @@ public class GuardValidationDateTimeExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(dateOfBirth, null));
+        var act = Guard.Validate.IfDifferent(dateOfBirth, null);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(dateOfBirth);
     }
 }

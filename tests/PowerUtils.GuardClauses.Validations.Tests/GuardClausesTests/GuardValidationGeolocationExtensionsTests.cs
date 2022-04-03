@@ -20,7 +20,11 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(degree), ErrorCodes.MIN_LATITUDE);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(degree),
+            ErrorCodes.MIN_LATITUDE
+        );
     }
 
     [Fact]
@@ -35,7 +39,11 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(degree), ErrorCodes.MAX_LATITUDE);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(degree),
+            ErrorCodes.MAX_LATITUDE
+        );
     }
 
     [Fact]
@@ -46,12 +54,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLatitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLatitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
 
@@ -67,7 +75,11 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(degree), ErrorCodes.MIN_LONGITUDE);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(degree),
+            ErrorCodes.MIN_LONGITUDE
+        );
     }
 
     [Fact]
@@ -82,7 +94,11 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(degree), ErrorCodes.MAX_LONGITUDE);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(degree),
+            ErrorCodes.MAX_LONGITUDE
+        );
     }
 
     [Fact]
@@ -93,12 +109,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLongitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLongitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -114,7 +130,7 @@ public class GuardValidationGeolocationExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -129,7 +145,11 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(degree), ErrorCodes.MIN_LATITUDE);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(degree),
+            ErrorCodes.MIN_LATITUDE
+        );
     }
 
     [Fact]
@@ -144,7 +164,11 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(degree), ErrorCodes.MAX_LATITUDE);
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(degree),
+            ErrorCodes.MAX_LATITUDE
+        );
     }
 
     [Fact]
@@ -155,12 +179,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLatitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLatitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -176,7 +200,7 @@ public class GuardValidationGeolocationExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -217,12 +241,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLongitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLongitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
 
@@ -264,12 +288,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLatitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLatitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
 
@@ -311,12 +335,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLongitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLongitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -332,7 +356,7 @@ public class GuardValidationGeolocationExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -373,12 +397,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLatitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLatitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -394,7 +418,7 @@ public class GuardValidationGeolocationExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -435,12 +459,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLongitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLongitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
 
@@ -482,12 +506,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLatitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLatitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
 
@@ -529,12 +553,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLongitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLongitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -550,7 +574,7 @@ public class GuardValidationGeolocationExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -591,12 +615,12 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLatitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLatitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -612,7 +636,7 @@ public class GuardValidationGeolocationExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 
     [Fact]
@@ -653,11 +677,11 @@ public class GuardValidationGeolocationExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLongitudeOutOfRange(degree));
+        var act = Guard.Validate.IfLongitudeOutOfRange(degree);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(degree);
     }
 }

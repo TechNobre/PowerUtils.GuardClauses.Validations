@@ -31,12 +31,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfNull(client));
+        var act = Guard.Validate.IfNull(client);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -88,7 +88,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -116,12 +116,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEmpty(client));
+        var act = Guard.Validate.IfEmpty(client);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
 
@@ -134,12 +134,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEmpty(client));
+        var act = Guard.Validate.IfEmpty(client);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -180,12 +180,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfNullOrEmpty(client));
+        var act = Guard.Validate.IfNullOrEmpty(client);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
 
@@ -244,12 +244,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfNullOrWhiteSpace(client));
+        var act = Guard.Validate.IfNullOrWhiteSpace(client);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
 
@@ -269,7 +269,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -298,13 +298,13 @@ public class GuardValidationStringExtensionsTests
 
         // Act
 #pragma warning disable CS0618 // Type or member is obsolete
-        var act = Record.Exception(() => Guard.Validate.IfLengthGreaterThan(client, 5));
+        var act = Guard.Validate.IfLengthGreaterThan(client, 5);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
 
@@ -324,7 +324,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -353,13 +353,13 @@ public class GuardValidationStringExtensionsTests
 
         // Act
 #pragma warning disable CS0618 // Type or member is obsolete
-        var act = Record.Exception(() => Guard.Validate.IfLengthLessThan(client, 5));
+        var act = Guard.Validate.IfLengthLessThan(client, 5);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
 
@@ -379,7 +379,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -408,13 +408,13 @@ public class GuardValidationStringExtensionsTests
 
         // Act
 #pragma warning disable CS0618 // Type or member is obsolete
-        var act = Record.Exception(() => Guard.Validate.IfLengthZero(client));
+        var act = Guard.Validate.IfLengthZero(client);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -494,13 +494,13 @@ public class GuardValidationStringExtensionsTests
 
         // Act
 #pragma warning disable CS0618 // Type or member is obsolete
-        var act = Record.Exception(() => Guard.Validate.NotEmail(clientEmail));
+        var act = Guard.Validate.NotEmail(clientEmail);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(clientEmail);
     }
 
     [Fact]
@@ -516,7 +516,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -527,12 +527,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 5));
+        var act = Guard.Validate.IfLengthEquals(client, 5);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -543,12 +543,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 5));
+        var act = Guard.Validate.IfLengthEquals(client, 5);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -559,12 +559,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLengthEquals(client, 6));
+        var act = Guard.Validate.IfLengthEquals(client, 6);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -659,13 +659,13 @@ public class GuardValidationStringExtensionsTests
 
         // Act
 #pragma warning disable CS0618 // Type or member is obsolete
-        var act = Record.Exception(() => Guard.Validate.IfLengthDifference(client, 5));
+        var act = Guard.Validate.IfLengthDifference(client, 5);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -736,12 +736,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLengthDifferent(client, 5));
+        var act = Guard.Validate.IfLengthDifferent(client, 5);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -757,7 +757,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -783,12 +783,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLongerThan(client, 5));
+        var act = Guard.Validate.IfLongerThan(client, 5);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -804,7 +804,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -815,12 +815,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfShorterThan(client, 5));
+        var act = Guard.Validate.IfShorterThan(client, 5);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -862,12 +862,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(client, "fake fake"));
+        var act = Guard.Validate.IfEquals(client, "fake fake");
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
 
@@ -884,7 +884,7 @@ public class GuardValidationStringExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
 
@@ -896,12 +896,12 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(client, "fake"));
+        var act = Guard.Validate.IfDifferent(client, "fake");
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 
     [Fact]
@@ -1005,11 +1005,11 @@ public class GuardValidationStringExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfNotEmail(clientEmail));
+        var act = Guard.Validate.IfNotEmail(clientEmail);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(clientEmail);
     }
 }

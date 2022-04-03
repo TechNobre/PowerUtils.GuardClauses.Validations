@@ -19,7 +19,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="latitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="latitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the latitude is out of range</exception>
-        public static void IfLatitudeOutOfRange(
+        public static float IfLatitudeOutOfRange(
             this IGuardValidationClause _,
             float latitude,
             [CallerArgumentExpression("latitude")] string parameterName = null
@@ -34,6 +34,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LATITUDE);
             }
+
+            return latitude;
         }
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="latitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="latitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the latitude is out of range</exception>
-        public static void IfLatitudeOutOfRange(
+        public static float? IfLatitudeOutOfRange(
             this IGuardValidationClause _,
             float? latitude,
             [CallerArgumentExpression("latitude")] string parameterName = null
@@ -58,6 +60,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LATITUDE);
             }
+
+            return latitude;
         }
 
         /// <summary>
@@ -67,7 +71,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="latitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="latitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the latitude is out of range</exception>
-        public static void IfLatitudeOutOfRange(
+        public static double IfLatitudeOutOfRange(
             this IGuardValidationClause _,
             double latitude,
             [CallerArgumentExpression("latitude")] string parameterName = null
@@ -82,6 +86,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LATITUDE);
             }
+
+            return latitude;
         }
 
         /// <summary>
@@ -91,7 +97,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="latitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="latitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the latitude is out of range</exception>
-        public static void IfLatitudeOutOfRange(
+        public static double? IfLatitudeOutOfRange(
             this IGuardValidationClause _,
             double? latitude,
             [CallerArgumentExpression("latitude")] string parameterName = null
@@ -106,6 +112,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LATITUDE);
             }
+
+            return latitude;
         }
 
         /// <summary>
@@ -115,7 +123,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="latitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="latitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the latitude is out of range</exception>
-        public static void IfLatitudeOutOfRange(
+        public static decimal IfLatitudeOutOfRange(
             this IGuardValidationClause _,
             decimal latitude,
             [CallerArgumentExpression("latitude")] string parameterName = null
@@ -130,6 +138,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LATITUDE);
             }
+
+            return latitude;
         }
 
         /// <summary>
@@ -139,7 +149,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="latitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="latitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the latitude is out of range</exception>
-        public static void IfLatitudeOutOfRange(
+        public static decimal? IfLatitudeOutOfRange(
             this IGuardValidationClause _,
             decimal? latitude,
             [CallerArgumentExpression("latitude")] string parameterName = null
@@ -154,6 +164,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LATITUDE);
             }
+
+            return latitude;
         }
 
 
@@ -165,7 +177,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="longitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="longitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the longitude is out of range</exception>
-        public static void IfLongitudeOutOfRange(
+        public static float IfLongitudeOutOfRange(
             this IGuardValidationClause _,
             float longitude,
             [CallerArgumentExpression("longitude")] string parameterName = null
@@ -180,6 +192,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LONGITUDE);
             }
+
+            return longitude;
         }
 
         /// <summary>
@@ -189,7 +203,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="longitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="longitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the longitude is out of range</exception>
-        public static void IfLongitudeOutOfRange(
+        public static float? IfLongitudeOutOfRange(
             this IGuardValidationClause _,
             float? longitude,
             [CallerArgumentExpression("longitude")] string parameterName = null
@@ -204,6 +218,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LONGITUDE);
             }
+
+            return longitude;
         }
 
         /// <summary>
@@ -213,7 +229,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="longitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="longitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the longitude is out of range</exception>
-        public static void IfLongitudeOutOfRange(
+        public static double IfLongitudeOutOfRange(
             this IGuardValidationClause _,
             double longitude,
             [CallerArgumentExpression("longitude")] string parameterName = null
@@ -228,6 +244,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LONGITUDE);
             }
+
+            return longitude;
         }
 
         /// <summary>
@@ -237,7 +255,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="longitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="longitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the longitude is out of range</exception>
-        public static void IfLongitudeOutOfRange(
+        public static double? IfLongitudeOutOfRange(
             this IGuardValidationClause _,
             double? longitude,
             [CallerArgumentExpression("longitude")] string parameterName = null
@@ -252,6 +270,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LONGITUDE);
             }
+
+            return longitude;
         }
 
         /// <summary>
@@ -261,7 +281,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="longitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="longitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the longitude is out of range</exception>
-        public static void IfLongitudeOutOfRange(
+        public static decimal IfLongitudeOutOfRange(
             this IGuardValidationClause _,
             decimal longitude,
             [CallerArgumentExpression("longitude")] string parameterName = null
@@ -276,6 +296,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LONGITUDE);
             }
+
+            return longitude;
         }
 
         /// <summary>
@@ -285,7 +307,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="longitude">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="longitude"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the longitude is out of range</exception>
-        public static void IfLongitudeOutOfRange(
+        public static decimal? IfLongitudeOutOfRange(
             this IGuardValidationClause _,
             decimal? longitude,
             [CallerArgumentExpression("longitude")] string parameterName = null
@@ -300,6 +322,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.MAX_LONGITUDE);
             }
+
+            return longitude;
         }
     }
 }
