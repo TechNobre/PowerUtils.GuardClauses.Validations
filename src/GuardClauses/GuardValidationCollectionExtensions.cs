@@ -13,7 +13,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the collection is empty</exception>
-        public static void IfEmpty(
+        public static IEnumerable IfEmpty(
             this IGuardValidationClause _,
             IEnumerable value,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -21,13 +21,15 @@ namespace PowerUtils.Validations.GuardClauses
         {
             if(value == null)
             {
-                return;
+                return value;
             }
 
             if(value._itemCounter() == 0)
             {
                 throw new PropertyException(parameterName, ErrorCodes.REQUIRED);
             }
+
+            return value;
         }
 
         /// <summary>
@@ -37,7 +39,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the collection is null or empty</exception>
-        public static void IfNullOrEmpty(
+        public static IEnumerable IfNullOrEmpty(
             this IGuardValidationClause _,
             IEnumerable value,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -52,6 +54,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.REQUIRED);
             }
+
+            return value;
         }
 
 
@@ -63,7 +67,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="max">Maximum number of items in the collection</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the number of items in the collection is greater than</exception>
-        public static void IfCountGreaterThan(
+        public static IEnumerable IfCountGreaterThan(
             this IGuardValidationClause _,
             IEnumerable value,
             int max,
@@ -72,13 +76,15 @@ namespace PowerUtils.Validations.GuardClauses
         {
             if(value == null)
             {
-                return;
+                return value;
             }
 
             if(value._itemCounter() > max)
             {
                 throw new PropertyException(parameterName, ErrorCodes.GetMaxFormatted(max));
             }
+
+            return value;
         }
 
         /// <summary>
@@ -89,7 +95,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="min">Minimum of items in the list</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the number of items in the collection is less than</exception>
-        public static void IfCountLessThan(
+        public static IEnumerable IfCountLessThan(
             this IGuardValidationClause _,
             IEnumerable value,
             int min,
@@ -105,6 +111,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.GetMinFormatted(min));
             }
+
+            return value;
         }
 
         private static int _itemCounter(this IEnumerable value)

@@ -13,7 +13,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is empty</exception>
-        public static void IfEmpty(
+        public static Guid IfEmpty(
             this IGuardValidationClause _,
             Guid value,
             [CallerArgumentExpression("value")] string parameterName = null
@@ -23,6 +23,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.REQUIRED);
             }
+
+            return value;
         }
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="otherValue">Reference value for comparison</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is equals to the other value</exception>
-        public static void IfEquals(
+        public static Guid? IfEquals(
             this IGuardValidationClause _,
             Guid? value,
             Guid? otherValue,
@@ -44,6 +46,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
+
+            return value;
         }
 
 
@@ -55,7 +59,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="otherValue">Reference value for comparison</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is different to the other value</exception>
-        public static void IfDifferent(
+        public static Guid? IfDifferent(
             this IGuardValidationClause _,
             Guid? value,
             Guid? otherValue,
@@ -66,6 +70,8 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
+
+            return value;
         }
     }
 }

@@ -19,7 +19,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MAX:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MAX:5"
+        );
     }
 
     [Fact]
@@ -30,12 +34,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5f));
+        var act = Guard.Validate.IfGreaterThan(quantity, 5f);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -53,7 +57,7 @@ public class GuardValidationFloatExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -69,7 +73,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MAX:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MAX:5"
+        );
     }
 
     [Fact]
@@ -80,12 +88,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfGreaterThan(quantity, 5f));
+        var act = Guard.Validate.IfGreaterThan(quantity, 5f);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -102,7 +110,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MIN:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MIN:5"
+        );
     }
 
     [Fact]
@@ -113,12 +125,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5f));
+        var act = Guard.Validate.IfLessThan(quantity, 5f);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -136,7 +148,7 @@ public class GuardValidationFloatExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -152,7 +164,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "MIN:5");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MIN:5"
+        );
     }
 
     [Fact]
@@ -163,12 +179,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfLessThan(quantity, 5f));
+        var act = Guard.Validate.IfLessThan(quantity, 5f);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -184,7 +200,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -195,12 +215,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 6));
+        var act = Guard.Validate.IfEquals(quantity, 6);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -217,7 +237,7 @@ public class GuardValidationFloatExtensionsTests
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -232,7 +252,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -243,12 +267,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfEquals(quantity, 4));
+        var act = Guard.Validate.IfEquals(quantity, 4);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
 
@@ -260,12 +284,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 22));
+        var act = Guard.Validate.IfDifferent(quantity, 22);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -280,7 +304,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
 
@@ -296,7 +324,11 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -307,12 +339,12 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfDifferent(quantity, 78));
+        var act = Guard.Validate.IfDifferent(quantity, 78);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(quantity);
     }
 
     [Fact]
@@ -327,6 +359,10 @@ public class GuardValidationFloatExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "INVALID"
+        );
     }
 }

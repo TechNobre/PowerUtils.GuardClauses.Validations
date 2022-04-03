@@ -62,11 +62,11 @@ public class GuardValidationObjectExtensionsTests
 
 
         // Act
-        var act = Record.Exception(() => Guard.Validate.IfNull(client));
+        var act = Guard.Validate.IfNull(client);
 
 
         // Assert
         act.Should()
-            .BeNull();
+            .Be(client);
     }
 }
