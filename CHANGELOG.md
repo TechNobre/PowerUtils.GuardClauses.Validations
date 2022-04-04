@@ -3,6 +3,17 @@
 
 
 
+## [2.2.1] - 2022-04-04
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.2.0...v2.2.1)
+
+
+### Fixes
+- Returned the same type as the input value for `Guard.Validate.IfNull()`;
+- Added again the the specific `Guard.Validate.IfNull()` for strings;
+
+
+
+
 ## [2.2.0] - 2022-04-03
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.1.0...v2.2.0)
 

@@ -12,9 +12,9 @@ namespace PowerUtils.Validations.GuardClauses
         /// <param name="value">Value to validate</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when value is null</exception>
-        public static object IfNull(
+        public static T IfNull<T>(
             this IGuardValidationClause _,
-            object value,
+            T value,
             [CallerArgumentExpression("value")] string parameterName = null
         )
         {
