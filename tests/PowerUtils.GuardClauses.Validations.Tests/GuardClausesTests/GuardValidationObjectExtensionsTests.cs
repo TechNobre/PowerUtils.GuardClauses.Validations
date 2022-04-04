@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net;
+using PowerUtils.GuardClauses.Validations.Tests.Fakes;
 using PowerUtils.Validations;
 using PowerUtils.Validations.Exceptions;
 using PowerUtils.Validations.GuardClauses;
@@ -55,7 +56,7 @@ public class GuardValidationObjectExtensionsTests
     }
 
     [Fact]
-    public void IfNull_NotObject_Valid()
+    public void IfNull_NotNull_Valid()
     {
         // Arrange
         var client = new object();
@@ -68,5 +69,42 @@ public class GuardValidationObjectExtensionsTests
         // Assert
         act.Should()
             .Be(client);
+    }
+
+    [Fact]
+    public void IfNull_NullClass_Valid()
+    {
+        // Arrange
+        FakeObj fakeObj = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfNull(fakeObj));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(fakeObj),
+            ErrorCodes.REQUIRED
+        );
+    }
+
+    [Fact]
+    public void IfNull_NotNullClass_Valid()
+    {
+        // Arrange
+        var fakeObj = new FakeObj();
+
+
+        // Act
+        var act = Guard.Validate.IfNull(fakeObj);
+
+
+        // Assert
+        act.Should()
+            .Be(fakeObj);
+        act.Should()
+            .BeOfType<FakeObj>();
     }
 }
