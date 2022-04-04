@@ -7,6 +7,27 @@ namespace PowerUtils.Validations.GuardClauses
     public static class GuardValidationStringExtensions
     {
         /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is null with the error code 'REQUIRED'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when value is null</exception>
+        public static string IfNull(
+            this IGuardValidationClause _,
+            string value,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value == null)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.REQUIRED);
+            }
+
+            return value;
+        }
+
+        /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is empty. Error code 'REQUIRED'
         /// </summary>
         /// <param name="_"></param>
@@ -28,7 +49,7 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.REQUIRED);
             }
-            
+
             return value;
         }
 
