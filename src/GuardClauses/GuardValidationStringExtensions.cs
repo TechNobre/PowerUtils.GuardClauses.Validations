@@ -144,7 +144,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// </summary>
         /// <param name="_"></param>
         /// <param name="value">Value to validate</param>
-        /// <param name="minLength">Max length</param>
+        /// <param name="minLength">Min length</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the length of the value is less than</exception>
         [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfShorterThan'")]
@@ -160,7 +160,7 @@ namespace PowerUtils.Validations.GuardClauses
         /// </summary>
         /// <param name="_"></param>
         /// <param name="value">Value to validate</param>
-        /// <param name="minLength">Max length</param>
+        /// <param name="minLength">Min length</param>
         /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
         /// <exception cref="PropertyException">Exception thrown when the value is shorter than</exception>
         public static string IfShorterThan(
@@ -359,6 +359,41 @@ namespace PowerUtils.Validations.GuardClauses
             if(value != otherValue)
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length out of range. Error code 'MIN:{X}' or 'MAX:{X}'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="minLength">Min length</param>
+        /// <param name="maxLength">Max length</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the length of the value is out of range</exception>
+        public static string IfLengthOutOfRange(
+            this IGuardValidationClause _,
+            string value,
+            int minLength,
+            int maxLength,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value == null)
+            {
+                return value;
+            }
+
+            if(value.Length < minLength)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.GetMinFormatted(minLength));
+            }
+
+            if(value.Length > maxLength)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.GetMaxFormatted(maxLength));
             }
 
             return value;
