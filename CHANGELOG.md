@@ -3,11 +3,21 @@
 
 
 
+## [2.3.0] - 2022-04-05
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.2.1...v2.3.0)
+
+
+### New Features
+- Added Guard `Guard.Validate.IfLengthOutOfRange()`;
+
+
+
+
 ## [2.2.1] - 2022-04-04
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.2.0...v2.2.1)
 
 
-### Fixes
+### Fixed
 - Returned the same type as the input value for `Guard.Validate.IfNull()`;
 - Added again the the specific `Guard.Validate.IfNull()` for strings;
 

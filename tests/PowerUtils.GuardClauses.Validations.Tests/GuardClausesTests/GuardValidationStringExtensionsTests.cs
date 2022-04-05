@@ -979,7 +979,11 @@ public class GuardValidationStringExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(clientEmail),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -994,7 +998,11 @@ public class GuardValidationStringExtensionsTests
 
 
         // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(clientEmail), "INVALID");
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(clientEmail),
+            "INVALID"
+        );
     }
 
     [Fact]
@@ -1011,5 +1019,75 @@ public class GuardValidationStringExtensionsTests
         // Assert
         act.Should()
             .Be(clientEmail);
+    }
+
+    [Fact]
+    public void IfLengthOutOfRange_Null_Valid()
+    {
+        // Arrange
+        string name = null;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthOutOfRange(name, 4, 7));
+
+
+        // Assert
+        act.Should()
+            .Be(name);
+    }
+
+    [Fact]
+    public void IfLengthOutOfRange_Short_Exception()
+    {
+        // Arrange
+        var name = "ola";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthOutOfRange(name, 4, 7));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(name),
+            ErrorCodes.GetMinFormatted(4)
+        );
+    }
+
+    [Fact]
+    public void IfLengthOutOfRange_Longer_Exception()
+    {
+        // Arrange
+        var name = "Vel ut gubergren est ut sed blandit ipsum";
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfLengthOutOfRange(name, 4, 7));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(name),
+            ErrorCodes.GetMaxFormatted(7)
+        );
+    }
+
+    [Fact]
+    public void IfLengthOutOfRange_Valid_SameValue()
+    {
+        // Arrange
+        var name = "Power";
+
+
+        // Act
+        var act = Guard.Validate.IfLengthOutOfRange(name, 4, 7);
+
+
+        // Assert
+        act.Should()
+            .Be(name);
     }
 }
