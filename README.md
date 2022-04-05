@@ -95,11 +95,12 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfNullOrWhiteSpace()`;
   - `Guard.Validate.IfLongerThan()`;
   - `Guard.Validate.IfShorterThan()`;
-  - `Guard.Validate.IfNotEmail()`;
+  - `Guard.Validate.IfLengthOutOfRange()`;
   - `Guard.Validate.IfLengthEquals()`;
   - `Guard.Validate.IfLengthDifferent()`;
   - `Guard.Validate.IfEquals()`;
   - `Guard.Validate.IfDifferent()`;
+  - `Guard.Validate.IfNotEmail()`;
 - __short, ushort, int, uint, long, ulong, float, double, decimal:__
   - `Guard.Validate.IfGreaterThan()`;
   - `Guard.Validate.IfLessThan()`;
