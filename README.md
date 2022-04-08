@@ -105,6 +105,7 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfLessThan()`;
   - `Guard.Validate.IfEquals()`;
   - `Guard.Validate.IfDifferent()`;
+  - `Guard.Validate.IfOutOfRange()`;
 - __DateTime:__
   - `Guard.Validate.IfGreaterThan()`;
   - `Guard.Validate.IfGreaterThanUtcNow()`;

@@ -13,6 +13,7 @@
 
 ### New Features
 - Added Guard `Guard.Validate.IfOutOfRange()` for dateTime;
+- Added Guard `Guard.Validate.IfOutOfRange()` for numbers;
 
 
 

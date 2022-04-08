@@ -145,5 +145,35 @@ namespace PowerUtils.Validations.GuardClauses
 
             return value;
         }
+
+        /// <summary>
+        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> out of range. Error code 'MIN:{X}' or 'MAX:{X}'
+        /// </summary>
+        /// <param name="_"></param>
+        /// <param name="value">Value to validate</param>
+        /// <param name="min">Min value</param>
+        /// <param name="max">Max value</param>
+        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
+        /// <exception cref="PropertyException">Exception thrown when the value is out of range</exception>
+        public static float? IfOutOfRange(
+            this IGuardValidationClause _,
+            float? value,
+            float min,
+            float max,
+            [CallerArgumentExpression("value")] string parameterName = null
+        )
+        {
+            if(value < min)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.GetMinFormatted(min));
+            }
+
+            if(value > max)
+            {
+                throw new PropertyException(parameterName, ErrorCodes.GetMaxFormatted(max));
+            }
+
+            return value;
+        }
     }
 }

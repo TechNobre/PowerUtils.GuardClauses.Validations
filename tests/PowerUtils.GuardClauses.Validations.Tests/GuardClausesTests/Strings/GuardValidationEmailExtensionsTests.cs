@@ -3,7 +3,7 @@ using PowerUtils.Validations;
 using PowerUtils.Validations.Exceptions;
 using PowerUtils.Validations.GuardClauses;
 
-namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests;
+namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests.Strings;
 
 [Trait("Type", "Guards")]
 public class GuardValidationEmailExtensionsTests
