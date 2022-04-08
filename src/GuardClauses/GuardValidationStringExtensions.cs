@@ -1,5 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-using PowerUtils.Text;
+using System.Text.RegularExpressions;
 using PowerUtils.Validations.Exceptions;
 
 namespace PowerUtils.Validations.GuardClauses
@@ -296,6 +296,8 @@ namespace PowerUtils.Validations.GuardClauses
             [CallerArgumentExpression("value")] string parameterName = null
         ) => Guard.Validate.IfNotEmail(value, parameterName);
 
+        private static readonly Regex _emailRegex = new Regex(@"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$", RegexOptions.Compiled);
+
         /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is not an email. Error code 'INVALID'
         /// </summary>
@@ -309,7 +311,12 @@ namespace PowerUtils.Validations.GuardClauses
             [CallerArgumentExpression("value")] string parameterName = null
         )
         {
-            if(!value.IsEmail())
+            if(string.IsNullOrWhiteSpace(value))
+            {
+                throw new PropertyException(parameterName, ErrorCodes.INVALID);
+            }
+            
+            if(!_emailRegex.IsMatch(value))
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }

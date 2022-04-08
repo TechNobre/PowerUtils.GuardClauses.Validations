@@ -3,6 +3,16 @@
 
 
 
+## [2.4.0] - 2022-04-08
+[Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.3.0...v2.4.0)
+
+
+### Enhancements
+- Removed `PowerUtils.Text` dependency;
+
+
+
+
 ## [2.3.0] - 2022-04-05
 [Full Changelog](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.2.1...v2.3.0)
 

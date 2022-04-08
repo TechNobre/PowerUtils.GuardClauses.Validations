@@ -29,7 +29,6 @@ Helpers, extensions and utilities to work with guard clauses
 ### Dependencies
 
 - PowerUtils.Net.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Net.Primitives/)
-- PowerUtils.Text [NuGet](https://www.nuget.org/packages/PowerUtils.Text/)
 - PowerUtils.Validations.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Validations.Primitives/)
 
 
