@@ -366,4 +366,128 @@ public class GuardValidationDecimalExtensionsTests
             "INVALID"
         );
     }
+
+    [Fact]
+    public void IfOutOfRange_InRange_Valid()
+    {
+        // Arrange
+        var quantity = 45.45741m;
+
+
+        // Act
+        var act = Guard.Validate.IfOutOfRange(quantity, 10, 50);
+
+
+        // Assert
+        act.Should()
+            .Be(quantity);
+    }
+
+    [Fact]
+    public void IfOutOfRange_SmallNumber_Exception()
+    {
+        // Arrange
+        var quantity = 5.45741m;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(quantity, 10, 50));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MIN:10"
+        );
+    }
+
+    [Fact]
+    public void IfOutOfRange_BigNumber_Exception()
+    {
+        // Arrange
+        var quantity = 55.45741m;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(quantity, 10, 50));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MAX:50"
+        );
+    }
+    
+    [Fact]
+    public void IfOutOfRangeNullable_NULL_Valid()
+    {
+        // Arrange
+        decimal? quantity = null;
+
+
+        // Act
+        var act = Guard.Validate.IfOutOfRange(quantity, 10, 50);
+
+
+        // Assert
+        act.Should()
+            .Be(quantity);
+    }
+
+    [Fact]
+    public void IfOutOfRangeNullable_InRange_Valid()
+    {
+        // Arrange
+        decimal? quantity = 45.45741m;
+
+
+        // Act
+        var act = Guard.Validate.IfOutOfRange(quantity, 10, 50);
+
+
+        // Assert
+        act.Should()
+            .Be(quantity);
+    }
+
+    [Fact]
+    public void IfOutOfRangeNullable_SmallNumber_Exception()
+    {
+        // Arrange
+        decimal? quantity = 5.45741m;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(quantity, 10, 50));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MIN:10"
+        );
+    }
+
+    [Fact]
+    public void IfOutOfRangeNullable_BigNumber_Exception()
+    {
+        // Arrange
+        decimal? quantity = 55.45741m;
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(quantity, 10, 50));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(quantity),
+            "MAX:50"
+        );
+    }
 }

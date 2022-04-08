@@ -29,7 +29,6 @@ Helpers, extensions and utilities to work with guard clauses
 ### Dependencies
 
 - PowerUtils.Net.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Net.Primitives/)
-- PowerUtils.Text [NuGet](https://www.nuget.org/packages/PowerUtils.Text/)
 - PowerUtils.Validations.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Validations.Primitives/)
 
 
@@ -106,6 +105,7 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfLessThan()`;
   - `Guard.Validate.IfEquals()`;
   - `Guard.Validate.IfDifferent()`;
+  - `Guard.Validate.IfOutOfRange()`;
 - __DateTime:__
   - `Guard.Validate.IfGreaterThan()`;
   - `Guard.Validate.IfGreaterThanUtcNow()`;
@@ -113,6 +113,7 @@ dotnet add package PowerUtils.GuardClauses.Validations
   - `Guard.Validate.IfLessThanUtcNow()`;
   - `Guard.Validate.IfEquals()`;
   - `Guard.Validate.IfDifferent()`;
+  - `Guard.Validate.IfOutOfRange()`;
 - __Guid:__
   - `Guard.Validate.IfEmpty()`;
   - `Guard.Validate.IfEquals()`;
