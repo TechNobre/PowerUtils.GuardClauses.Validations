@@ -580,4 +580,188 @@ public class GuardValidationDateTimeExtensionsTests
         act.Should()
             .Be(dateOfBirth);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    [Fact]
+    public void IfOutOfRange_InRange_Valid()
+    {
+        // Arrange
+        var dateOfBirth = new DateTime(2021, 1, 1);
+
+
+        // Act
+        var act = Guard.Validate.IfOutOfRange(dateOfBirth, new DateTime(2000, 12, 31), new DateTime(2021, 1, 2));
+
+
+        // Assert
+        act.Should()
+            .Be(dateOfBirth);
+    }
+
+    [Fact]
+    public void IfOutOfRange_Past_Exception()
+    {
+        // Arrange
+        var dateOfBirth = new DateTime(1999, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(dateOfBirth, new DateTime(2000, 12, 31), new DateTime(2021, 1, 2)));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MIN:2000-12-31"
+        );
+    }
+
+    [Fact]
+    public void IfOutOfRange_Future_Exception()
+    {
+        // Arrange
+        var dateOfBirth = new DateTime(2022, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(dateOfBirth, new DateTime(2000, 12, 31), new DateTime(2021, 1, 2)));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MAX:2021-01-02"
+        );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    [Fact]
+    public void IfOutOfRangeNullable_NULL_Valid()
+    {
+        // Arrange
+        DateTime? dateOfBirth = null;
+
+
+        // Act
+        var act = Guard.Validate.IfOutOfRange(dateOfBirth, new DateTime(2000, 12, 31), new DateTime(2021, 1, 2));
+
+
+        // Assert
+        act.Should()
+            .Be(dateOfBirth);
+    }
+
+    [Fact]
+    public void IfOutOfRangeNullable_InRange_Valid()
+    {
+        // Arrange
+        DateTime? dateOfBirth = new DateTime(2021, 1, 1);
+
+
+        // Act
+        var act = Guard.Validate.IfOutOfRange(dateOfBirth, new DateTime(2000, 12, 31), new DateTime(2021, 1, 2));
+
+
+        // Assert
+        act.Should()
+            .Be(dateOfBirth);
+    }
+
+    [Fact]
+    public void IfOutOfRangeNullable_Past_Exception()
+    {
+        // Arrange
+        DateTime? dateOfBirth = new DateTime(1999, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(dateOfBirth, new DateTime(2000, 12, 31), new DateTime(2021, 1, 2)));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MIN:2000-12-31"
+        );
+    }
+
+    [Fact]
+    public void IfOutOfRangeNullable_Future_Exception()
+    {
+        // Arrange
+        DateTime? dateOfBirth = new DateTime(2022, 1, 1);
+
+
+        // Act
+        var act = Record.Exception(() => Guard.Validate.IfOutOfRange(dateOfBirth, new DateTime(2000, 12, 31), new DateTime(2021, 1, 2)));
+
+
+        // Assert
+        act.Validate<PropertyException>(
+            HttpStatusCode.BadRequest,
+            nameof(dateOfBirth),
+            "MAX:2021-01-02"
+        );
+    }
 }

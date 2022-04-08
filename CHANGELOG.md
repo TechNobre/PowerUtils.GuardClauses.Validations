@@ -11,6 +11,10 @@
 - Removed `PowerUtils.Text` dependency;
 
 
+### New Features
+- Added Guard `Guard.Validate.IfOutOfRange()` for dateTime;
+
+
 
 
 ## [2.3.0] - 2022-04-05
