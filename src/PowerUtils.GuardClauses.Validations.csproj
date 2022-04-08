@@ -3,6 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>a2c32f07-b480-456f-86f3-acd569b392a5</ProjectGuid>
 
+    <CurrentYear>$([System.DateTime]::UtcNow.ToString(yyyy))</CurrentYear>
 
     <!-- Assembly and projecto details -->
     <!-- https://docs.microsoft.com/en-us/dotnet/standard/frameworks -->
@@ -14,14 +15,14 @@
     <PackageId>PowerUtils.GuardClauses.Validations</PackageId>
     <title>PowerUtils.GuardClauses.Validations</title>
     <Product>PowerUtils.GuardClauses.Validations</Product>
-    <Version>2.3.0</Version>
+    <Version>2.4.0</Version>
 
     <Authors>Nelson Nobre</Authors>
     <Company>TechNobre</Company>
 
     <License>MIT</License>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Copyright>Copyright © 2022 by TechNobre</Copyright>
+    <Copyright>Copyright © $(CurrentYear) by TechNobre</Copyright>
 
     <Description>Helpers, extensions and utilities to work with guard clause</Description>
     <PackageReleaseNotes>
@@ -29,6 +30,7 @@
     </PackageReleaseNotes>
     <Summary>Helpers, extensions and utilities to work with guard clause</Summary>
     <PackageTags>PowerUtils;Utils;Helpers;GuardClauses;Validations;Exception;Extensions;Errors</PackageTags>
+    <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/TechNobre/PowerUtils.GuardClauses.Validations</RepositoryUrl>
     <PackageProjectUrl>https://github.com/TechNobre/PowerUtils.GuardClauses.Validations</PackageProjectUrl>
     <NeutralLanguage>en-GB</NeutralLanguage>
@@ -61,29 +63,6 @@
     <DefineConstants>RELEASE;TRACE</DefineConstants>
     <ErrorReport>none</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <DefineConstants>NETSTANDARD;NETSTANDARD2_0</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
-    <DefineConstants>NETSTANDARD;NETSTANDARD2_1</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net462' ">
-    <DefineConstants>NETFRAMEWORK;NET462</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net48' ">
-    <DefineConstants>NETFRAMEWORK;NET48</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
-    <DefineConstants>NETCOREAPP;NETCOREAPP3_1</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
-    <DefineConstants>NET;NET5</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
-    <DefineConstants>NET;NET6</DefineConstants>
   </PropertyGroup>
 
 
