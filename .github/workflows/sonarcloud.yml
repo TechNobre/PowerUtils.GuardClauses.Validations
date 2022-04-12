@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  SDK_VERSION: '6.0.201'
+  SDK_VERSION: '6.0.202'
 
 
 jobs:
