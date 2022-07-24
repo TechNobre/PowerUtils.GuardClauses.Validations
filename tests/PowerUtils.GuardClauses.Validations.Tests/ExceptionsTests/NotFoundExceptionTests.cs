@@ -7,11 +7,10 @@ using PowerUtils.Validations.Exceptions;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests;
 
-[Trait("Type", "Exceptions")]
 public class NotFoundExceptionTests
 {
-    [Fact(DisplayName = "Instance a NotFoundException without parameters")]
-    public void Constructor_WithoutParameters()
+    [Fact]
+    public void NotFoundException_Constructor_WithoutParameters()
     {
         // Arrange && Act
         var act = new NotFoundException();
@@ -21,8 +20,8 @@ public class NotFoundExceptionTests
         act.Validate(HttpStatusCode.NotFound);
     }
 
-    [Fact(DisplayName = "Instance a NotFoundException with message")]
-    public void Constructor_WithMessage()
+    [Fact]
+    public void NotFoundException_Constructor_WithMessage()
     {
         // Arrange
         var message = "Fake message";
@@ -36,8 +35,8 @@ public class NotFoundExceptionTests
         act.Validate(HttpStatusCode.NotFound, message);
     }
 
-    [Fact(DisplayName = "Instance a NotFoundException with message and inner exception")]
-    public void Constructor_WithMessageAndInnerException()
+    [Fact]
+    public void InvalidOperationException_Constructor_WithMessageAndInnerException()
     {
         // Arrange
         var message = "Fake message";
@@ -52,8 +51,8 @@ public class NotFoundExceptionTests
         act.Validate<InvalidOperationException>(HttpStatusCode.NotFound, message);
     }
 
-    [Fact(DisplayName = "Serialization and Deserialization MaxLatitudeException - Should be equivalent")]
-    public void SerializeDeserialize_Equivalent()
+    [Fact]
+    public void NotFoundException_SerializeDeserialize_Equivalent()
     {
         // Arrange
         var exception = new NotFoundException();
@@ -80,8 +79,8 @@ public class NotFoundExceptionTests
         act.Validate(HttpStatusCode.NotFound);
     }
 
-    [Fact(DisplayName = "Try call GetObjectData with null info - Should return an 'ArgumentNullException'")]
-    public void GetObjectData_NullInfo_ArgumentNullException()
+    [Fact]
+    public void NullInfo_GetObjectData_ArgumentNullException()
     {
         // Arrange
         var exception = new NotFoundException();
@@ -97,8 +96,8 @@ public class NotFoundExceptionTests
     }
 
 
-    [Fact(DisplayName = "Instance a NotFoundException with error and message")]
-    public void Constructor_WithPropertyAndMessage()
+    [Fact]
+    public void ErrorCodeAndProperty_Constructor_WithPropertyAndMessage()
     {
         // Arrange
         var property = "FakeProp";
@@ -113,8 +112,8 @@ public class NotFoundExceptionTests
         act.Validate(HttpStatusCode.NotFound, property, ErrorCodes.NOT_FOUND, message);
     }
 
-    [Fact(DisplayName = "Instance a NotFoundException with error and message")]
-    public void Constructor_WithErrorAndMessage()
+    [Fact]
+    public void ErrorCodePropertyAndMessage_Constructor_WithErrorAndMessage()
     {
         // Arrange
         var property = "FakeProp";
@@ -131,8 +130,8 @@ public class NotFoundExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw a NotFoundException with property")]
-    public void Throw_WithError()
+    [Fact]
+    public void Property_Throw_WithError()
     {
         // Arrange
         var property = "FakeProp";
@@ -147,8 +146,8 @@ public class NotFoundExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw a NotFoundException with error")]
-    public void Throw_WithErrorAndError()
+    [Fact]
+    public void ErrorCodeAndProperty_Throw_WithErrorAndError()
     {
         // Arrange
         var property = "FakeProp";

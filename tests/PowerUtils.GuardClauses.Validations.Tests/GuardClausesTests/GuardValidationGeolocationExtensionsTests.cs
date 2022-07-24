@@ -5,11 +5,10 @@ using PowerUtils.Validations.GuardClauses;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests;
 
-[Trait("Type", "Guards")]
 public class GuardValidationGeolocationExtensionsTests
 {
     [Fact]
-    public void FloatLatitude_Small_Exception()
+    public void SmallFloat_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = -90.1f;
@@ -28,7 +27,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLatitude_Large_Exception()
+    public void LargeFloat_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = 90.1f;
@@ -47,7 +46,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLatitude_Valid_NotException()
+    public void ValidFloat_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         var degree = 18.1f;
@@ -64,7 +63,7 @@ public class GuardValidationGeolocationExtensionsTests
 
 
     [Fact]
-    public void FloatLongitude_Small_Exception()
+    public void SmallFloat_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = -180.1f;
@@ -83,7 +82,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLongitude_Large_Exception()
+    public void LargeFloat_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = 180.1f;
@@ -102,7 +101,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLongitude_Valid_NotException()
+    public void ValidFloat_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         var degree = 18.1f;
@@ -118,7 +117,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLatitudeNullable_Null_NotException()
+    public void NullFloat_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         float? degree = null;
@@ -134,7 +133,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLatitudeNullable_Small_Exception()
+    public void SmallFloatNullable_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         float? degree = -90.1f;
@@ -153,7 +152,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLatitudeNullable_Large_Exception()
+    public void LargeFloatNullable_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         float? degree = 90.1f;
@@ -172,7 +171,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLatitudeNullable_Valid_NotException()
+    public void ValidNullableFloat_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         float? degree = 18.1f;
@@ -188,7 +187,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLongitudeNullable_Null_NotException()
+    public void NullableNullFloat_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         float? degree = null;
@@ -204,7 +203,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLongitudeNullable_Small_Exception()
+    public void SmallNullable_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         float? degree = -180.1f;
@@ -219,7 +218,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLongitudeNullable_Large_Exception()
+    public void LargeNullableFloat_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         float? degree = 180.1f;
@@ -234,7 +233,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void FloatLongitudeNullable_Valid_NotException()
+    public void ValidNullableFloat_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         float? degree = 18.1f;
@@ -249,9 +248,8 @@ public class GuardValidationGeolocationExtensionsTests
             .Be(degree);
     }
 
-
     [Fact]
-    public void DoubleLatitude_Small_Exception()
+    public void SmallDouble_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = -90.1;
@@ -266,7 +264,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLatitude_Large_Exception()
+    public void LargeDouble_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = 90.1;
@@ -281,7 +279,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLatitude_Valid_NotException()
+    public void ValidDouble_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         var degree = 18.1;
@@ -298,7 +296,7 @@ public class GuardValidationGeolocationExtensionsTests
 
 
     [Fact]
-    public void DoubleLongitude_Small_Exception()
+    public void SmallDouble_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = -180.1;
@@ -313,7 +311,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLongitude_Large_Exception()
+    public void LargeDouble_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = 180.1;
@@ -328,7 +326,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLongitude_Valid_NotException()
+    public void ValidDouble_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         var degree = 18.1;
@@ -344,7 +342,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLatitudeNullable_Null_NotException()
+    public void NullDoubleNullable_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         double? degree = null;
@@ -360,7 +358,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLatitudeNullable_Small_Exception()
+    public void SmallDoubleNullable_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         double? degree = -90.1;
@@ -375,7 +373,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLatitudeNullable_Large_Exception()
+    public void LargeDoubleNullable_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         double? degree = 90.1;
@@ -390,7 +388,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLatitudeNullable_Valid_NotException()
+    public void ValidDoubleNullable_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         double? degree = 18.1;
@@ -406,7 +404,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLongitudeNullable_Null_NotException()
+    public void NullDoubleNullable_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         double? degree = null;
@@ -422,7 +420,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLongitudeNullable_Small_Exception()
+    public void SmallDoubleNullable_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         double? degree = -180.1;
@@ -437,7 +435,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLongitudeNullable_Large_Exception()
+    public void LargeDoubleNullable_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         double? degree = 180.1;
@@ -452,7 +450,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DoubleLongitudeNullable_Valid_NotException()
+    public void ValidDoubleNullable_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         double? degree = 18.1;
@@ -467,9 +465,8 @@ public class GuardValidationGeolocationExtensionsTests
             .Be(degree);
     }
 
-
     [Fact]
-    public void DecimalLatitude_Small_Exception()
+    public void SmallDecimal_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = -90.1m;
@@ -484,7 +481,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLatitude_Large_Exception()
+    public void LargeDecimal_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = 90.1m;
@@ -499,7 +496,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLatitude_Valid_NotException()
+    public void ValidDecimal_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         var degree = 18.1m;
@@ -514,9 +511,8 @@ public class GuardValidationGeolocationExtensionsTests
             .Be(degree);
     }
 
-
     [Fact]
-    public void DecimalLongitude_Small_Exception()
+    public void SmallDecimal_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         var degree = -180.1m;
@@ -531,7 +527,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLongitude_Large_Exception()
+    public void LargeDecimal_PropertyException_PropertyException()
     {
         // Arrange
         var degree = 180.1m;
@@ -546,7 +542,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLongitude_Valid_NotException()
+    public void ValidDecimal_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         var degree = 18.1m;
@@ -562,7 +558,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLatitudeNullable_Null_NotException()
+    public void NullDecimalNullable_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         decimal? degree = null;
@@ -578,7 +574,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLatitudeNullable_Small_Exception()
+    public void SmallDecimalNullable_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         decimal? degree = -90.1m;
@@ -593,7 +589,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLatitudeNullable_Large_Exception()
+    public void LargeDecimalNullable_IfLatitudeOutOfRange_PropertyException()
     {
         // Arrange
         decimal? degree = 90.1m;
@@ -608,7 +604,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLatitudeNullable_Valid_NotException()
+    public void ValidDecimalNullable_IfLatitudeOutOfRange_NotException()
     {
         // Arrange
         decimal? degree = 18.1m;
@@ -624,7 +620,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLongitudeNullable_Null_NotException()
+    public void NullDecimalNullable_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         decimal? degree = null;
@@ -640,7 +636,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLongitudeNullable_Small_Exception()
+    public void SmallDecimalNullable_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         decimal? degree = -180.1m;
@@ -655,7 +651,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLongitudeNullable_Large_Exception()
+    public void LargeDecimalNullable_IfLongitudeOutOfRange_PropertyException()
     {
         // Arrange
         decimal? degree = 180.1m;
@@ -670,7 +666,7 @@ public class GuardValidationGeolocationExtensionsTests
     }
 
     [Fact]
-    public void DecimalLongitudeNullable_Valid_NotException()
+    public void ValidDecimalNullable_IfLongitudeOutOfRange_NotException()
     {
         // Arrange
         decimal? degree = 18.1m;

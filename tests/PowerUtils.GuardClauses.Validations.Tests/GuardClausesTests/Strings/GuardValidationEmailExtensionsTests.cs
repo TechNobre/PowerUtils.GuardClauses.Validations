@@ -1,15 +1,13 @@
 ﻿using System.Net;
-using PowerUtils.Validations;
 using PowerUtils.Validations.Exceptions;
 using PowerUtils.Validations.GuardClauses;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests.Strings;
 
-[Trait("Type", "Guards")]
 public class GuardValidationEmailExtensionsTests
 {
     [Fact]
-    public void IfNotEmail_Null_Exception()
+    public void Null_IfNotEmail_PropertyException()
     {
         // Arrange
         string clientEmail = null;
@@ -24,7 +22,7 @@ public class GuardValidationEmailExtensionsTests
     }
 
     [Fact]
-    public void IfNotEmail_Empty_Exception()
+    public void Empty_IfNotEmail_PropertyException()
     {
         // Arrange
         var clientEmail = "";
@@ -39,7 +37,7 @@ public class GuardValidationEmailExtensionsTests
     }
 
     [Fact]
-    public void IfNotEmail_WithSpace_Exception()
+    public void WithSpace_IfNotEmail_PropertyException()
     {
         // Arrange
         var clientEmail = "    ";
@@ -58,7 +56,7 @@ public class GuardValidationEmailExtensionsTests
     }
 
     [Fact]
-    public void IfNotEmail_FakeText_Exception()
+    public void FakeText_IfNotEmail_PropertyException()
     {
         // Arrange
         var clientEmail = "fake";
@@ -77,7 +75,7 @@ public class GuardValidationEmailExtensionsTests
     }
 
     [Fact]
-    public void IfNotEmail_Email_Valid()
+    public void Email_IfNotEmail_Valid()
     {
         // Arrange
         var clientEmail = "fake@fake.tk";
@@ -92,12 +90,6 @@ public class GuardValidationEmailExtensionsTests
             .Be(clientEmail);
     }
 
-
-
-
-
-
-
     [Theory]
     [InlineData("fake@fake.com")]
     [InlineData("fake@fake.com.co")]
@@ -108,7 +100,7 @@ public class GuardValidationEmailExtensionsTests
     [InlineData("nelson@fake.xn--6frz82g")]
     [InlineData("nelson@fake.pt6")]
     [InlineData("nelson@fake.6pt")]
-    public void IfNotEmail_Validate(string email)
+    public void AnyEmail_IfNotEmail_Validate(string email)
     {
         // Arrange & Act
         var act = Guard.Validate.IfNotEmail(email);
@@ -118,7 +110,6 @@ public class GuardValidationEmailExtensionsTests
         act.Should()
             .Be(email);
     }
-
 
     [Theory]
     [InlineData(null)]
@@ -139,7 +130,7 @@ public class GuardValidationEmailExtensionsTests
     [InlineData("nelson.nobre@fake.com.")]
     [InlineData("´nelson@fake.com")]
     [InlineData("nelson@fake")]
-    public void IfNotEmail_Invalidate(string email)
+    public void AnyInvalidEmail_IfNotEmail_Invalid(string email)
     {
         // Arrange & Act
         var act = Record.Exception(() => Guard.Validate.IfNotEmail(email));

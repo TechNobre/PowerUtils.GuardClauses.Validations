@@ -5,11 +5,10 @@ using PowerUtils.Validations.GuardClauses;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests.Strings;
 
-[Trait("Type", "Guards")]
 public class GuardValidationStringExtensionsTests
 {
     [Fact]
-    public void IfNull_Null_Exception()
+    public void Null_IfNull_PropertyException()
     {
         // Arrange
         string client = null;
@@ -24,7 +23,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNull_Empty_Valid()
+    public void Empty_IfNull_Valid()
     {
         // Arrange
         var client = "";
@@ -40,7 +39,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNull_DirectValue_Exception()
+    public void DirectValue_IfNull_Exception()
     {
         // Act
         var act = Record.Exception(() => Guard.Validate.IfNull(null));
@@ -51,7 +50,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNull_SetParameterName_Exception()
+    public void ParameterName_IfNull_PropertyExceptionWithParameterName()
     {
         // Act
         var act = Record.Exception(() => Guard.Validate.IfNull(null, "Product"));
@@ -62,7 +61,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void SetParameterName_DifferentName_NewName()
+    public void NewNameParameterName_IfNullOrEmpty_NewParameterName()
     {
         // Arrange
         var client = "";
@@ -76,7 +75,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfEmpty_Null_Valid()
+    public void Null_IfEmpty_Valid()
     {
         // Arrange
         string client = null;
@@ -92,7 +91,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfEmpty_Empty_Exception()
+    public void Empty_IfEmpty_PropertyException()
     {
         // Arrange
         var client = "";
@@ -109,7 +108,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfEmpty_Withspaces_Valid()
+    public void Withspaces_IfEmpty_Valid()
     {
         // Arrange
         var client = "    ";
@@ -127,7 +126,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfEmpty_Word_Valid()
+    public void Word_IfEmpty_Valid()
     {
         // Arrange
         var client = "fake";
@@ -143,7 +142,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrEmpty_Null_Exception()
+    public void Null_IfNullOrEmpty_PropertyException()
     {
         // Arrange
         string client = null;
@@ -158,7 +157,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrEmpty_Empty_Exception()
+    public void Empty_IfNullOrEmpty_PropertyException()
     {
         // Arrange
         var client = "";
@@ -173,7 +172,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrEmpty_WithValue_Valid()
+    public void Value_IfNullOrEmpty_Valid()
     {
         // Arrange
         var client = "fake";
@@ -192,7 +191,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfNullOrWhiteSpace_Null_Exception()
+    public void Null_IfNullOrWhiteSpace_PropertyException()
     {
         // Arrange
         string client = null;
@@ -207,7 +206,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrWhiteSpace_Empty_Exception()
+    public void Empty_IfNullOrWhiteSpace_PropertyException()
     {
         // Arrange
         var client = "";
@@ -222,7 +221,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrWhiteSpace_WithSpace_Exception()
+    public void WithSpace_IfNullOrWhiteSpace_PropertyException()
     {
         // Arrange
         var client = "      ";
@@ -237,7 +236,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrWhiteSpace_WithValue_Valid()
+    public void Value_IfNullOrWhiteSpace_Valid()
     {
         // Arrange
         var client = "fake";
@@ -255,7 +254,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfLengthGreaterThan_Null_Valid()
+    public void Null_IfLengthGreaterThan_Valid()
     {
         // Arrange
         string client = null;
@@ -273,7 +272,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthGreaterThan_BigText_Exception()
+    public void BigText_IfLengthGreaterThan_PropertyException()
     {
         // Arrange
         var client = "Fake fake fake";
@@ -290,7 +289,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthGreaterThan_WithSpace_Valid()
+    public void WithSpace_IfLengthGreaterThan_Valid()
     {
         // Arrange
         var client = "Fake";
@@ -310,7 +309,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfLengthLessThan_Null_Valid()
+    public void Null_IfLengthLessThan_Valid()
     {
         // Arrange
         string client = null;
@@ -328,7 +327,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthLessThan_BigText_Exception()
+    public void BigText_IfLengthLessThan_PropertyException()
     {
         // Arrange
         var client = "Fake";
@@ -345,7 +344,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthLessThan_WithSpace_Valid()
+    public void WithSpace_IfLengthLessThan_Valid()
     {
         // Arrange
         var client = "Fake fake fake";
@@ -362,10 +361,8 @@ public class GuardValidationStringExtensionsTests
             .Be(client);
     }
 
-
-
     [Fact]
-    public void IfLengthZero_Null_Valid()
+    public void Null_IfLengthZero_Valid()
     {
         // Arrange
         string client = null;
@@ -383,7 +380,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthZero_ZeroLength_Exception()
+    public void ZeroLength_IfLengthZero_PropertyException()
     {
         // Arrange
         var client = "";
@@ -400,7 +397,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthZero_WithSpace_Valid()
+    public void WithSpace_IfLengthZero_Valid()
     {
         // Arrange
         var client = "Fake";
@@ -418,7 +415,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void NotEmail_Null_Exception()
+    public void Null_NotEmail_PropertyException()
     {
         // Arrange
         string clientEmail = null;
@@ -435,7 +432,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void NotEmail_Empty_Exception()
+    public void Empty_NotEmail_PropertyException()
     {
         // Arrange
         var clientEmail = "";
@@ -452,7 +449,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void NotEmail_WithSpace_Exception()
+    public void WithSpace_NotEmail_PropertyException()
     {
         // Arrange
         var clientEmail = "    ";
@@ -469,7 +466,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void NotEmail_FakeText_Exception()
+    public void FakeText_NotEmail_PropertyException()
     {
         // Arrange
         var clientEmail = "fake";
@@ -486,7 +483,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void NotEmail_Email_Valid()
+    public void Email_NotEmail_Valid()
     {
         // Arrange
         var clientEmail = "fake@fake.tk";
@@ -504,7 +501,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthEquals_Null_Valid()
+    public void Null_IfLengthEquals_Valid()
     {
         // Arrange
         string client = null;
@@ -520,7 +517,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthEquals_Empty_Valid()
+    public void Empty_IfLengthEquals_Valid()
     {
         // Arrange
         var client = "";
@@ -536,7 +533,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthEquals_4Length_Valid()
+    public void FourLength_IfLengthEquals_Valid()
     {
         // Arrange
         var client = "fake";
@@ -552,7 +549,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthEquals_6Length_Valid()
+    public void SixLength_IfLengthEquals_Valid()
     {
         // Arrange
         var client = "fake";
@@ -568,7 +565,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthEquals_5Length_Exception()
+    public void FiveLength_IfLengthEquals_PropertyException()
     {
         // Arrange
         var client = "fakes";
@@ -583,7 +580,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifference_Null_Exception()
+    public void Null_IfLengthDifference_PropertyException()
     {
         // Arrange
         string client = null;
@@ -600,7 +597,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifference_Empty_Exception()
+    public void Empty_IfLengthDifference_PropertyException()
     {
         // Arrange
         var client = "";
@@ -617,7 +614,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifference_4Length_Exception()
+    public void FourLength_IfLengthDifference_PropertyException()
     {
         // Arrange
         var client = "fake";
@@ -634,7 +631,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifference_6Length_Exception()
+    public void SixLength_IfLengthDifference_PropertyException()
     {
         // Arrange
         var client = "fake";
@@ -651,7 +648,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifference_5Length_Valid()
+    public void FiveLength_IfLengthDifference_Valid()
     {
         // Arrange
         var client = "fakes";
@@ -669,7 +666,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifferent_Null_Exception()
+    public void Null_IfLengthDifferent_PropertyException()
     {
         // Arrange
         string client = null;
@@ -684,7 +681,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifferent_Empty_Exception()
+    public void Empty_IfLengthDifferent_PropertyException()
     {
         // Arrange
         var client = "";
@@ -699,7 +696,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifferent_4Length_Exception()
+    public void FiveLength_IfLengthDifferent_PropertyException()
     {
         // Arrange
         var client = "fake";
@@ -714,7 +711,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifferent_6Length_Exception()
+    public void SixLength_IfLengthDifferent_PropertyException()
     {
         // Arrange
         var client = "fake";
@@ -729,7 +726,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthDifferent_5Length_Valid()
+    public void FiveLength_IfLengthDifferent_Valid()
     {
         // Arrange
         var client = "fakes";
@@ -745,7 +742,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLongerThan_Null_Valid()
+    public void Null_IfLongerThan_Valid()
     {
         // Arrange
         string client = null;
@@ -761,7 +758,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLongerThan_BigText_Exception()
+    public void BigText_IfLongerThan_PropertyException()
     {
         // Arrange
         var client = "Fake fake fake";
@@ -776,7 +773,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLongerThan_ShortText_Valid()
+    public void ShortText_IfLongerThan_Valid()
     {
         // Arrange
         var client = "Fake";
@@ -792,7 +789,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfShorterThan_Null_Valid()
+    public void Null_IfShorterThan_Valid()
     {
         // Arrange
         string client = null;
@@ -808,7 +805,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfShorterThan_BigText_Valid()
+    public void BigText_IfShorterThan_Valid()
     {
         // Arrange
         var client = "Fake fake fake";
@@ -824,7 +821,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfShorterThan_ShortText_Exception()
+    public void ShortText_IfShorterThan_PropertyException()
     {
         // Arrange
         var client = "Fake";
@@ -840,7 +837,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfEquals_Equals_Exception()
+    public void Equals_IfEquals_PropertyException()
     {
         // Arrange
         var client = "Fake";
@@ -855,7 +852,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfEquals_Different_Valid()
+    public void DifferentText_IfEquals_Valid()
     {
         // Arrange
         var client = "Fake";
@@ -872,7 +869,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfEquals_Null_Valid()
+    public void Null_IfEquals_Valid()
     {
         // Arrange
         string client = null;
@@ -889,7 +886,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfDifferent_Equals_Valid()
+    public void EqualsText_IfDifferent_Valid()
     {
         // Arrange
         var client = "fake";
@@ -905,7 +902,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfDifferent_Different_Exception()
+    public void DifferentText_IfDifferent_PropertyException()
     {
         // Arrange
         var client = "fake";
@@ -921,7 +918,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfDifferent_Null_Exception()
+    public void Null_IfDifferent_PropertyException()
     {
         // Arrange
         string client = null;
@@ -938,7 +935,7 @@ public class GuardValidationStringExtensionsTests
 
 
     [Fact]
-    public void IfLengthOutOfRange_Null_Valid()
+    public void Null_IfLengthOutOfRange_Valid()
     {
         // Arrange
         string name = null;
@@ -954,7 +951,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthOutOfRange_Short_Exception()
+    public void Short_IfLengthOutOfRange_PropertyException()
     {
         // Arrange
         var name = "ola";
@@ -973,7 +970,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthOutOfRange_Longer_Exception()
+    public void Longer_IfLengthOutOfRange_PropertyException()
     {
         // Arrange
         var name = "Vel ut gubergren est ut sed blandit ipsum";
@@ -992,7 +989,7 @@ public class GuardValidationStringExtensionsTests
     }
 
     [Fact]
-    public void IfLengthOutOfRange_Valid_SameValue()
+    public void ValidText_IfLengthOutOfRange_SameValue()
     {
         // Arrange
         var name = "Power";

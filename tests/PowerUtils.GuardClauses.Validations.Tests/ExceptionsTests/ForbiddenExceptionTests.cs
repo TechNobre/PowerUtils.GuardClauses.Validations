@@ -7,11 +7,10 @@ using PowerUtils.Validations.Exceptions;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests;
 
-[Trait("Type", "Exceptions")]
 public class ForbiddenExceptionTests
 {
-    [Fact(DisplayName = "Instance a ForbiddenException without parameters")]
-    public void Constructor_WithoutParameters()
+    [Fact]
+    public void ForbiddenException_Constructor_WithoutParameters()
     {
         // Arrange && Act
         var act = new ForbiddenException();
@@ -21,8 +20,8 @@ public class ForbiddenExceptionTests
         act.Validate(HttpStatusCode.Forbidden);
     }
 
-    [Fact(DisplayName = "Instance a ForbiddenException with message")]
-    public void Constructor_WithMessage()
+    [Fact]
+    public void ForbiddenException_Constructor_WithMessage()
     {
         // Arrange
         var message = "Fake message";
@@ -36,8 +35,8 @@ public class ForbiddenExceptionTests
         act.Validate(HttpStatusCode.Forbidden, message);
     }
 
-    [Fact(DisplayName = "Instance a ForbiddenException with message and inner exception")]
-    public void Constructor_WithMessageAndInnerException()
+    [Fact]
+    public void InvalidOperationException_Constructor_WithMessageAndInnerException()
     {
         // Arrange
         var message = "Fake message";
@@ -52,8 +51,8 @@ public class ForbiddenExceptionTests
         act.Validate<InvalidOperationException>(HttpStatusCode.Forbidden, message);
     }
 
-    [Fact(DisplayName = "Serialization and Deserialization MaxLatitudeException - Should be equivalent")]
-    public void SerializeDeserialize_Equivalent()
+    [Fact]
+    public void ForbiddenException_SerializeDeserialize_Equivalent()
     {
         // Arrange
         var exception = new ForbiddenException();
@@ -80,8 +79,8 @@ public class ForbiddenExceptionTests
         act.Validate(HttpStatusCode.Forbidden);
     }
 
-    [Fact(DisplayName = "Try call GetObjectData with null info - Should return an 'ArgumentNullException'")]
-    public void GetObjectData_NullInfo_ArgumentNullException()
+    [Fact]
+    public void NullInfo_GetObjectData_ArgumentNullException()
     {
         // Arrange
         var exception = new ForbiddenException();
@@ -97,8 +96,8 @@ public class ForbiddenExceptionTests
     }
 
 
-    [Fact(DisplayName = "Instance a ForbiddenException with error and message")]
-    public void Constructor_WithPropertyAndMessage()
+    [Fact]
+    public void ErrorCodeAndProperty_Constructor_WithError()
     {
         // Arrange
         var property = "FakeProp";
@@ -113,8 +112,8 @@ public class ForbiddenExceptionTests
         act.Validate(HttpStatusCode.Forbidden, property, ErrorCodes.FORBIDDEN, message);
     }
 
-    [Fact(DisplayName = "Instance a ForbiddenException with error and message")]
-    public void Constructor_WithErrorAndMessage()
+    [Fact]
+    public void ErrorCodePropertyAndMessage_Constructor_WithErrorAndMessage()
     {
         // Arrange
         var property = "FakeProp";
@@ -132,7 +131,7 @@ public class ForbiddenExceptionTests
 
 
     [Fact(DisplayName = "Throw a ForbiddenException with property")]
-    public void Throw_WithError()
+    public void Property_Throw_WithError()
     {
         // Arrange
         var property = "FakeProp";
@@ -147,8 +146,8 @@ public class ForbiddenExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw a ForbiddenException with error")]
-    public void Throw_WithErrorAndError()
+    [Fact]
+    public void ErrorCodeAndProperty_Throw_WithErrorAndError()
     {
         // Arrange
         var property = "FakeProp";

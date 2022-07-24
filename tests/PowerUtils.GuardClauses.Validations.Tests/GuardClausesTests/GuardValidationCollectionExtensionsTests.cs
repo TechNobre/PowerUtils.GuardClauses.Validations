@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using PowerUtils.Validations;
 using PowerUtils.Validations.Exceptions;
@@ -8,11 +8,10 @@ using PowerUtils.Validations.GuardClauses;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests;
 
-[Trait("Type", "Guards")]
 public class GuardValidationCollectionExtensionsTests
 {
     [Fact]
-    public void IfNull_NullEnumerable_Exception()
+    public void NullEnumerable_IfNull_PropertyException()
     {
         // Arrange
         IEnumerable<string> prodList = null;
@@ -31,7 +30,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfNull_EmptyEnumerable_Valid()
+    public void EmptyEnumerable_IfNull_Valid()
     {
         // Arrange
         IEnumerable<string> prodList = new List<string>();
@@ -49,7 +48,7 @@ public class GuardValidationCollectionExtensionsTests
 
 
     [Fact]
-    public void IfEmpty_NullCollection_Valid()
+    public void NullCollection_IfEmpty_Valid()
     {
         // Arrange
         ICollection<string> prodList = null;
@@ -65,7 +64,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfEmpty_EmptyCollection_Exception()
+    public void EmptyCollection_IfEmpty_PropertyException()
     {
         // Arrange
         ICollection<string> prodList = new List<string>();
@@ -84,7 +83,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfEmpty_WithItemsCollection_Valid()
+    public void WithItemsCollection_IfEmpty_Valid()
     {
         // Arrange
         ICollection<string> prodList = new List<string> { "fake", "fake2" };
@@ -101,7 +100,7 @@ public class GuardValidationCollectionExtensionsTests
 
 
     [Fact]
-    public void IfNullOrEmpty_NullArray_Exception()
+    public void NullArray_IfNullOrEmpty_PropertyException()
     {
         // Arrange
         string[] prodList = null;
@@ -120,7 +119,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrEmpty_EmptyArray_Exception()
+    public void EmptyArray_IfNullOrEmpty_PropertyException()
     {
         // Arrange
         var prodList = Array.Empty<string>();
@@ -139,7 +138,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfNullOrEmpty_WithItemsArray_Valid()
+    public void WithItemsArray_IfNullOrEmpty_Valid()
     {
         // Arrange
         var prodList = new string[] { "fake", "fake2" };
@@ -155,7 +154,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfCountGreaterThan_NullEnumerable_Valid()
+    public void NullEnumerable_IfCountGreaterThan_Valid()
     {
         // Arrange
         IEnumerable<string> prodList = null;
@@ -171,7 +170,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfCountGreaterThan_FewItems_Valid()
+    public void FewItems_IfCountGreaterThan_Valid()
     {
         // Arrange
         IEnumerable<string> prodList = new string[] { "fake", "fake2" };
@@ -187,7 +186,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfCountGreaterThan_ManyItems_Exception()
+    public void ManyItems_IfCountGreaterThan_PropertyException()
     {
         // Arrange
         IEnumerable<string> prodList = new string[] { "fake", "fake2", "fake3", "fake4" };
@@ -206,7 +205,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfCountLessThan_NullEnumerable_Exception()
+    public void NullEnumerable_IfCountLessThan_PropertyException()
     {
         // Arrange
         IEnumerable<string> prodList = null;
@@ -225,7 +224,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfCountLessThan_FewItems_Exception()
+    public void FewItems_IfCountLessThan_PropertyException()
     {
         // Arrange
         var prodList = new List<string> { "fake", "fake2", "moq1", "moq2" };
@@ -245,7 +244,7 @@ public class GuardValidationCollectionExtensionsTests
     }
 
     [Fact]
-    public void IfCountLessThan_ManyItems_Valid()
+    public void ManyItems_IfCountLessThan_Valid()
     {
         // Arrange
         IEnumerable<string> prodList = new string[] { "fake", "fake2", "fake3", "fake4" };
