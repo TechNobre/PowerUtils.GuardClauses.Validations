@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.0.0...v2.1.0) (2022-07-24)
+
+
+### Features
+
+* Add support to debug in runtime `Microsoft.SourceLink.GitHub` ([3b425c2](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/3b425c2752e00d6324e1394ef8dbd4490d0bcbf5))
+
 # [2.4.0](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.3.0...v2.4.0) (2022-04-08)
 
 
