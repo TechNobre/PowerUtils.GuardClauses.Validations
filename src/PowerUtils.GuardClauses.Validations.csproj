@@ -1,21 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Assembly details -->
   <PropertyGroup>
     <ProjectGuid>a2c32f07-b480-456f-86f3-acd569b392a5</ProjectGuid>
-
-    <CurrentYear>$([System.DateTime]::UtcNow.ToString(yyyy))</CurrentYear>
 
     <!-- Assembly and projecto details -->
     <!-- https://docs.microsoft.com/en-us/dotnet/standard/frameworks -->
     <TargetFrameworks>net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
+
+
     <AssemblyName>PowerUtils.GuardClauses.Validations</AssemblyName>
     <RootNamespace>PowerUtils.Validations</RootNamespace>
+    
+    <Version>2.4.0</Version>
 
-    <!-- Package details -->
+    <PackageOutputPath>bin\</PackageOutputPath>
+  </PropertyGroup>
+
+
+  <!-- Package details -->
+  <PropertyGroup>
+    <CurrentYear>$([System.DateTime]::UtcNow.ToString(yyyy))</CurrentYear>
+
     <PackageId>PowerUtils.GuardClauses.Validations</PackageId>
     <title>PowerUtils.GuardClauses.Validations</title>
     <Product>PowerUtils.GuardClauses.Validations</Product>
-    <Version>2.4.0</Version>
 
     <Authors>Nelson Nobre</Authors>
     <Company>TechNobre</Company>
@@ -25,17 +34,13 @@
     <Copyright>Copyright © $(CurrentYear) by TechNobre</Copyright>
 
     <Description>Helpers, extensions and utilities to work with guard clause</Description>
-    <PackageReleaseNotes>
-      https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/blob/main/CHANGELOG.md
-    </PackageReleaseNotes>
     <Summary>Helpers, extensions and utilities to work with guard clause</Summary>
     <PackageTags>PowerUtils;Utils;Helpers;GuardClauses;Validations;Exception;Extensions;Errors</PackageTags>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/TechNobre/PowerUtils.GuardClauses.Validations</RepositoryUrl>
     <PackageProjectUrl>https://github.com/TechNobre/PowerUtils.GuardClauses.Validations</PackageProjectUrl>
     <NeutralLanguage>en-GB</NeutralLanguage>
 
-    <PackageOutputPath>bin\</PackageOutputPath>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/TechNobre/PowerUtils.GuardClauses.Validations</RepositoryUrl>
   </PropertyGroup>
 
 
@@ -47,26 +52,15 @@
   </PropertyGroup>
 
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <DefineConstants>RELEASE;TRACE</DefineConstants>
-    <ErrorReport>none</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-
-
+  <!-- Tests -->
   <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+
+  <ItemGroup Condition="'$(Configuration)'=='Release'">
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 
