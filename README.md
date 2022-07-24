@@ -13,31 +13,35 @@
 [![License: MIT](https://img.shields.io/github/license/TechNobre/PowerUtils.GuardClauses.Validations.svg)](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/blob/main/LICENSE)
 
 
+- [Support](#support-to)
+- [Dependencies](#dependencies)
+- [How to use](#how-to-use)
+  - [Install NuGet package](#Installation)
+  - [Exceptions](#Exceptions)
+  - [Guard clauses](#GuardClauses)
+- [Contribution](#contribution)
+- [License](./LICENSE)
+- [Changelog](./CHANGELOG.md)
+- [Credits](#Credits)
 
-## Support to
-- .NET 3.1
-- .NET 5.0
+
+
+## Support to <a name="support-to"></a>
 - .NET 6.0
+- .NET 5.0
+- .NET 3.1
 
 
 
-## Features
-
-- [Exceptions](#Exceptions)
-- [Guard clauses](#GuardClauses)
-
-
-## Documentation
-
-### Dependencies
+## Dependencies <a name="dependencies"></a>
 
 - PowerUtils.Net.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Net.Primitives/)
 - PowerUtils.Validations.Primitives [NuGet](https://www.nuget.org/packages/PowerUtils.Validations.Primitives/)
 
 
-### How to use
+## How to use <a name="how-to-use"></a>
 
-#### Install NuGet package <a name="Installation"></a>
+### Install NuGet package <a name="Installation"></a>
 This package is available through Nuget Packages: https://www.nuget.org/packages/PowerUtils.GuardClauses.Validations
 
 **Nuget**
@@ -142,27 +146,13 @@ The methods `string.IfLengthZero`, `string.IfLengthDifferent`, `string.IfLengthG
 
 
 
-## Contribution
+## Contribution <a name="contribution"></a>
 
-*Help me to help others*
-
-
+If you have any questions, comments, or suggestions, please open an [issue](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/issues/new/choose) or create a [pull request](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare)
 
 
-## Credits
+
+
+## Credits <a name="Credits"></a>
 
 [Ardalis.GuardClauses](https://github.com/ardalis/GuardClauses) and [Throw](https://github.com/mantinband/throw) - They are excellent libraries used as inspiration to develop this library.
-
-
-
-
-## LICENSE
-
-[MIT](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/blob/main/LICENSE)
-
-
-
-
-## Changelog
-
-[Here](./CHANGELOG.md)
