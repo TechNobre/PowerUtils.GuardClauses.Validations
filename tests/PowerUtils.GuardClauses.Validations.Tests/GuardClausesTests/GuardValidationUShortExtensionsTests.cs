@@ -4,11 +4,10 @@ using PowerUtils.Validations.GuardClauses;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests;
 
-[Trait("Type", "Guards")]
 public class GuardValidationUShortExtensionsTests
 {
     [Fact]
-    public void IfGreaterThan_LargeNumber_Exception()
+    public void LargeNumber_IfGreaterThan_PropertyException()
     {
         // Arrange
         ushort quantity = 241;
@@ -23,7 +22,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfGreaterThan_NotLargeNumber_Valid()
+    public void NotLargeNumber_IfGreaterThan_Valid()
     {
         // Arrange
         ushort quantity = 4;
@@ -41,7 +40,7 @@ public class GuardValidationUShortExtensionsTests
 
 
     [Fact]
-    public void IfGreaterThanNullable_Null_Valid()
+    public void Null_IfGreaterThanNullable_Valid()
     {
         // Arrange
         ushort? quantity = null;
@@ -58,7 +57,7 @@ public class GuardValidationUShortExtensionsTests
 
 
     [Fact]
-    public void IfGreaterThanNullable_LargeNumber_Exception()
+    public void LargeNumber_IfGreaterThanNullable_PropertyException()
     {
         // Arrange
         ushort? quantity = 241;
@@ -73,7 +72,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfGreaterThanNullable_NotLargeNumber_Valid()
+    public void NotLargeNumber_IfGreaterThanNullable_Valid()
     {
         // Arrange
         ushort? quantity = 4;
@@ -88,10 +87,8 @@ public class GuardValidationUShortExtensionsTests
             .Be(quantity);
     }
 
-
-
     [Fact]
-    public void IfLessThan_SmallNumber_Exception()
+    public void SmallNumber_IfLessThan_PropertyException()
     {
         // Arrange
         ushort quantity = 4;
@@ -106,7 +103,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfLessThan_NotSmallNumber_Valid()
+    public void NotSmallNumber_IfLessThan_Valid()
     {
         // Arrange
         ushort quantity = 14;
@@ -121,10 +118,8 @@ public class GuardValidationUShortExtensionsTests
             .Be(quantity);
     }
 
-
-
     [Fact]
-    public void IfLessThanNullable_Null_Valid()
+    public void Null_IfLessThanNullable_Valid()
     {
         // Arrange
         ushort? quantity = null;
@@ -141,7 +136,7 @@ public class GuardValidationUShortExtensionsTests
 
 
     [Fact]
-    public void IfLessThanNullable_SmallNumber_Exception()
+    public void SmallNumber_IfLessThanNullable_PropertyException()
     {
         // Arrange
         ushort? quantity = 2;
@@ -156,7 +151,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfLessThanNullable_NotSmallNumber_Valid()
+    public void NotSmallNumber_IfLessThanNullable_Valid()
     {
         // Arrange
         ushort? quantity = 45;
@@ -171,9 +166,8 @@ public class GuardValidationUShortExtensionsTests
             .Be(quantity);
     }
 
-
     [Fact]
-    public void IfEquals_Equals_Exception()
+    public void Equals_IfEquals_PropertyException()
     {
         // Arrange
         ushort quantity = 5;
@@ -188,7 +182,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfEquals_Different_Valid()
+    public void Different_IfEquals_Valid()
     {
         // Arrange
         ushort quantity = 5;
@@ -203,9 +197,8 @@ public class GuardValidationUShortExtensionsTests
             .Be(quantity);
     }
 
-
     [Fact]
-    public void IfEqualsNullable_Null_Valid()
+    public void Null_IfEqualsNullable_Valid()
     {
         // Arrange
         ushort? quantity = null;
@@ -221,7 +214,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfEqualsNullable_Equals_Exception()
+    public void Equals_IfEqualsNullable_PropertyException()
     {
         // Arrange
         ushort? quantity = 4;
@@ -236,7 +229,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfEqualsNullable_Different_Valid()
+    public void Different_IfEqualsNullable_Valid()
     {
         // Arrange
         ushort? quantity = 5;
@@ -251,9 +244,8 @@ public class GuardValidationUShortExtensionsTests
             .Be(quantity);
     }
 
-
     [Fact]
-    public void IfDifferent_Equals_Valid()
+    public void Equals_IfDifferent_Valid()
     {
         // Arrange
         ushort quantity = 22;
@@ -269,7 +261,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfDifferent_Different_Exception()
+    public void Different_IfDifferent_PropertyException()
     {
         // Arrange
         ushort quantity = 51;
@@ -283,9 +275,8 @@ public class GuardValidationUShortExtensionsTests
         act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(quantity), "INVALID");
     }
 
-
     [Fact]
-    public void IfDifferentNullable_Null_Exception()
+    public void Null_IfDifferentNullable_PropertyException()
     {
         // Arrange
         ushort? quantity = null;
@@ -300,7 +291,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfDifferentNullable_Equals_Valid()
+    public void Equals_IfDifferentNullable_Valid()
     {
         // Arrange
         ushort? quantity = 78;
@@ -316,7 +307,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfDifferentNullable_Different_Exception()
+    public void Different_IfDifferentNullable_PropertyException()
     {
         // Arrange
         ushort? quantity = 45;
@@ -331,7 +322,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfOutOfRange_InRange_Valid()
+    public void InRange_IfOutOfRange_Valid()
     {
         // Arrange
         ushort quantity = 45;
@@ -347,7 +338,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfOutOfRange_SmallNumber_Exception()
+    public void SmallNumber_IfOutOfRange_PropertyException()
     {
         // Arrange
         ushort quantity = 5;
@@ -366,7 +357,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfOutOfRange_BigNumber_Exception()
+    public void BigNumber_IfOutOfRange_PropertyException()
     {
         // Arrange
         ushort quantity = 55;
@@ -385,7 +376,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfOutOfRangeNullable_NULL_Valid()
+    public void NULL_IfOutOfRangeNullable_Valid()
     {
         // Arrange
         ushort? quantity = null;
@@ -401,7 +392,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfOutOfRangeNullable_InRange_Valid()
+    public void InRange_IfOutOfRangeNullable_Valid()
     {
         // Arrange
         ushort? quantity = 45;
@@ -417,7 +408,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfOutOfRangeNullable_SmallNumber_Exception()
+    public void SmallNumber_IfOutOfRangeNullable_PropertyException()
     {
         // Arrange
         ushort? quantity = 5;
@@ -436,7 +427,7 @@ public class GuardValidationUShortExtensionsTests
     }
 
     [Fact]
-    public void IfOutOfRangeNullable_BigNumber_Exception()
+    public void BigNumber_IfOutOfRangeNullable_PropertyException()
     {
         // Arrange
         ushort? quantity = 55;

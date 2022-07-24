@@ -7,11 +7,10 @@ using PowerUtils.Validations.Exceptions;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests;
 
-[Trait("Type", "Exceptions")]
 public class PropertyExceptionTests
 {
-    [Fact(DisplayName = "Instance a PropertyException without parameters")]
-    public void Constructor_WithoutParameters()
+    [Fact]
+    public void PropertyException_Constructor_WithoutParameters()
     {
         // Arrange && Act
         var act = new PropertyException();
@@ -21,8 +20,8 @@ public class PropertyExceptionTests
         act.Validate(HttpStatusCode.BadRequest);
     }
 
-    [Fact(DisplayName = "Instance a PropertyException with message")]
-    public void Constructor_WithMessage()
+    [Fact]
+    public void PropertyException_Constructor_WithMessage()
     {
         // Arrange
         var message = "Fake message";
@@ -36,8 +35,8 @@ public class PropertyExceptionTests
         act.Validate(HttpStatusCode.BadRequest, message);
     }
 
-    [Fact(DisplayName = "Instance a PropertyException with message and inner exception")]
-    public void Constructor_WithMessageAndInnerException()
+    [Fact]
+    public void PropertyException_Constructor_WithMessageAndInnerException()
     {
         // Arrange
         var message = "Fake message";
@@ -52,8 +51,8 @@ public class PropertyExceptionTests
         act.Validate<InvalidOperationException>(HttpStatusCode.BadRequest, message);
     }
 
-    [Fact(DisplayName = "Serialization and Deserialization MaxLatitudeException - Should be equivalent")]
-    public void SerializeDeserialize_Equivalent()
+    [Fact]
+    public void PropertyException_SerializeDeserialize_Equivalent()
     {
         // Arrange
         var exception = new PropertyException();
@@ -80,8 +79,8 @@ public class PropertyExceptionTests
         act.Validate(HttpStatusCode.BadRequest);
     }
 
-    [Fact(DisplayName = "Try call GetObjectData with null info - Should return an 'ArgumentNullException'")]
-    public void GetObjectData_NullInfo_ArgumentNullException()
+    [Fact]
+    public void NullInfo_GetObjectData_ArgumentNullException()
     {
         // Arrange
         var exception = new PropertyException();
@@ -96,8 +95,8 @@ public class PropertyExceptionTests
             .BeOfType<ArgumentNullException>();
     }
 
-    [Fact(DisplayName = "Instance a PropertyException with error")]
-    public void Constructor_WithError()
+    [Fact]
+    public void ErrorCodeAndProperty_Constructor_WithError()
     {
         // Arrange
         var property = "FakeProp";
@@ -113,8 +112,8 @@ public class PropertyExceptionTests
     }
 
 
-    [Fact(DisplayName = "Instance a PropertyException with error and message")]
-    public void Constructor_WithErrorAndMessage()
+    [Fact]
+    public void ErrorCodePropertyAndMessage_Constructor_WithErrorAndMessage()
     {
         // Arrange
         var property = "FakeProp";
@@ -131,8 +130,8 @@ public class PropertyExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw a PropertyException with error")]
-    public void Throw_WithError()
+    [Fact]
+    public void ErrorCodeAndProperty_Throw_WithError()
     {
         // Arrange
         var property = "FakeProp";
@@ -148,8 +147,8 @@ public class PropertyExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw a PropertyException with invalid error")]
-    public void Throw_InvalidError()
+    [Fact]
+    public void Property_Throw_InvalidError()
     {
         // Arrange
         var property = "FakeProp2";
@@ -164,8 +163,8 @@ public class PropertyExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw Required a PropertyException with invalid error")]
-    public void ThrowRequired_RequiredError()
+    [Fact]
+    public void Property_ThrowRequired_RequiredError()
     {
         // Arrange
         var property = "FakeProp";

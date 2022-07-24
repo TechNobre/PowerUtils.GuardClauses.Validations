@@ -7,11 +7,10 @@ using PowerUtils.Validations.GuardClauses;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests;
 
-[Trait("Type", "Guards")]
 public class GuardValidationObjectExtensionsTests
 {
     [Fact]
-    public void IfNull_NullObject_Exception()
+    public void NullObject_IfNull_PropertyException()
     {
         // Arrange
         object client = null;
@@ -26,7 +25,7 @@ public class GuardValidationObjectExtensionsTests
     }
 
     [Fact]
-    public void IfNull_NullList_Exception()
+    public void NullList_IfNull_PropertyException()
     {
         // Arrange
         List<string> list = null;
@@ -41,7 +40,7 @@ public class GuardValidationObjectExtensionsTests
     }
 
     [Fact]
-    public void IfNull_NullArray_Exception()
+    public void NullArray_IfNull_PropertyException()
     {
         // Arrange
         string[] array = null;
@@ -56,7 +55,7 @@ public class GuardValidationObjectExtensionsTests
     }
 
     [Fact]
-    public void IfNull_NotNull_Valid()
+    public void NotNull_IfNull_Valid()
     {
         // Arrange
         var client = new object();
@@ -72,7 +71,7 @@ public class GuardValidationObjectExtensionsTests
     }
 
     [Fact]
-    public void IfNull_NullClass_Valid()
+    public void NullClass_IfNull_Valid()
     {
         // Arrange
         FakeObj fakeObj = null;
@@ -91,7 +90,7 @@ public class GuardValidationObjectExtensionsTests
     }
 
     [Fact]
-    public void IfNull_NotNullClass_Valid()
+    public void NotNullClass_IfNull_Valid()
     {
         // Arrange
         var fakeObj = new FakeObj();

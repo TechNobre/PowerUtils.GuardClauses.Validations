@@ -6,11 +6,10 @@ using PowerUtils.Validations.GuardClauses;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests;
 
-[Trait("Type", "Guards")]
 public class GuardValidationGuidExtensionsTests
 {
     [Fact]
-    public void IfEmpty_Empty_Exception()
+    public void Empty_IfEmpty_PropertyException()
     {
         // Arrange
         var id = Guid.Empty;
@@ -25,7 +24,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfEmpty_NotEmpty_Valid()
+    public void NotEmpty_IfEmpty_Valid()
     {
         // Arrange
         var id = Guid.NewGuid();
@@ -41,7 +40,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfEquals_Equals_Exception()
+    public void Equals_IfEquals_PropertyException()
     {
         // Arrange
         var id = Guid.Parse("dd348c71-3115-493f-873c-03bd4ccfae02");
@@ -56,7 +55,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfEquals_Different_Valid()
+    public void Different_IfEquals_Valid()
     {
         // Arrange
         var id = Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96");
@@ -73,7 +72,7 @@ public class GuardValidationGuidExtensionsTests
 
 
     [Fact]
-    public void IfEqualsNullable_Null_Valid()
+    public void Null_IfEqualsNullable_Valid()
     {
         // Arrange
         Guid? id = null;
@@ -89,7 +88,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfEqualsNullable_BothNull_Exception()
+    public void BothNull_IfEqualsNullable_PropertyException()
     {
         // Arrange
         Guid? id = null;
@@ -104,7 +103,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfEqualsNullable_Equals_Exception()
+    public void Equals_IfEqualsNullable_PropertyException()
     {
         // Arrange
         Guid? id = Guid.Parse("dd348c71-3115-493f-873c-03bd4ccfae02");
@@ -119,7 +118,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfEqualsNullable_Different_Valid()
+    public void Different_IfEqualsNullable_Valid()
     {
         // Arrange
         Guid? id = Guid.Parse("dd348c71-3115-493f-873c-03bd4ccfae02");
@@ -136,7 +135,7 @@ public class GuardValidationGuidExtensionsTests
 
 
     [Fact]
-    public void IfDifferent_Equals_Valid()
+    public void Equals_IfDifferent_Valid()
     {
         // Arrange
         Guid? id = Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96");
@@ -152,7 +151,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfDifferent_Different_Exception()
+    public void Different_IfDifferent_PropertyException()
     {
         // Arrange
         Guid? id = Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96");
@@ -168,7 +167,7 @@ public class GuardValidationGuidExtensionsTests
 
 
     [Fact]
-    public void IfDifferentNullable_Null_Exception()
+    public void Null_IfDifferentNullable_PropertyException()
     {
         // Arrange
         Guid? id = null;
@@ -183,7 +182,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfDifferentNullable_BothNull_Exception()
+    public void BothNull_IfDifferentNullable_PropertyException()
     {
         // Arrange
         Guid? id = null;
@@ -199,7 +198,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfDifferentNullable_Equals_Valid()
+    public void Equals_IfDifferentNullable_Valid()
     {
         // Arrange
         Guid? id = Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96");
@@ -215,7 +214,7 @@ public class GuardValidationGuidExtensionsTests
     }
 
     [Fact]
-    public void IfDifferentNullable_Different_Exception()
+    public void Different_IfDifferentNullable_PropertyException()
     {
         // Arrange
         Guid? id = Guid.Parse("ec243094-2d85-41a5-bd15-ce8f3af96b96");

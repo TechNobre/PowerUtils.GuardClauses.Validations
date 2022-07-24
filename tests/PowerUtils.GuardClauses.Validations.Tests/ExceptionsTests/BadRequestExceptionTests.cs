@@ -7,11 +7,10 @@ using PowerUtils.Validations.Exceptions;
 
 namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests;
 
-[Trait("Type", "Exceptions")]
 public class BadRequestExceptionTests
 {
-    [Fact(DisplayName = "Instance a BadRequestException without parameters")]
-    public void Constructor_WithoutParameters()
+    [Fact]
+    public void BadRequestException_Constructor_StatusBadRequest()
     {
         // Arrange && Act
         var act = new BadRequestException();
@@ -21,8 +20,8 @@ public class BadRequestExceptionTests
         act.Validate(HttpStatusCode.BadRequest);
     }
 
-    [Fact(DisplayName = "Instance a BadRequestException with message")]
-    public void Constructor_WithMessage()
+    [Fact]
+    public void BadRequestException_Constructor_WithMessage()
     {
         // Arrange
         var message = "Fake message";
@@ -36,8 +35,8 @@ public class BadRequestExceptionTests
         act.Validate(HttpStatusCode.BadRequest, message);
     }
 
-    [Fact(DisplayName = "Instance a BadRequestException with message and inner exception")]
-    public void Constructor_WithMessageAndInnerException()
+    [Fact]
+    public void InvalidOperationException_Constructor_WithMessageAndInnerException()
     {
         // Arrange
         var message = "Fake message";
@@ -52,8 +51,8 @@ public class BadRequestExceptionTests
         act.Validate<InvalidOperationException>(HttpStatusCode.BadRequest, message);
     }
 
-    [Fact(DisplayName = "Serialization and Deserialization MaxLatitudeException - Should be equivalent")]
-    public void SerializeDeserialize_Equivalent()
+    [Fact]
+    public void BadRequestException_SerializeDeserialize_Equivalent()
     {
         // Arrange
         var exception = new BadRequestException();
@@ -80,8 +79,8 @@ public class BadRequestExceptionTests
         act.Validate(HttpStatusCode.BadRequest);
     }
 
-    [Fact(DisplayName = "Try call GetObjectData with null info - Should return an 'ArgumentNullException'")]
-    public void GetObjectData_NullInfo_ArgumentNullException()
+    [Fact]
+    public void NullInfo_GetObjectData_ArgumentNullException()
     {
         // Arrange
         var exception = new BadRequestException();
@@ -96,8 +95,8 @@ public class BadRequestExceptionTests
             .BeOfType<ArgumentNullException>();
     }
 
-    [Fact(DisplayName = "Instance a BadRequestException with error")]
-    public void Constructor_WithError()
+    [Fact]
+    public void ErrorCodeAndProperty_Constructor_WithError()
     {
         // Arrange
         var property = "FakeProp";
@@ -113,8 +112,8 @@ public class BadRequestExceptionTests
     }
 
 
-    [Fact(DisplayName = "Instance a BadRequestException with error and message")]
-    public void Constructor_WithErrorAndMessage()
+    [Fact]
+    public void ErrorCodePropertyAndMessage_Constructor_WithErrorAndMessage()
     {
         // Arrange
         var property = "FakeProp";
@@ -131,8 +130,8 @@ public class BadRequestExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw a BadRequestException with error")]
-    public void Throw_WithError()
+    [Fact]
+    public void ErrorCodeAndProperty_Throw_WithError()
     {
         // Arrange
         var property = "FakeProp";
@@ -148,8 +147,8 @@ public class BadRequestExceptionTests
     }
 
 
-    [Fact(DisplayName = "Throw Invalid a BadRequestException with invalid error")]
-    public void ThrowInvalid_InvalidError()
+    [Fact]
+    public void Property_ThrowInvalid_InvalidError()
     {
         // Arrange
         var property = "FakeProp";
@@ -160,12 +159,17 @@ public class BadRequestExceptionTests
 
 
         // Assert
-        act.Validate<BadRequestException>(HttpStatusCode.BadRequest, property, ErrorCodes.INVALID, "The property 'FakeProp' contains the error 'INVALID");
+        act.Validate<BadRequestException>(
+            HttpStatusCode.BadRequest,
+            property,
+            ErrorCodes.INVALID,
+            "The property 'FakeProp' contains the error 'INVALID"
+        );
     }
 
 
-    [Fact(DisplayName = "Throw Required a BadRequestException with invalid error")]
-    public void ThrowRequired_RequiredError()
+    [Fact]
+    public void Property_ThrowRequired_RequiredError()
     {
         // Arrange
         var property = "FakeProp";
@@ -176,6 +180,11 @@ public class BadRequestExceptionTests
 
 
         // Assert
-        act.Validate<BadRequestException>(HttpStatusCode.BadRequest, property, ErrorCodes.REQUIRED, "The property 'FakeProp' contains the error 'REQUIRED");
+        act.Validate<BadRequestException>(
+            HttpStatusCode.BadRequest,
+            property,
+            ErrorCodes.REQUIRED,
+            "The property 'FakeProp' contains the error 'REQUIRED"
+        );
     }
 }
