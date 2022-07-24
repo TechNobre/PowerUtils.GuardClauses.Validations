@@ -1,4 +1,4 @@
-# [2.1.0](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.0.0...v2.1.0) (2022-07-24)
+# [2.5.0](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.4.0...v2.5.0) (2022-07-24)
 
 
 ### Features
