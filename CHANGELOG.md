@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.5.0...v2.5.1) (2022-07-24)
+
+
+### Bug Fixes
+
+* Release version ([42c1a14](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/42c1a14755cd491debf06a9e131e4890cb626544))
+
 # [2.5.0](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.4.0...v2.5.0) (2022-07-24)
 
 
