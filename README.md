@@ -1,5 +1,8 @@
 # PowerUtils.GuardClauses.Validations
-Helpers, extensions and utilities to work with guard clauses
+
+![Logo](https://raw.githubusercontent.com/TechNobre/PowerUtils.GuardClauses.Validations/main/assets/logo/logo_128x128.png)
+
+***Helpers, extensions and utilities to work with guard clauses***
 
 ![Tests](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/actions/workflows/test-project.yml/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.GuardClauses.Validations&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.GuardClauses.Validations)

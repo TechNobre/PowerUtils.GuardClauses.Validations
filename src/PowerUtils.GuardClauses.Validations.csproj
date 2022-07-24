@@ -11,7 +11,7 @@
 
     <AssemblyName>PowerUtils.GuardClauses.Validations</AssemblyName>
     <RootNamespace>PowerUtils.Validations</RootNamespace>
-    
+
     <Version>2.4.0</Version>
 
     <PackageOutputPath>bin\</PackageOutputPath>
@@ -39,6 +39,8 @@
     <PackageProjectUrl>https://github.com/TechNobre/PowerUtils.GuardClauses.Validations</PackageProjectUrl>
     <NeutralLanguage>en-GB</NeutralLanguage>
 
+    <PackageIcon>logo_128x128.png</PackageIcon>
+
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/TechNobre/PowerUtils.GuardClauses.Validations</RepositoryUrl>
   </PropertyGroup>
@@ -61,6 +63,7 @@
 
 
   <ItemGroup Condition="'$(Configuration)'=='Release'">
+    <None Include="..\assets\logo\logo_128x128.png" Pack="true" PackagePath="" />
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 
