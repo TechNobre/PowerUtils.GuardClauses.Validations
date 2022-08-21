@@ -38,4 +38,5 @@
     <ProjectReference Include="..\..\src\PowerUtils.GuardClauses.Validations.csproj" />
   </ItemGroup>
 
+
 </Project>
