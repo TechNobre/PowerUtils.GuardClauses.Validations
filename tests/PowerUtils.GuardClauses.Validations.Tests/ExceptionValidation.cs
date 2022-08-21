@@ -1,89 +1,91 @@
 ﻿using System;
 using System.Net;
+using FluentAssertions;
 using PowerUtils.Net.Constants;
 using PowerUtils.Validations.Exceptions;
 
-namespace PowerUtils.GuardClauses.Validations.Tests;
-
-public static class ExceptionValidation
+namespace PowerUtils.GuardClauses.Validations.Tests
 {
-    public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode)
-        => exception.Validate(statusCode, $"An error occurred with the status code '{statusCode}'");
-
-    public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode, string message)
+    public static class ExceptionValidation
     {
-        exception.StatusCode.Should()
-            .Be(statusCode);
-        exception.HelpLink.Should()
-            .Be(((int)statusCode).GetStatusCodeLink());
+        public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode)
+            => exception.Validate(statusCode, $"An error occurred with the status code '{statusCode}'");
 
-        exception.Message.Should()
-            .Be(message);
-        exception.InnerException.Should()
-            .BeNull();
-    }
+        public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode, string message)
+        {
+            exception.StatusCode.Should()
+                .Be(statusCode);
+            exception.HelpLink.Should()
+                .Be(((int)statusCode).GetStatusCodeLink());
 
-    public static void Validate<TInnerException>(this BaseValidationException exception, HttpStatusCode statusCode, string message)
-    {
-        exception.StatusCode.Should()
-            .Be(statusCode);
-        exception.HelpLink.Should()
-            .Be(((int)statusCode).GetStatusCodeLink());
+            exception.Message.Should()
+                .Be(message);
+            exception.InnerException.Should()
+                .BeNull();
+        }
 
-        exception.Message.Should()
-            .Be(message);
-        exception.InnerException.Should()
-            .BeOfType<TInnerException>();
-    }
+        public static void Validate<TInnerException>(this BaseValidationException exception, HttpStatusCode statusCode, string message)
+        {
+            exception.StatusCode.Should()
+                .Be(statusCode);
+            exception.HelpLink.Should()
+                .Be(((int)statusCode).GetStatusCodeLink());
 
-    public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode, string property, string errorCode)
-        => exception.Validate(statusCode, property, errorCode, $"An error occurred with the status code '{statusCode}'");
+            exception.Message.Should()
+                .Be(message);
+            exception.InnerException.Should()
+                .BeOfType<TInnerException>();
+        }
 
-    public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode, string property, string errorCode, string message)
-    {
-        exception.StatusCode.Should()
-            .Be(statusCode);
-        exception.HelpLink.Should()
-            .Be(((int)statusCode).GetStatusCodeLink());
+        public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode, string property, string errorCode)
+            => exception.Validate(statusCode, property, errorCode, $"An error occurred with the status code '{statusCode}'");
 
-        exception.Message.Should()
-            .Be(message);
+        public static void Validate(this BaseValidationException exception, HttpStatusCode statusCode, string property, string errorCode, string message)
+        {
+            exception.StatusCode.Should()
+                .Be(statusCode);
+            exception.HelpLink.Should()
+                .Be(((int)statusCode).GetStatusCodeLink());
 
-        exception.InnerException.Should()
-            .BeNull();
+            exception.Message.Should()
+                .Be(message);
 
-        exception.Errors.Should()
-            .ContainKey(property);
-        exception.Errors.Should()
-            .ContainValue(errorCode);
-    }
+            exception.InnerException.Should()
+                .BeNull();
 
-    public static void Validate<TException>(this Exception exception, HttpStatusCode statusCode, string property, string errorCode)
-        where TException : BaseValidationException
-        => exception.Validate<TException>(statusCode, property, errorCode, $"An error occurred with the status code 'BadRequest'");
+            exception.Errors.Should()
+                .ContainKey(property);
+            exception.Errors.Should()
+                .ContainValue(errorCode);
+        }
 
-    public static void Validate<TException>(this Exception exception, HttpStatusCode statusCode, string property, string errorCode, string message)
-        where TException : BaseValidationException
-    {
-        exception.Should()
-            .BeOfType<TException>();
+        public static void Validate<TException>(this Exception exception, HttpStatusCode statusCode, string property, string errorCode)
+            where TException : BaseValidationException
+            => exception.Validate<TException>(statusCode, property, errorCode, $"An error occurred with the status code 'BadRequest'");
 
-        var propertyException = exception as TException;
+        public static void Validate<TException>(this Exception exception, HttpStatusCode statusCode, string property, string errorCode, string message)
+            where TException : BaseValidationException
+        {
+            exception.Should()
+                .BeOfType<TException>();
 
-        propertyException.StatusCode.Should()
-            .Be(statusCode);
-        propertyException.HelpLink.Should()
-            .Be(((int)statusCode).GetStatusCodeLink());
+            var propertyException = exception as TException;
 
-        propertyException.Message.Should()
-            .Be(message);
+            propertyException.StatusCode.Should()
+                .Be(statusCode);
+            propertyException.HelpLink.Should()
+                .Be(((int)statusCode).GetStatusCodeLink());
 
-        propertyException.InnerException.Should()
-            .BeNull();
+            propertyException.Message.Should()
+                .Be(message);
 
-        propertyException.Errors.Should()
-            .ContainKey(property);
-        propertyException.Errors.Should()
-            .ContainValue(errorCode);
+            propertyException.InnerException.Should()
+                .BeNull();
+
+            propertyException.Errors.Should()
+                .ContainKey(property);
+            propertyException.Errors.Should()
+                .ContainValue(errorCode);
+        }
     }
 }
