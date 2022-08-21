@@ -11,7 +11,9 @@ on:
 
 
 env:
-  SDK_VERSION: '6.0.400'
+  SDK_VERSION_6: '6.0.400'
+  SDK_VERSION_5: '5.0.408'
+  SDK_VERSION_3: '3.1.422'
 
 
 jobs:
@@ -27,7 +29,10 @@ jobs:
     - name: "Setup .NET"
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: ${{ env.SDK_VERSION }}
+        dotnet-version: |
+          ${{ env.SDK_VERSION_6 }}
+          ${{ env.SDK_VERSION_5 }}
+          ${{ env.SDK_VERSION_3 }}
 
     - name: "Restore dependencies"
       run: dotnet restore

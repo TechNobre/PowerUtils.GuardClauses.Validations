@@ -2,179 +2,182 @@
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization;
+using FluentAssertions;
 using PowerUtils.Validations;
 using PowerUtils.Validations.Exceptions;
+using Xunit;
 
-namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests;
-
-public class PropertyExceptionTests
+namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests
 {
-    [Fact]
-    public void PropertyException_Constructor_WithoutParameters()
+    public class PropertyExceptionTests
     {
-        // Arrange && Act
-        var act = new PropertyException();
-
-
-        // Assert
-        act.Validate(HttpStatusCode.BadRequest);
-    }
-
-    [Fact]
-    public void PropertyException_Constructor_WithMessage()
-    {
-        // Arrange
-        var message = "Fake message";
-
-
-        // Act
-        var act = new PropertyException(message);
-
-
-        // Assert
-        act.Validate(HttpStatusCode.BadRequest, message);
-    }
-
-    [Fact]
-    public void PropertyException_Constructor_WithMessageAndInnerException()
-    {
-        // Arrange
-        var message = "Fake message";
-        var innerException = new InvalidOperationException();
-
-
-        // Act
-        var act = new PropertyException(message, innerException);
-
-
-        // Assert
-        act.Validate<InvalidOperationException>(HttpStatusCode.BadRequest, message);
-    }
-
-    [Fact]
-    public void PropertyException_SerializeDeserialize_Equivalent()
-    {
-        // Arrange
-        var exception = new PropertyException();
-
-
-        // Act
-        BaseValidationException act;
-        using(var memoryStream = new MemoryStream())
+        [Fact]
+        public void PropertyException_Constructor_WithoutParameters()
         {
-            var dataContractSerializer = new DataContractSerializer(typeof(PropertyException));
+            // Arrange && Act
+            var act = new PropertyException();
 
-            dataContractSerializer.WriteObject(memoryStream, exception);
 
-            memoryStream.Seek(0, SeekOrigin.Begin);
+            // Assert
+            act.Validate(HttpStatusCode.BadRequest);
+        }
 
-            act = (PropertyException)dataContractSerializer.ReadObject(memoryStream);
+        [Fact]
+        public void PropertyException_Constructor_WithMessage()
+        {
+            // Arrange
+            var message = "Fake message";
+
+
+            // Act
+            var act = new PropertyException(message);
+
+
+            // Assert
+            act.Validate(HttpStatusCode.BadRequest, message);
+        }
+
+        [Fact]
+        public void PropertyException_Constructor_WithMessageAndInnerException()
+        {
+            // Arrange
+            var message = "Fake message";
+            var innerException = new InvalidOperationException();
+
+
+            // Act
+            var act = new PropertyException(message, innerException);
+
+
+            // Assert
+            act.Validate<InvalidOperationException>(HttpStatusCode.BadRequest, message);
+        }
+
+        [Fact]
+        public void PropertyException_SerializeDeserialize_Equivalent()
+        {
+            // Arrange
+            var exception = new PropertyException();
+
+
+            // Act
+            BaseValidationException act;
+            using(var memoryStream = new MemoryStream())
+            {
+                var dataContractSerializer = new DataContractSerializer(typeof(PropertyException));
+
+                dataContractSerializer.WriteObject(memoryStream, exception);
+
+                memoryStream.Seek(0, SeekOrigin.Begin);
+
+                act = (PropertyException)dataContractSerializer.ReadObject(memoryStream);
+            }
+
+
+            // Assert
+            act.Should()
+                .BeEquivalentTo(exception);
+
+            act.Validate(HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public void NullInfo_GetObjectData_ArgumentNullException()
+        {
+            // Arrange
+            var exception = new PropertyException();
+
+
+            // Act
+            var act = Record.Exception(() => exception.GetObjectData(null, new StreamingContext()));
+
+
+            // Assert
+            act.Should()
+                .BeOfType<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void ErrorCodeAndProperty_Constructor_WithError()
+        {
+            // Arrange
+            var property = "FakeProp";
+            var errorCode = "FakeError";
+
+
+            // Act
+            var act = new PropertyException(property, errorCode);
+
+
+            // Assert
+            act.Validate(HttpStatusCode.BadRequest, property, errorCode);
         }
 
 
-        // Assert
-        act.Should()
-            .BeEquivalentTo(exception);
-
-        act.Validate(HttpStatusCode.BadRequest);
-    }
-
-    [Fact]
-    public void NullInfo_GetObjectData_ArgumentNullException()
-    {
-        // Arrange
-        var exception = new PropertyException();
+        [Fact]
+        public void ErrorCodePropertyAndMessage_Constructor_WithErrorAndMessage()
+        {
+            // Arrange
+            var property = "FakeProp";
+            var errorCode = "FakeError";
+            var message = "FakeMessafe";
 
 
-        // Act
-        var act = Record.Exception(() => exception.GetObjectData(null, new StreamingContext()));
+            // Act
+            var act = new PropertyException(property, errorCode, message);
 
 
-        // Assert
-        act.Should()
-            .BeOfType<ArgumentNullException>();
-    }
-
-    [Fact]
-    public void ErrorCodeAndProperty_Constructor_WithError()
-    {
-        // Arrange
-        var property = "FakeProp";
-        var errorCode = "FakeError";
+            // Assert
+            act.Validate(HttpStatusCode.BadRequest, property, errorCode, message);
+        }
 
 
-        // Act
-        var act = new PropertyException(property, errorCode);
+        [Fact]
+        public void ErrorCodeAndProperty_Throw_WithError()
+        {
+            // Arrange
+            var property = "FakeProp";
+            var errorCode = "FakeError2";
 
 
-        // Assert
-        act.Validate(HttpStatusCode.BadRequest, property, errorCode);
-    }
+            // Act
+            var act = Record.Exception(() => PropertyException.Throw(property, errorCode));
 
 
-    [Fact]
-    public void ErrorCodePropertyAndMessage_Constructor_WithErrorAndMessage()
-    {
-        // Arrange
-        var property = "FakeProp";
-        var errorCode = "FakeError";
-        var message = "FakeMessafe";
+            // Assert
+            act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, errorCode, "The property 'FakeProp' contains the error 'FakeError2");
+        }
 
 
-        // Act
-        var act = new PropertyException(property, errorCode, message);
+        [Fact]
+        public void Property_Throw_InvalidError()
+        {
+            // Arrange
+            var property = "FakeProp2";
 
 
-        // Assert
-        act.Validate(HttpStatusCode.BadRequest, property, errorCode, message);
-    }
+            // Act
+            var act = Record.Exception(() => PropertyException.ThrowInvalid(property));
 
 
-    [Fact]
-    public void ErrorCodeAndProperty_Throw_WithError()
-    {
-        // Arrange
-        var property = "FakeProp";
-        var errorCode = "FakeError2";
+            // Assert
+            act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, ErrorCodes.INVALID, "The property 'FakeProp2' contains the error 'INVALID");
+        }
 
 
-        // Act
-        var act = Record.Exception(() => PropertyException.Throw(property, errorCode));
+        [Fact]
+        public void Property_ThrowRequired_RequiredError()
+        {
+            // Arrange
+            var property = "FakeProp";
 
 
-        // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, errorCode, "The property 'FakeProp' contains the error 'FakeError2");
-    }
+            // Act
+            var act = Record.Exception(() => PropertyException.ThrowRequired(property));
 
 
-    [Fact]
-    public void Property_Throw_InvalidError()
-    {
-        // Arrange
-        var property = "FakeProp2";
-
-
-        // Act
-        var act = Record.Exception(() => PropertyException.ThrowInvalid(property));
-
-
-        // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, ErrorCodes.INVALID, "The property 'FakeProp2' contains the error 'INVALID");
-    }
-
-
-    [Fact]
-    public void Property_ThrowRequired_RequiredError()
-    {
-        // Arrange
-        var property = "FakeProp";
-
-
-        // Act
-        var act = Record.Exception(() => PropertyException.ThrowRequired(property));
-
-
-        // Assert
-        act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, ErrorCodes.REQUIRED, "The property 'FakeProp' contains the error 'REQUIRED");
+            // Assert
+            act.Validate<PropertyException>(HttpStatusCode.BadRequest, property, ErrorCodes.REQUIRED, "The property 'FakeProp' contains the error 'REQUIRED");
+        }
     }
 }
