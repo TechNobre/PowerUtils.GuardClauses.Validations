@@ -152,33 +152,6 @@ namespace PowerUtils.Validations.GuardClauses
         }
 
         /// <summary>
-        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length equals zero. Error code 'MIN:0'
-        /// </summary>
-        /// <param name="_"></param>
-        /// <param name="value">Value to validate</param>
-        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
-        /// <exception cref="PropertyException">Exception thrown when the length of the value is zero</exception>
-        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfEmpty'")]
-        public static string IfLengthZero(
-            this IGuardValidationClause _,
-            string value,
-            [CallerArgumentExpression("value")] string parameterName = null
-        )
-        {
-            if(value == null)
-            {
-                return value;
-            }
-
-            if(value.Length == 0)
-            {
-                throw new PropertyException(parameterName, ErrorCodes.GetMinFormatted(0));
-            }
-
-            return value;
-        }
-
-        /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length equals to parameter. Error code 'INVALID'
         /// </summary>
         /// <param name="_"></param>

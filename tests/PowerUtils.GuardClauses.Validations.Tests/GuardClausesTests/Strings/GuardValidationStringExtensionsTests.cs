@@ -253,60 +253,6 @@ namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests.Strings
                 .Be(client);
         }
 
-
-        [Fact]
-        public void Null_IfLengthZero_Valid()
-        {
-            // Arrange
-            string client = null;
-
-
-            // Act
-#pragma warning disable CS0618 // Type or member is obsolete
-            var act = Record.Exception(() => Guard.Validate.IfLengthZero(client));
-#pragma warning restore CS0618 // Type or member is obsolete
-
-
-            // Assert
-            act.Should()
-                .Be(client);
-        }
-
-        [Fact]
-        public void ZeroLength_IfLengthZero_PropertyException()
-        {
-            // Arrange
-            var client = "";
-
-
-            // Act
-#pragma warning disable CS0618 // Type or member is obsolete
-            var act = Record.Exception(() => Guard.Validate.IfLengthZero(client));
-#pragma warning restore CS0618 // Type or member is obsolete
-
-
-            // Assert
-            act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "MIN:0");
-        }
-
-        [Fact]
-        public void WithSpace_IfLengthZero_Valid()
-        {
-            // Arrange
-            var client = "Fake";
-
-
-            // Act
-#pragma warning disable CS0618 // Type or member is obsolete
-            var act = Guard.Validate.IfLengthZero(client);
-#pragma warning restore CS0618 // Type or member is obsolete
-
-
-            // Assert
-            act.Should()
-                .Be(client);
-        }
-
         [Fact]
         public void Null_NotEmail_PropertyException()
         {
