@@ -207,20 +207,6 @@ namespace PowerUtils.Validations.GuardClauses
             return value;
         }
 
-        /// <summary>
-        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is not an email. Error code 'INVALID'
-        /// </summary>
-        /// <param name="_"></param>
-        /// <param name="value">Value to validate</param>
-        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
-        /// <exception cref="PropertyException">Exception thrown when the value is not an email</exception>
-        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfNotEmail'")]
-        public static string NotEmail(
-            this IGuardValidationClause _,
-            string value,
-            [CallerArgumentExpression("value")] string parameterName = null
-        ) => Guard.Validate.IfNotEmail(value, parameterName);
-
         private static readonly Regex _emailRegex = new Regex(@"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$", RegexOptions.Compiled);
 
         /// <summary>
