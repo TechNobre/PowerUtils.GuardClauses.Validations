@@ -144,13 +144,6 @@ dotnet add package PowerUtils.GuardClauses.Validations
 
 
 
-
-## :warning: Warning
-The methods `string.IfLengthZero`, `string.IfLengthDifferent`, `string.IfLengthGreaterThan`, `string.IfLengthLessThan`, `string.NotEmail` will be removed in 2022/09/30.
-
-
-
-
 ## Contribution <a name="contribution"></a>
 
 If you have any questions, comments, or suggestions, please open an [issue](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/issues/new/choose) or create a [pull request](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare)
