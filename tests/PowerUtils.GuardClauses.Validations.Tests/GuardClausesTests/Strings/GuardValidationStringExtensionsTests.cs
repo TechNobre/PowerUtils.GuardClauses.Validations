@@ -254,62 +254,6 @@ namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests.Strings
         }
 
 
-
-        [Fact]
-        public void Null_IfLengthGreaterThan_Valid()
-        {
-            // Arrange
-            string client = null;
-
-
-            // Act
-#pragma warning disable CS0618 // Type or member is obsolete
-            var act = Record.Exception(() => Guard.Validate.IfLengthGreaterThan(client, 1));
-#pragma warning restore CS0618 // Type or member is obsolete
-
-
-            // Assert
-            act.Should()
-                .Be(client);
-        }
-
-        [Fact]
-        public void BigText_IfLengthGreaterThan_PropertyException()
-        {
-            // Arrange
-            var client = "Fake fake fake";
-
-
-            // Act
-#pragma warning disable CS0618 // Type or member is obsolete
-            var act = Record.Exception(() => Guard.Validate.IfLengthGreaterThan(client, 5));
-#pragma warning restore CS0618 // Type or member is obsolete
-
-
-            // Assert
-            act.Validate<PropertyException>(HttpStatusCode.BadRequest, nameof(client), "MAX:5");
-        }
-
-        [Fact]
-        public void WithSpace_IfLengthGreaterThan_Valid()
-        {
-            // Arrange
-            var client = "Fake";
-
-
-            // Act
-#pragma warning disable CS0618 // Type or member is obsolete
-            var act = Guard.Validate.IfLengthGreaterThan(client, 5);
-#pragma warning restore CS0618 // Type or member is obsolete
-
-
-            // Assert
-            act.Should()
-                .Be(client);
-        }
-
-
-
         [Fact]
         public void Null_IfLengthLessThan_Valid()
         {
