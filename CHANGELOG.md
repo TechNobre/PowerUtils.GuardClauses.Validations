@@ -1,3 +1,28 @@
+# [3.0.0](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.5.1...v3.0.0) (2022-11-19)
+
+
+### Code Refactoring
+
+* Removed deprecated methods ([d89fbb6](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/d89fbb6903db16f2c135feaa6745dedea8b07948))
+* Removed deprecated methods ([e74ffe7](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/e74ffe7780b3a264acb5e0282e3e86febe6d6d3b))
+* Removed deprecated methods ([e850bfc](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/e850bfcbd5bfa1a3a518eb1bdd387b9601ebb2ea))
+* Removed deprecated methods ([574e5e5](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/574e5e591894153e9f151337d9b858b75e7ce517))
+* Removed deprecated methods ([bdb04f8](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/bdb04f85c40c9ce81ddb6b9b1baf58c524baed9b))
+
+
+### Features
+
+* Added new construction in exceptions to provide inner exceptions ([dce51ac](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/dce51ac8d31bbf71dc4da1b7a6edac875a8536ab))
+
+
+### BREAKING CHANGES
+
+* Removed deprecated method `NotEmail`
+* Removed deprecated method `IfLengthZero`
+* Removed deprecated method `IfLengthDifference`
+* Removed deprecated method `IfLengthLessThan`
+* Removed deprecated method `IfLengthGreaterThan`
+
 ## [2.5.1](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.5.0...v2.5.1) (2022-07-24)
 
 
