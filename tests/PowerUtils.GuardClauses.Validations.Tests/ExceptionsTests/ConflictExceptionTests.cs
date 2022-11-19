@@ -163,5 +163,27 @@ namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests
             // Assert
             act.Validate<ConflictException>(HttpStatusCode.Conflict, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
         }
+
+        [Fact]
+        public void PropertyErrorCodeAndInnerException_Instance_ExceptionWithInnerException()
+        {
+            // Arrange
+            var property = "propFakeConflit";
+            var errorCode = "codeFakeConflit";
+            var innerException = new InvalidCastException();
+
+
+            // Act
+            var act = new ConflictException(property, errorCode, innerException);
+
+
+            // Assert
+            act.Validate<ConflictException, InvalidCastException>(
+                HttpStatusCode.Conflict,
+                property,
+                errorCode,
+                "An error occurred with the status code 'Conflict'"
+            );
+        }
     }
 }

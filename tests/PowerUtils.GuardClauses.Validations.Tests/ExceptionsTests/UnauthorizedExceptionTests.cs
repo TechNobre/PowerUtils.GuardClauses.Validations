@@ -163,5 +163,27 @@ namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests
             // Assert
             act.Validate<UnauthorizedException>(HttpStatusCode.Unauthorized, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
         }
+
+        [Fact]
+        public void PropertyErrorCodeAndInnerException_Instance_ExceptionWithInnerException()
+        {
+            // Arrange
+            var property = "propFakeNotFound";
+            var errorCode = "codeFakeNotFound";
+            var innerException = new InvalidCastException();
+
+
+            // Act
+            var act = new UnauthorizedException(property, errorCode, innerException);
+
+
+            // Assert
+            act.Validate<UnauthorizedException, InvalidCastException>(
+                HttpStatusCode.Unauthorized,
+                property,
+                errorCode,
+                "An error occurred with the status code 'Unauthorized'"
+            );
+        }
     }
 }

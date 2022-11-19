@@ -87,5 +87,30 @@ namespace PowerUtils.GuardClauses.Validations.Tests
             propertyException.Errors.Should()
                 .ContainValue(errorCode);
         }
+
+        public static void Validate<TException, TInnerException>(this Exception exception, HttpStatusCode statusCode, string property, string errorCode, string message)
+            where TException : BaseValidationException
+        {
+            exception.Should()
+                .BeOfType<TException>();
+
+            var propertyException = exception as TException;
+
+            propertyException.StatusCode.Should()
+                .Be(statusCode);
+            propertyException.HelpLink.Should()
+                .Be(((int)statusCode).GetStatusCodeLink());
+
+            propertyException.Message.Should()
+                .Be(message);
+
+            propertyException.InnerException.Should()
+                .BeOfType<TInnerException>();
+
+            propertyException.Errors.Should()
+                .ContainKey(property);
+            propertyException.Errors.Should()
+                .ContainValue(errorCode);
+        }
     }
 }

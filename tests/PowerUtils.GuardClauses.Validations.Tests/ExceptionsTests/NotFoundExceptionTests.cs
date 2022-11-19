@@ -163,5 +163,27 @@ namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests
             // Assert
             act.Validate<NotFoundException>(HttpStatusCode.NotFound, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
         }
+
+        [Fact]
+        public void PropertyErrorCodeAndInnerException_Instance_ExceptionWithInnerException()
+        {
+            // Arrange
+            var property = "propFakeNotFound";
+            var errorCode = "codeFakeNotFound";
+            var innerException = new InvalidCastException();
+
+
+            // Act
+            var act = new NotFoundException(property, errorCode, innerException);
+
+
+            // Assert
+            act.Validate<NotFoundException, InvalidCastException>(
+                HttpStatusCode.NotFound,
+                property,
+                errorCode,
+                "An error occurred with the status code 'NotFound'"
+            );
+        }
     }
 }

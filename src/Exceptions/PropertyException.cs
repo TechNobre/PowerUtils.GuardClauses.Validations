@@ -66,6 +66,17 @@ namespace PowerUtils.Validations.Exceptions
             : base(property, errorCode, message)
         { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PropertyException"></see> class with status code BadRequest, for a <paramref name="property">specified property</paramref>
+        /// with a <paramref name="errorCode">error code</paramref> and a <paramref name="innerException">reference to the inner exception that is the cause of this exception</paramref>
+        /// </summary>
+        /// <param name="property">Property name</param>
+        /// <param name="errorCode">Error code of the property</param>
+        /// <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified</param>
+        public PropertyException(string property, string errorCode, Exception innerException)
+            : base(property, errorCode, innerException)
+        { }
+
 
         /// <summary>
         /// Thow a <see cref="PropertyException"></see> class with status code BadRequest, for a <paramref name="property">specified property</paramref>
