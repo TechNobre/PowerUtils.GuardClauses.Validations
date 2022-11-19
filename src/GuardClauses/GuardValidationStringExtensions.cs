@@ -96,22 +96,6 @@ namespace PowerUtils.Validations.GuardClauses
         }
 
         /// <summary>
-        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length greater than. Error code 'MAX:{X}'
-        /// </summary>
-        /// <param name="_"></param>
-        /// <param name="value">Value to validate</param>
-        /// <param name="maxLength">Max length</param>
-        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
-        /// <exception cref="PropertyException">Exception thrown when the length of the value is greater than</exception>
-        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfLongerThan'")]
-        public static string IfLengthGreaterThan(
-            this IGuardValidationClause _,
-            string value,
-            int maxLength,
-            [CallerArgumentExpression("value")] string parameterName = null
-        ) => Guard.Validate.IfLongerThan(value, maxLength, parameterName);
-
-        /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is longer than. Error code 'MAX:{X}'
         /// </summary>
         /// <param name="_"></param>
@@ -315,7 +299,7 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
-            
+
             if(!_emailRegex.IsMatch(value))
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
