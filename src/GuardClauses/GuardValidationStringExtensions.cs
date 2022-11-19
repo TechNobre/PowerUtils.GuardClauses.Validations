@@ -124,22 +124,6 @@ namespace PowerUtils.Validations.GuardClauses
         }
 
         /// <summary>
-        /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> has a length less than. Error code 'MIN:{X}'
-        /// </summary>
-        /// <param name="_"></param>
-        /// <param name="value">Value to validate</param>
-        /// <param name="minLength">Min length</param>
-        /// <param name="parameterName">If not defined, the name of the variable passed by the <paramref name="value"/> parameter will be used</param>
-        /// <exception cref="PropertyException">Exception thrown when the length of the value is less than</exception>
-        [System.Obsolete("This method is deprecated. It will be removed on 2022/09/30. Use the new method 'string.IfShorterThan'")]
-        public static string IfLengthLessThan(
-            this IGuardValidationClause _,
-            string value,
-            int minLength,
-            [CallerArgumentExpression("value")] string parameterName = null
-        ) => Guard.Validate.IfShorterThan(value, minLength, parameterName);
-
-        /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is shorter than. Error code 'MIN:{X}'
         /// </summary>
         /// <param name="_"></param>
