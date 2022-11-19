@@ -4,7 +4,7 @@ using PowerUtils.Validations.Exceptions;
 
 namespace PowerUtils.Validations.GuardClauses
 {
-    public static class GuardValidationStringExtensions
+    public static partial class GuardValidationStringExtensions
     {
         /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is null with the error code 'REQUIRED'
@@ -207,7 +207,12 @@ namespace PowerUtils.Validations.GuardClauses
             return value;
         }
 
+#if NET7_0_OR_GREATER
+        [GeneratedRegex(@"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$", RegexOptions.Compiled)]
+        private static partial Regex _emailRegex();
+#else
         private static readonly Regex _emailRegex = new Regex(@"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$", RegexOptions.Compiled);
+#endif
 
         /// <summary>
         /// Throws an <see cref="PropertyException" /> if <paramref name="value"/> is not an email. Error code 'INVALID'
@@ -226,8 +231,11 @@ namespace PowerUtils.Validations.GuardClauses
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
-
+#if NET7_0_OR_GREATER
+            if(!_emailRegex().IsMatch(value))
+#else
             if(!_emailRegex.IsMatch(value))
+#endif
             {
                 throw new PropertyException(parameterName, ErrorCodes.INVALID);
             }
