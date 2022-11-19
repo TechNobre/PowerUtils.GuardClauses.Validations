@@ -189,5 +189,27 @@ namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests
                 "The property 'FakeProp' contains the error 'REQUIRED"
             );
         }
+
+        [Fact]
+        public void PropertyErrorCodeAndInnerException_Instance_ExceptionWithInnerException()
+        {
+            // Arrange
+            var property = "propFake";
+            var errorCode = "codeFake";
+            var innerException = new InvalidCastException();
+
+
+            // Act
+            var act = new BadRequestException(property, errorCode, innerException);
+
+
+            // Assert
+            act.Validate<BadRequestException, InvalidCastException>(
+                HttpStatusCode.BadRequest,
+                property,
+                errorCode,
+                "An error occurred with the status code 'BadRequest'"
+            );
+        }
     }
 }

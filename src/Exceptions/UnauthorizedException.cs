@@ -72,6 +72,17 @@ namespace PowerUtils.Validations.Exceptions
             : base(STATUS_CODE, HELP_LINK, message)
             => AddError(property, errorCode);
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnauthorizedException"></see> class with status code Unauthorized, for a <paramref name="property">specified property</paramref>
+        /// with a <paramref name="errorCode">error code</paramref> and a <paramref name="innerException">reference to the inner exception that is the cause of this exception</paramref>
+        /// </summary>
+        /// <param name="property">Property name</param>
+        /// <param name="errorCode">Error code of the property</param>
+        /// <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified</param>
+        public UnauthorizedException(string property, string errorCode, Exception innerException)
+            : base(STATUS_CODE, HELP_LINK, innerException)
+            => AddError(property, errorCode);
+
 
         /// <summary>
         /// Thow a <see cref="UnauthorizedException"></see> class with status code Unauthorized, for a <paramref name="property">specified property</paramref>

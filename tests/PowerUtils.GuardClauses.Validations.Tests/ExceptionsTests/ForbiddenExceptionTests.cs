@@ -163,5 +163,27 @@ namespace PowerUtils.GuardClauses.Validations.Tests.ExceptionsTests
             // Assert
             act.Validate<ForbiddenException>(HttpStatusCode.Forbidden, property, errorCode, "The property 'FakeProp' contains the error 'FakeError");
         }
+
+        [Fact]
+        public void PropertyErrorCodeAndInnerException_Instance_ExceptionWithInnerException()
+        {
+            // Arrange
+            var property = "propFakeForbidden";
+            var errorCode = "codeFakeForbidden";
+            var innerException = new InvalidCastException();
+
+
+            // Act
+            var act = new ForbiddenException(property, errorCode, innerException);
+
+
+            // Assert
+            act.Validate<ForbiddenException, InvalidCastException>(
+                HttpStatusCode.Forbidden,
+                property,
+                errorCode,
+                "An error occurred with the status code 'Forbidden'"
+            );
+        }
     }
 }

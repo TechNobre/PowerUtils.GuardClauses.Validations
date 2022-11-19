@@ -62,6 +62,21 @@ namespace PowerUtils.Validations.Exceptions
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseValidationException"></see> class with <paramref name="statusCode">statusCode</paramref>,
+        /// <paramref name="helpLink">helpLink</paramref> and a <paramref name="innerException">reference to the inner exception that is the cause of this exception</paramref>
+        /// </summary>
+        /// <param name="statusCode">Status code for exception</param>
+        /// <param name="helpLink">Link for documentations about the status code</param>
+        /// <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified</param>
+        protected BaseValidationException(HttpStatusCode statusCode, string helpLink, Exception innerException)
+            : base($"An error occurred with the status code '{statusCode}'", innerException)
+        {
+            StatusCode = statusCode;
+            HelpLink = helpLink;
+            _errors = new Dictionary<string, string>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseValidationException"></see> class with <paramref name="statusCode">statusCode</paramref>,
         /// <paramref name="helpLink">helpLink</paramref>, <paramref name="message">specified error message</paramref> and a <paramref name="innerException">reference to the inner exception that is the cause of this exception</paramref>
         /// </summary>
         /// <param name="statusCode">Status code for exception</param>
