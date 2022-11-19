@@ -207,6 +207,22 @@ namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests
         }
 
         [Fact]
+        public void MaxEqualsLenght_IfCountGreaterThan_OutEqualsInput()
+        {
+            // Arrange
+            IEnumerable<string> prodList = new string[] { "fake", "fake2", "fake3", "fake4" };
+
+
+            // Act
+            var act = Guard.Validate.IfCountGreaterThan(prodList, 4);
+
+
+            // Assert
+            act.Should()
+                .BeEquivalentTo(prodList);
+        }
+
+        [Fact]
         public void NullEnumerable_IfCountLessThan_PropertyException()
         {
             // Arrange
@@ -254,6 +270,22 @@ namespace PowerUtils.GuardClauses.Validations.Tests.GuardClausesTests
 
             // Act
             var act = Guard.Validate.IfCountLessThan(prodList, 3);
+
+
+            // Assert
+            act.Should()
+                .BeEquivalentTo(prodList);
+        }
+
+        [Fact]
+        public void MinEqualLenght_IfCountLessThan_OutEqualsInput()
+        {
+            // Arrange
+            IEnumerable<string> prodList = new string[] { "fake", "fake2", "fake3", "fake4" };
+
+
+            // Act
+            var act = Guard.Validate.IfCountLessThan(prodList, 4);
 
 
             // Assert
