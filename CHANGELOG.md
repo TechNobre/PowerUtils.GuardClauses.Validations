@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v3.0.0...v3.0.1) (2023-02-15)
+
+
+### Bug Fixes
+
+* security email regex (csharpsquid:S6444) ([783ebc6](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/783ebc6bd84e7e76d243e56ac665c928773390f7))
+
 # [3.0.0](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v2.5.1...v3.0.0) (2022-11-19)
 
 
