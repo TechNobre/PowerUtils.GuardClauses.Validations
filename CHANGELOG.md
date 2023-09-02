@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v3.0.1...v3.0.2) (2023-09-02)
+
+
+### Bug Fixes
+
+* Package has been discontinued ([aeed917](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/commit/aeed917eb904188eed28196cded1cd4e50f5feb9))
+
 ## [3.0.1](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare/v3.0.0...v3.0.1) (2023-02-15)
 
 
