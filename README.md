@@ -1,19 +1,13 @@
 # PowerUtils.GuardClauses.Validations
 
+# :warning: DEPRECATED
+
+This package has been discontinued because it never evolved, and the code present in this package does not justify its continuation. It is preferable to implement this code directly in the project if necessary or if you prefer, you can use a good projects like [Ardalis.GuardClauses](https://github.com/ardalis/GuardClauses) and [Throw](https://github.com/mantinband/throw) The package will be completely removed after 2024/02/03.
+
 ![Logo](https://raw.githubusercontent.com/TechNobre/PowerUtils.GuardClauses.Validations/main/assets/logo/logo_128x128.png)
 
 ***Helpers, extensions and utilities to work with guard clauses***
 
-![Tests](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/actions/workflows/tests.yml/badge.svg)
-[![Mutation tests](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FTechNobre%2FPowerUtils.GuardClauses.Validations%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/TechNobre/PowerUtils.GuardClauses.Validations/main)
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.GuardClauses.Validations&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.GuardClauses.Validations)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.GuardClauses.Validations&metric=coverage)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.GuardClauses.Validations)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.GuardClauses.Validations&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.GuardClauses.Validations)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=TechNobre_PowerUtils.GuardClauses.Validations&metric=bugs)](https://sonarcloud.io/summary/new_code?id=TechNobre_PowerUtils.GuardClauses.Validations)
-
-[![NuGet](https://img.shields.io/nuget/v/PowerUtils.GuardClauses.Validations.svg)](https://www.nuget.org/packages/PowerUtils.GuardClauses.Validations)
-[![Nuget](https://img.shields.io/nuget/dt/PowerUtils.GuardClauses.Validations.svg)](https://www.nuget.org/packages/PowerUtils.GuardClauses.Validations)
 [![License: MIT](https://img.shields.io/github/license/TechNobre/PowerUtils.GuardClauses.Validations.svg)](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/blob/main/LICENSE)
 
 
@@ -25,7 +19,6 @@
   - [Guard clauses](#GuardClauses)
 - [Contribution](#contribution)
 - [License](./LICENSE)
-- [Changelog](./CHANGELOG.md)
 - [Credits](#Credits)
 
 
@@ -141,12 +134,6 @@ dotnet add package PowerUtils.GuardClauses.Validations
 - __Geolocation (float, double, decimal)__
   - `Guard.Validate.IfLatitudeOutOfRange()`;
   - `Guard.Validate.IfLongitudeOutOfRange()`;
-
-
-
-## Contribution <a name="contribution"></a>
-
-If you have any questions, comments, or suggestions, please open an [issue](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/issues/new/choose) or create a [pull request](https://github.com/TechNobre/PowerUtils.GuardClauses.Validations/compare)
 
 
 
